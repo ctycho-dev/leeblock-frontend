@@ -57,7 +57,7 @@ const Header: FC<IHeader> = ({ bucketCounter, setSidebarOpen }) => {
             <div id="header" style={{
                 backgroundColor: `rgba(255, 255, 255, ${backgroundOpacity})`,
             }} className={`fixed left-0 top-0 w-full hover:bg-white z-50`}>
-                <div className="max-w-7xl m-auto px-6 py-4 tablet:py-6">
+                <div className="max-w-7xl m-auto px-6 tablet:px-10 py-4 tablet:py-6">
                     <header className="flex justify-between items-center">
                         <div className="flex gap-x-10 items-center">
                             <div className="group">
@@ -93,7 +93,7 @@ const Header: FC<IHeader> = ({ bucketCounter, setSidebarOpen }) => {
                             </div>
                             <div
                                 id="burger-menu"
-                                className="flex md:hidden bg-white shadow-custom rounded-full justify-center items-center w-12 h-12 hover:cursor-pointer"
+                                className="flex md:hidden shadow-custom rounded-full justify-center items-center w-12 h-12 hover:cursor-pointer"
                                 onClick={() => { setMobileMenuOpen(!isMobileMenuOpen)}}>
                                 <div className="grid gap-y-1">
                                     <div className="bg-black w-6 h-[3px] rounded-md"></div>

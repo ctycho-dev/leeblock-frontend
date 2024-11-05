@@ -22,6 +22,7 @@ const Home: FC<IHome> = ({ }) => {
     const [quantityUpdated, setQuantityUpdated] = useState(false)
 
     useEffect(() => {
+        window.scrollTo(0, 0)
         updateBagItems()
     }, [])
 

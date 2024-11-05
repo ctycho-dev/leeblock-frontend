@@ -34,6 +34,8 @@ const Checkout: FC<ICheckout> = ({ }) => {
     const [chosenTelegram, setChosenTelegram] = useState('')
 
     useEffect(() => {
+        window.scrollTo(0, 0)
+        
         const body = document.querySelector('body')
         if (body) body.style.overflow = 'auto'
 
