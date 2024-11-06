@@ -73,3 +73,18 @@ code {
 .reveal-block.visiblee {
   opacity: 1;
 }
+
+.scroll-area {
+  scrollbar-width: none;
+  scroll-snap-type: x mandatory;
+  overscroll-behavior-x: contain;
+  overflow: auto hidden;
+  /* margin-inline-end: -40px */
+}
+
+.adv-items {
+  display: grid;
+  grid: auto / auto-flow 400px;
+  /* grid: auto / auto-flow 36vw; */
+  gap: 20px;
+}

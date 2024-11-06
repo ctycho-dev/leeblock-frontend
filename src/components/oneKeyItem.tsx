@@ -17,7 +17,7 @@ const OneKeyItem: FC<IOneKeyItem> = ({ product, description, setBucketCounter, s
                 <div>
                     {
                         !product.supply ?
-                            <div className="absolute top-4 left-4 shadow-custom px-3 py-2 rounded-xl font-medium">Out of stock</div>
+                            <div className="absolute top-4 left-4 shadow-custom px-3 py-2 rounded-xl font-medium">Нет в наличии</div>
                             : ''
                     }
                     <div className="flex justify-center">
