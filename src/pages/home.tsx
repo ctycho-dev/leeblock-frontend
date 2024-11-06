@@ -11,7 +11,7 @@ import Sidebar from "../components/sidebar";
 
 import { countBagItems } from "../utils";
 import { MyBag } from "../types";
-import ScrollRevealBlock from "../components/ScrollRevealBlock";
+// import ScrollRevealBlock from "../components/ScrollRevealBlock";
 
 interface IHome { }
 

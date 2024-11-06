@@ -3,8 +3,13 @@ import { Link } from "react-router-dom";
 
 import bucket from '../assets/bucket.svg'
 import search from '../assets/search.svg'
-import logo from '../assets/logo.svg'
 import logoShort from '../assets/logoShort.svg'
+
+
+import ozon from '../assets/links/ozon.svg'
+import telegram from '../assets/links/telegram.svg'
+import plus from '../assets/plus.svg'
+
 
 interface IHeader {
     bucketCounter: number
@@ -16,8 +21,6 @@ const Header: FC<IHeader> = ({ bucketCounter, setSidebarOpen }) => {
     const [isMobileMenuOpen, setMobileMenuOpen] = useState(false);
 
     useEffect(() => {
-        // const header = document.getElementById("header");
-        // let lastScrollTop = 80;
 
         const handleHeaderOpacity = () => {
             const scrollTop = window.scrollY;
@@ -26,23 +29,10 @@ const Header: FC<IHeader> = ({ bucketCounter, setSidebarOpen }) => {
             setBackgroundOpacity(newOpacity);
         };
 
-        // const handleHeaderAppearance = () => {
-        //     const scrollTop = window.scrollY || document.documentElement.scrollTop;
-
-        //     if (scrollTop > lastScrollTop) {
-        //         header?.classList.add("hidden-header");
-        //     } else {
-        //         header?.classList.remove("hidden-header");
-        //     }
-        //     lastScrollTop = scrollTop;
-        // };
-
         window.addEventListener("scroll", handleHeaderOpacity); // Add scroll event listener
-        // window.addEventListener("scroll", handleHeaderAppearance); // Add scroll event listener
 
         return () => {
             window.removeEventListener("scroll", handleHeaderOpacity); // Clean up event listener
-            // window.removeEventListener("scroll", handleHeaderAppearance); // Clean up event listener
         };
     }, []);
 
@@ -50,6 +40,19 @@ const Header: FC<IHeader> = ({ bucketCounter, setSidebarOpen }) => {
         const body = document.querySelector('body')
         if (body) body.style.overflow = 'hidden'
         setSidebarOpen(true)
+    }
+
+    const openNavBar = () => {
+
+        if (isMobileMenuOpen) {
+            const body = document.querySelector('body')
+            if (body) body.style.overflow = 'auto'
+        }
+        else {
+            const body = document.querySelector('body')
+            if (body) body.style.overflow = 'hidden'
+        }
+        setMobileMenuOpen(!isMobileMenuOpen)
     }
 
     return (
@@ -94,7 +97,7 @@ const Header: FC<IHeader> = ({ bucketCounter, setSidebarOpen }) => {
                             <div
                                 id="burger-menu"
                                 className="flex md:hidden shadow-custom rounded-full justify-center items-center w-12 h-12 hover:cursor-pointer"
-                                onClick={() => { setMobileMenuOpen(!isMobileMenuOpen)}}>
+                                onClick={openNavBar}>
                                 <div className="grid gap-y-1">
                                     <div className="bg-black w-6 h-[3px] rounded-md"></div>
                                     <div className="bg-black w-6 h-[3px] rounded-md"></div>
@@ -103,7 +106,45 @@ const Header: FC<IHeader> = ({ bucketCounter, setSidebarOpen }) => {
                             </div>
                         </div>
                     </header>
-                    <div id="mobile-nav" className={`fixed w-screen h-screen left-0 bg-white py-24 overflow-hidden transition-all duration-500 ${isMobileMenuOpen ? 'top-0' : '-top-[100%]'} -z-10`}>
+                    <div id="overlay" className={`
+                        bg-[#0006] fixed left-0 right-0 top-0 bottom-0
+                        transition-opacity duration-800
+                        ${isMobileMenuOpen ? 'opacity-100' : 'opacity-0 invisible'}
+                        `}>
+                    </div>
+                    <div id="mobile-nav" className={`
+                        bg-white fixed left-4 right-4 tablet:right-auto tablet:top-4 bottom-4 
+                        rounded-lg p-6 min-w-80 min-h-80
+                        transition-transform duration-500
+                        ${isMobileMenuOpen ? '' : 'translate-y-[120%] tablet:translate-y-0 tablet:translate-x-[-110%]'}`}>
+                        <div className="relative flex flex-col justify-between h-full">
+                            <div>
+                                <div className="hidden bg-white mb-8 tablet:flex md:hidden shadow-custom rounded-full justify-center items-center w-12 h-12 hover:cursor-pointer"
+                                    onClick={openNavBar}><img src={plus} alt="" className="w-4 rotate-45" /></div>
+                                <div className="tablet:hidden absolute left-1/2 transform -translate-x-1/2 -translate-y-20">
+                                    <div className="bg-white mb-8 flex md:hidden shadow-custom rounded-full justify-center items-center w-12 h-12 hover:cursor-pointer"
+                                        onClick={openNavBar}><img src={plus} alt="" className="w-4 rotate-45" /></div>
+                                </div>
+                                <div className="mb-20">
+                                    <ul className="grid gap-y-5 font-semibold text-xl">
+                                        <li className="hover:text-[#45E555]">Продукты</li>
+                                        <li className="hover:text-[#45E555]">Акции</li>
+                                        <li className="hover:text-[#45E555]">О нас</li>
+                                        <li className="hover:text-[#45E555]">Поддержка</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div className="flex gap-x-4 border-t pt-4">
+                                <div className="border border-black rounded-md w-[50px] h-[50px] flex justify-center items-center">
+                                    <img src={telegram} alt="" className="w-[30px]" />
+                                </div>
+                                <div className="border border-black rounded-md w-[50px] h-[50px] flex justify-center items-center">
+                                    <img src={ozon} alt="" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    {/* <div id="mobile-nav" className={`fixed w-screen h-screen left-0 bg-white py-24 overflow-hidden transition-all duration-500 ${isMobileMenuOpen ? 'top-0' : '-top-[100%]'} -z-10`}>
                         <div className="px-6 py-6 md:py-3">
                             <ul className="grid gap-y-6 font-semibold text-xl">
                                 <li className="hover:text-[#45E555]">Продукты</li>
@@ -112,7 +153,7 @@ const Header: FC<IHeader> = ({ bucketCounter, setSidebarOpen }) => {
                                 <li className="hover:text-[#45E555]">Поддержка</li>
                             </ul>
                         </div>
-                    </div>
+                    </div> */}
                 </div>
             </div>
         </>

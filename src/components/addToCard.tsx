@@ -37,7 +37,7 @@ const AddToCard: FC<IAddToCard> = ({ text, arrow, product, setBucketCounter, set
     
     return (
         <>
-            <button className="button-gradient py-2 px-4 rounded-xl flex items-center hover:-mt-[2px] hover:mb-[2px] transition-all"
+            <button className="button-gradient text-sm md:text-base py-2 px-4 rounded-xl flex items-center hover:-mt-[2px] hover:mb-[2px] transition-all whitespace-nowrap"
                 onClick={addToBucket}>
                 {text}
                 {arrow ? <span className="ml-2">&#8594;</span> : ''}

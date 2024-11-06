@@ -16,8 +16,8 @@ const Advantages: FC<IAdvantages> = ({ }) => {
     return (
         <>
             <div id='advantages' className="bg-[#13171D] text-white pt-20 pb-40">
-                <div className="max-w-7xl m-auto px-6">
-                    <h2 className="text-3xl mb-14">Почему выбирают TechnoVibe?</h2>
+                <div className="max-w-7xl m-auto px-6 tablet:px-10">
+                    <h2 className="text-2xl tablet:text-3xl mb-14 font-bold">Преимущества</h2>
                     <Swiper
                         modules={[Pagination, Autoplay, A11y]}
                         loop={true}

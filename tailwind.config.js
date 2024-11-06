@@ -7,6 +7,7 @@ module.exports = {
     extend: {
       backgroundImage: {
         'main-texture': "url('/src/assets/main-texture.png')",
+        // 'main-texture': "url('/src/assets/product_photos/OneKey Pro - Showcase - On a still life table.png')",
       },
       backgroundColor: {
         'sidebar': "rgba(0, 0, 0, 0.25)",

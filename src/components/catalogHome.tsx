@@ -17,8 +17,8 @@ const CatalogHome: FC<ICatalogHome> = ({ bucketCounter, setBucketCounter, setBag
     return (
         <>
             <div id='catalog' className="bg-white rounded-t-[50px] -mt-20 py-20">
-                <div className="max-w-7xl m-auto px-6">
-                    <h2 className="text-3xl mb-14">Все товары</h2>
+                <div className="max-w-7xl m-auto px-6 tablet:px-10">
+                    <h2 className="text-2xl tablet:text-3xl mb-14 font-bold">Все товары</h2>
                     <div className="mb-4">
                         <OneKeyPro
                             products={[findProductById(products, 'onekey-pro-white'), findProductById(products, 'onekey-pro-black')]}

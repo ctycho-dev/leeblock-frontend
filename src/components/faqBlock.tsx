@@ -1,6 +1,5 @@
 import { FC, useState, useRef } from "react";
 
-import { faqList } from '../store/faq'
 import plus from '../assets/plus.svg'
 
 type FAQType = {
