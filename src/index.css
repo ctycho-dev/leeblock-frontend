@@ -84,7 +84,7 @@ code {
 
 .adv-items {
   display: grid;
-  grid: auto / auto-flow 400px;
+  grid: auto / auto-flow min(80vh, 350px);
   /* grid: auto / auto-flow 36vw; */
   gap: 20px;
 }

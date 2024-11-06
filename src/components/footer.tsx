@@ -56,7 +56,7 @@ const Footer: FC<IFooter> = ({ }) => {
                                 </div>
                             </div>
                             <div className="grid md:justify-end">
-                                <span className="text-xs mb-2 text-[#45E555]">Если у вас есть вопрос или предложение сотрудничества, то оставьте заявку</span>
+                                <span className="text-xs mb-2 text-[#45E555]">Заказать обратную связь?</span>
                                 <div className="grid tablet:grid-cols-221 gap-y-2">
                                     <input type="text" placeholder="Name" className="h-12 border border-[#439F67] rounded-lg outline-none bg-transparent px-4" />
                                     <input type="text" placeholder="Phone" className="h-12 tablet:ml-2 border border-[#439F67] rounded-lg outline-none bg-transparent px-4" />
