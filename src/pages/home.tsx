@@ -1,5 +1,6 @@
 import { FC, useState, useEffect } from "react";
 
+import { Toaster } from 'sonner'
 import Announcement from "../components/announcement";
 import Header from "../components/header";
 import MainScreen from "../components/mainScreen";
@@ -11,7 +12,6 @@ import Sidebar from "../components/sidebar";
 
 import { countBagItems } from "../utils";
 import { MyBag } from "../types";
-// import ScrollRevealBlock from "../components/ScrollRevealBlock";
 
 interface IHome { }
 
@@ -75,6 +75,7 @@ const Home: FC<IHome> = ({ }) => {
                     <span className="text-white hidden md:block">Help</span>
                 </div>
             </div>
+            {/* <Toaster richColors position="top-right" /> */}
             {/* <div className="z-50"><div className="h-screen w-screen overflow-hidden"><video playsInline controls loop preload="true" autoPlay src='/representation.mp4' muted></video></div><div className="css-13ze1q6"><svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" width="24" height="24"><path fill-rule="evenodd" clip-rule="evenodd" d="m12.17 10.77 6.3-6.3 1.06 1.06-6.3 6.3-1.06-1.06ZM13.23 12.17l6.3 6.3-1.06 1.06-6.3-6.3 1.06-1.06ZM10.77 12.17l-6.3 6.3 1.06 1.06 6.3-6.3-1.06-1.06ZM11.83 10.77l-6.3-6.3-1.06 1.06 6.3 6.3 1.06-1.06Z" fill="currentColor"></path></svg></div></div> */}
         </>
     )
