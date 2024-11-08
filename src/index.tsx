@@ -10,6 +10,8 @@ import reportWebVitals from './reportWebVitals';
 import Home from './pages/home'
 import About from './pages/about'
 import Checkout from './pages/checkout'
+import Politika from './pages/politika'
+import Agreement from './pages/agreement'
 import Error from './pages/error'
 
 const router = createBrowserRouter([
@@ -26,6 +28,16 @@ const router = createBrowserRouter([
     {
         path: "/checkout",
         element: <Checkout />,
+        errorElement: <Error />,
+    },
+    {
+        path: "/politika",
+        element: <Politika />,
+        errorElement: <Error />,
+    },
+    {
+        path: "/agreement",
+        element: <Agreement />,
         errorElement: <Error />,
     }
 ]);
