@@ -16,6 +16,7 @@ body {
     sans-serif; */
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background: rgb(240, 240, 240);
 }
 
 code {
@@ -89,4 +90,9 @@ code {
   display: grid;
   grid: auto / auto-flow min(80vw, 350px);
   gap: 20px;
+}
+
+.header-hidden {
+  /* opacity: 0; */
+  transform: translateY(-100%);
 }

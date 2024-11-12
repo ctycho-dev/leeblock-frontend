@@ -12,7 +12,8 @@ module.exports = {
       backgroundColor: {
         'sidebar': "rgba(0, 0, 0, 0.25)",
         'sidebar-block': 'rgb(248, 249, 250)',
-        'checkout': '#F4F5F8'
+        'checkout': '#F4F5F8',
+        'primary': 'rgb(240, 240, 240)'
       },
       boxShadow: {
         custom: '1px 1px 16px 0px rgba(0, 0, 0, 0.1)', // Tailwind uses rgba for transparency

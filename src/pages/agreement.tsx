@@ -2,13 +2,14 @@ import { FC, useEffect } from "react";
 import { Link } from "react-router-dom";
 import Footer from "../components/footer";
 import logo from '../assets/logoShort.svg'
+import Help from "../components/help";
 
 interface IAgreement { }
 
 const Agreement: FC<IAgreement> = ({ }) => {
 
     useEffect(() => {
-        // window.scrollTo(0, 0)
+        window.scrollTo(0, 0)
     }, [])
 
     return (
@@ -681,28 +682,6 @@ const Agreement: FC<IAgreement> = ({ }) => {
                     <div className="mb-10 text-sm">
                         <h2 className="text-2xl font-bold mb-6 tablet:mb-8">15. АДРЕС И РЕКВИЗИТЫ ПРОДАВЦА</h2>
                         <p className="font-bold mb-4">Индивидуальный предприниматель Аблизина Валерия Валерьевна</p>
-                        {/* <div className="grid grid-cols-a1 gap-x-10 border">
-                            <div className="font-bold grid gap-y-2">
-                                <div>ИНН</div>
-                                <div>ОГРНИП</div>
-                                <div>ОКВЭД</div>
-                                <div>Юридический адрес банка</div>
-                                <div>Банк</div>
-                                <div>Расчетный счет</div>
-                                <div>Кор/ счет</div>
-                                <div>БИК</div>
-                            </div>
-                            <div className="grid gap-y-2">
-                                <div>165034838418</div>
-                                <div>324169000163572</div>
-                                <div>63.91, 47.11, 47.19, 47.43, 47.91, 47.99, 63.11, 63.12, 63.99</div>
-                                <div>127287, г. Москва, ул. Хуторская 2-я, д. 38А, стр. 26</div>
-                                <div>АО «ТБанк»</div>
-                                <div>40802810100006691714</div>
-                                <div>30101810145250000974</div>
-                                <div>044525974</div>
-                            </div>
-                        </div> */}
                         <table>
                             <tbody>
                                 <tr>
@@ -743,6 +722,7 @@ const Agreement: FC<IAgreement> = ({ }) => {
                 </div>
             </main>
             <Footer />
+            <Help />
         </>
     )
 }

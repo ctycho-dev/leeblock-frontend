@@ -1,4 +1,5 @@
 import { FC, useEffect, useState } from "react";
+import ReactLoading from 'react-loading';
 import { Product, MyBag } from "../types";
 import { countBagItems, parseBagFromStorage } from "../utils";
 
@@ -11,8 +12,10 @@ interface IAddToCard {
 }
 
 const AddToCard: FC<IAddToCard> = ({ text, arrow, product, setBucketCounter, setBagItems }) => {
+    const [isDisabled, setButtonDisabled] = useState(false)
 
     const addToBucket = () => {
+        setButtonDisabled(true)
         try {
             let cards: MyBag[] = parseBagFromStorage()
 
@@ -33,14 +36,28 @@ const AddToCard: FC<IAddToCard> = ({ text, arrow, product, setBucketCounter, set
         } catch (exc: any) {
             console.log(`Error: ${exc}`)
         }
+        setTimeout(() => {
+            setButtonDisabled(false)
+        }, 700)
     }
-    
+
     return (
         <>
-            <button className="button-gradient text-sm md:text-base py-2 px-4 rounded-xl flex items-center hover:-mt-[2px] hover:mb-[2px] transition-all whitespace-nowrap"
-                onClick={addToBucket}>
+            <button className={`
+                button-gradient text-sm md:text-base py-2 px-4 
+                rounded-xl flex items-center gap-x-2
+                hover:-mt-[2px] hover:mb-[2px] 
+                transition-all whitespace-nowrap
+                disabled:pointer-events-none disabled:opacity-50`}
+                onClick={addToBucket}
+                disabled={isDisabled}>
                 {text}
                 {arrow ? <span className="ml-2">&#8594;</span> : ''}
+                {
+                    isDisabled ?
+                        <ReactLoading type='spinningBubbles' color='#000' height={'20px'} width={'20px'} />
+                        : ''
+                }
             </button>
         </>
     )

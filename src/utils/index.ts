@@ -1,5 +1,52 @@
 import { MyBag } from "../types"
 
+export function updateBagItems(setBucketCounter: any, setBagItems: any) {
+    let temp = localStorage.getItem('onekey-shopping-bag')
+
+    if (temp) {
+        try {
+            const items = JSON.parse(temp)
+            if (validateBagItems(items)) {
+                setBucketCounter(countBagItems(items))
+                setBagItems(items)
+            } else {
+                localStorage.removeItem('onekey-shopping-bag')
+            }
+        } catch (e) {
+            console.log(e)
+            localStorage.removeItem('onekey-shopping-bag')
+        }
+    }
+}
+
+function validateBagItems(list: any) {
+    for (const x of list) {
+        if ('sku' in x && 'quantity' in x) {
+            if (
+                'product_id' in x['sku'] &&
+                'name' in x['sku'] &&
+                'color' in x['sku'] &&
+                'image' in x['sku'] &&
+                'catalog_img' in x['sku'] &&
+                'catalog_hover_img' in x['sku'] &&
+                'price' in x['sku'] &&
+                'supply' in x['sku'] &&
+                'waiting' in x['sku'] &&
+                'order' in x['sku'] &&
+                'published' in x['sku']
+            ) {
+                
+            } else {
+                return false
+            }
+        } else {
+            return false
+        }
+    }
+
+    return true
+}
+
 export const countBagItems = (list: MyBag[]) => {
     let sum = 0
 

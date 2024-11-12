@@ -1,4 +1,6 @@
 import { FC, useEffect, useState } from "react";
+import Help from "../components/help";
+import Footer from "../components/footer";
 import axios from "axios";
 import { Link } from "react-router-dom";
 import { MyBag } from "../types";
@@ -114,7 +116,7 @@ const Checkout: FC<ICheckout> = ({ }) => {
 
     return (
         <>
-            <header className="bg-checkout">
+            <header className="">
                 <div className="max-w-7xl m-auto px-6 py-4">
                     <Link to={'/'}>
                         <img src={logo} alt="LeeBlock" className="h-10" />
@@ -122,7 +124,7 @@ const Checkout: FC<ICheckout> = ({ }) => {
                 </div>
             </header>
             {/* <div id="cdek-map" className="w-[800px] h-[600px]"></div> */}
-            <main className="bg-checkout">
+            <main className="">
                 <div className="max-w-7xl m-auto px-6 py-4">
                     <div className="flex flex-col-reverse md:grid md:grid-cols-2  gap-y-6 gap-x-6 pb-10 ">
                         <aside className="grid gap-y-6 lg:gap-y-8">
@@ -199,6 +201,8 @@ const Checkout: FC<ICheckout> = ({ }) => {
                     </div>
                 </div>
             </main>
+            <Footer />
+            <Help />
             <Toaster richColors position="top-right" />
         </>
     )

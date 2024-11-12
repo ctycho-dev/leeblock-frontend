@@ -2,6 +2,7 @@ import { FC, useEffect } from "react";
 import { Link } from "react-router-dom";
 import Header from "../components/header";
 import Footer from "../components/footer";
+import Help from "../components/help";
 import logo from '../assets/logoShort.svg'
 
 
@@ -341,6 +342,7 @@ const Politika: FC<IPolitika> = ({ }) => {
                 </div>
             </main>
             <Footer />
+            <Help />
         </>
     )
 }

@@ -44,8 +44,8 @@ const Footer: FC<IFooter> = ({ }) => {
                                 <div>
                                     <ul>
                                         <li className=" font-bold mb-4 text-base lg:text-xl">О нас</li>
-                                        <li className="text-[#b3b3b3] mb-2 text-sm lg:text-base hover:text-[#45E555] transition-colors duration-100 hover:cursor-pointer"><Link to={'/politika'}>политика обработки персональных данных</Link></li>
-                                        <li className="text-[#b3b3b3] mb-2 text-sm lg:text-base hover:text-[#45E555] transition-colors duration-100 hover:cursor-pointer"><Link to={'/agreement'}>документы сайта</Link></li>
+                                        <li className="text-[#b3b3b3] mb-2 text-sm lg:text-base hover:text-[#45E555] transition-colors duration-100 hover:cursor-pointer"><Link to={'/politika'}>Политика обработки персональных данных</Link></li>
+                                        <li className="text-[#b3b3b3] mb-2 text-sm lg:text-base hover:text-[#45E555] transition-colors duration-100 hover:cursor-pointer"><Link to={'/agreement'}>Документы сайта</Link></li>
                                     </ul>
                                 </div>
                                 <div className="flex tablet:justify-center">

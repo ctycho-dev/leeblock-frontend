@@ -1,5 +1,6 @@
 import { FC, useState } from "react";
 import { Toaster, toast } from 'sonner'
+import ReactLoading from 'react-loading';
 import { sendEmailCallRequired } from "../utils/email";
 import { isValidPhoneNumber } from "../utils";
 
@@ -57,7 +58,7 @@ const FooterForm: FC<IFooterForm> = ({ }) => {
                         onChange={(e) => { setPhone(e.target.value) }}
                         className="h-12 tablet:ml-2 border border-[#439F67] rounded-lg outline-none bg-transparent px-4" />
                     <button
-                        className={`h-12 text-black button-gradient
+                        className={`flex gap-x-2 items-center h-12 text-black button-gradient
                             py-2 px-4 rounded-xl transition-all tablet:ml-2 duration-200
                             hover:-mt-[2px] hover:mb-[2px] hover:cursor-pointer
                             disabled:pointer-events-none disabled:opacity-50`}
@@ -65,6 +66,11 @@ const FooterForm: FC<IFooterForm> = ({ }) => {
                         disabled={isDisabled}
                     >
                         Отправить
+                        {
+                            isDisabled ?
+                                <ReactLoading type='spinningBubbles' color='#000' height={'20px'} width={'20px'} />
+                                : ''
+                        }
                     </button>
                 </div>
             </div>

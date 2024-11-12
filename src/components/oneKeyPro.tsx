@@ -18,9 +18,8 @@ interface IOneKeyPro {
 
 const OneKeyPro: FC<IOneKeyPro> = ({ products, bucketCounter, setBucketCounter, setBagItems }) => {
 
-    // Set white wallet by default
     const [colorWhite, setColorWhite] = useState(false)
-    const [currentProduct, setCurrentProduct] = useState<Product>(products[0])
+    const [currentProduct, setCurrentProduct] = useState<Product>(products[1])
 
     const changeColor = (color: string) => {
 

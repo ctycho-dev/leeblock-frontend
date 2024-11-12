@@ -1,9 +1,10 @@
-import { FC, useEffect } from "react";
-import { Link } from "react-router-dom";
+import { FC, useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { Toaster, toast } from 'sonner'
+import ReactLoading from 'react-loading';
 import ChangeAmount from "./changeAmount";
 import BagItemColor from "./bagItemColor";
-import { products } from "../store/products";
-import { parseBagFromStorage, getTotalSum } from "../utils";
+import { getTotalSum } from "../utils";
 import { MyBag } from "../types";
 
 interface ISidebar {
@@ -14,11 +15,22 @@ interface ISidebar {
 }
 
 const Sidebar: FC<ISidebar> = ({ isSidebarOpen, setSidebarOpen, bagItems, setQuantityUpdated }) => {
+    const navigate = useNavigate();
+    const [isDisabled, setButtonDisabled] = useState(false)
 
     const closeSideBar = () => {
         const body = document.querySelector('body')
         if (body) body.style.overflow = 'auto'
         setSidebarOpen(false)
+    }
+
+    const checkoutItems = () => {
+        setButtonDisabled(true)
+
+        setTimeout(() => {
+            setButtonDisabled(false)
+            navigate('/checkout')
+        }, 1000)
     }
 
     return (
@@ -58,6 +70,7 @@ const Sidebar: FC<ISidebar> = ({ isSidebarOpen, setSidebarOpen, bagItems, setQua
                                                 <ChangeAmount
                                                     index={i}
                                                     bagItems={bagItems}
+                                                    quantity={item.quantity}
                                                     setQuantityUpdated={setQuantityUpdated}
                                                 />
                                             </div>
@@ -79,13 +92,27 @@ const Sidebar: FC<ISidebar> = ({ isSidebarOpen, setSidebarOpen, bagItems, setQua
                                     <div className="font-bold">{getTotalSum(bagItems)}&#x20bd;</div>
                                 </div>
                                 <div>
-                                    <Link to={'/checkout'} className="button-gradient w-full flex justify-center items-center py-3 rounded-3xl text-lg font-bold">Оплатить</Link>
+                                    <button
+                                        className={`button-gradient w-full 
+                                            flex justify-center items-center gap-x-2 py-3 
+                                            rounded-3xl text-lg font-bold
+                                            disabled:pointer-events-none disabled:opacity-50`}
+                                        onClick={checkoutItems}
+                                        disabled={isDisabled}>
+                                        Оплатить
+                                        {
+                                            isDisabled ?
+                                                <ReactLoading type='spinningBubbles' color='#000' height={'20px'} width={'20px'} />
+                                                : ''
+                                        }
+                                    </button>
                                 </div>
                             </div>
                             : ''
                     }
                 </div>
             </div>
+            <Toaster richColors position="top-right" />
         </>
     )
 }

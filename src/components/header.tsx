@@ -21,12 +21,27 @@ const Header: FC<IHeader> = ({ bucketCounter, setSidebarOpen }) => {
     const [isMobileMenuOpen, setMobileMenuOpen] = useState(false);
 
     useEffect(() => {
+        // const header = document.querySelector('#header')
 
         const handleHeaderOpacity = () => {
             const scrollTop = window.scrollY;
             const maxOpacity = 1;
-            const newOpacity = Math.min(scrollTop / 100, maxOpacity);
+            const newOpacity = Math.min(scrollTop / 200, maxOpacity);
             setBackgroundOpacity(newOpacity);
+            // if (header) {
+            //     if (scrollTop > 50 && scrollTop <= 450) {
+            //         header.classList.add("header-hidden");
+            //     }
+            //     else if (scrollTop > 450) {
+            //         // Show the header if scrolled past 350px
+            //         header.classList.remove("header-hidden");
+            //         header.classList.add("shadow-custom");
+            //     } else {
+            //         header.classList.remove("header-hidden");
+            //         header.classList.remove("shadow-custom");
+            //         // Hide the header when scrolling above 350px
+            //     }
+            // }
         };
 
         window.addEventListener("scroll", handleHeaderOpacity); // Add scroll event listener
@@ -59,7 +74,7 @@ const Header: FC<IHeader> = ({ bucketCounter, setSidebarOpen }) => {
         <>
             <div id="header" style={{
                 backgroundColor: `rgba(255, 255, 255, ${backgroundOpacity})`,
-            }} className={`fixed left-0 top-0 w-full hover:bg-white z-50`}>
+            }} className={`fixed left-0 right-0 top-0 hover:bg-white z-50`}>
                 <div className="max-w-7xl m-auto px-6 tablet:px-10 py-4 tablet:py-6">
                     <header className="flex justify-between items-center">
                         <div className="flex gap-x-10 items-center">
@@ -70,17 +85,17 @@ const Header: FC<IHeader> = ({ bucketCounter, setSidebarOpen }) => {
                             </div>
                             <div className="hidden md:block">
                                 <ul className="flex gap-x-6 font-semibold text-base">
-                                    <li>Продукты</li>
-                                    <li>Акции</li>
-                                    <li>О нас</li>
-                                    <li>Поддержка</li>
+                                    <li className="hover:text-[#45E555] hover:cursor-pointer"><Link to={'/catalog'}>Продукты</Link></li>
+                                    <li className="hover:text-[#45E555] hover:cursor-pointer"><Link to={'/sales'}>Акции</Link></li>
+                                    <li className="hover:text-[#45E555] hover:cursor-pointer"><Link to={'/about'}>О нас</Link></li>
+                                    <li className="hover:text-[#45E555] hover:cursor-pointer"><Link to={'/support'}>Поддержка</Link></li>
                                 </ul>
                             </div>
                         </div>
                         <div className="flex gap-x-6 items-center">
-                            <div className="hidden md:block">
+                            {/* <div className="hidden md:block">
                                 <img src={search} alt='Search' className="h-[25px]" />
-                            </div>
+                            </div> */}
                             <div className="relative hover:cursor-pointer" onClick={openSideBar}>
                                 <img src={bucket} alt='Bucket' className="h-[25px]" />
                                 <div className="absolute -top-2 -right-2 w-[20px] h-[20px]">
@@ -112,7 +127,7 @@ const Header: FC<IHeader> = ({ bucketCounter, setSidebarOpen }) => {
                         ${isMobileMenuOpen ? 'opacity-100' : 'opacity-0 invisible'}
                         `}>
                     </div>
-                    <div id="mobile-nav" className={`
+                    <div id="mobile-nav" className={`z-50
                         bg-white fixed left-4 right-4 tablet:right-auto tablet:top-4 bottom-4 
                         rounded-lg p-6 min-w-80 min-h-80
                         transition-transform duration-500
@@ -127,18 +142,18 @@ const Header: FC<IHeader> = ({ bucketCounter, setSidebarOpen }) => {
                                 </div>
                                 <div className="mb-20">
                                     <ul className="grid gap-y-5 font-semibold text-xl">
-                                        <li className="hover:text-[#45E555]">Продукты</li>
-                                        <li className="hover:text-[#45E555]">Акции</li>
-                                        <li className="hover:text-[#45E555]">О нас</li>
-                                        <li className="hover:text-[#45E555]">Поддержка</li>
+                                        <li className="hover:text-[#45E555] hover:cursor-pointer"><Link to={'/catalog'}>Продукты</Link></li>
+                                        <li className="hover:text-[#45E555] hover:cursor-pointer"><Link to={'/sales'}>Акции</Link></li>
+                                        <li className="hover:text-[#45E555] hover:cursor-pointer"><Link to={'/about'}>О нас</Link></li>
+                                        <li className="hover:text-[#45E555] hover:cursor-pointer"><Link to={'/support'}>Поддержка</Link></li>
                                     </ul>
                                 </div>
                             </div>
                             <div className="flex gap-x-4 border-t pt-4">
-                                <div className="border border-black rounded-md w-[50px] h-[50px] flex justify-center items-center">
+                                <div className="border border-black rounded-md w-[40px] h-[40px] flex justify-center items-center">
                                     <img src={telegram} alt="" className="w-[30px]" />
                                 </div>
-                                <div className="border border-black rounded-md w-[50px] h-[50px] flex justify-center items-center">
+                                <div className="border border-black rounded-md w-[40px] h-[40px] flex justify-center items-center">
                                     <img src={ozon} alt="" />
                                 </div>
                             </div>

@@ -9,6 +9,7 @@ import reportWebVitals from './reportWebVitals';
 
 import Home from './pages/home'
 import About from './pages/about'
+import Catalog from './pages/catalog'
 import Checkout from './pages/checkout'
 import Politika from './pages/politika'
 import Agreement from './pages/agreement'
@@ -23,6 +24,11 @@ const router = createBrowserRouter([
     {
         path: "/about",
         element: <About />,
+        errorElement: <Error />,
+    },
+    {
+        path: "/catalog",
+        element: <Catalog />,
         errorElement: <Error />,
     },
     {

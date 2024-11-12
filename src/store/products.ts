@@ -1,36 +1,95 @@
 export const products = [
     {
         "product_id": "onekey-pro-black",
-        "product_type": "pro",
         "name": "Onekey Pro",
+        "description": "[NEW] OneKey Pro - Crypto Hardware Wallet",
         "color": "black",
         "image": "/assets/products/pro-black.png",
-        "price": 29000,
-        "supply": 10
+        "catalog_img": "/assets/products/OneKeyPro_Main_Image_Black_02.png",
+        "catalog_hover_img": "/assets/products/OneKeyPro_Main_Image_Black_04.png",
+        "price": 30000,
+        "supply": 10,
+        "waiting": 1,
+        "order": 0,
+        "published": 0
     },
     {
         "product_id": "onekey-pro-white",
-        "product_type": "pro",
         "name": "Onekey Pro",
+        "description": "[NEW] OneKey Pro - Crypto Hardware Wallet",
         "color": "white",
         "image": "/assets/products/pro-white.png",
+        "catalog_img": "/assets/products/OneKeyPro_Main_Image_White_01.png",
+        "catalog_hover_img": "/assets/products/OneKeyPro_Main_Image_White_03.png",
         "price": 29000,
-        "supply": 10
+        "supply": 10,
+        "waiting": 1,
+        "order": 2,
+        "published": 0
     },
     {
         "product_id": "onekey-classic-1s",
-        "product_type": "classic1s",
         "name": "OneKey Classic 1S",
+        "description": "[NEW] OneKey Classic 1S - Crypto Hardware Wallet",
         "image": "/assets/products/product-card-classic1s.webp",
+        "catalog_img": "/assets/products/Classic1S_Main_Image02.png",
+        "catalog_hover_img": "/assets/products/Classic1S_Main_Image04.png",
         "price": 9000,
-        "supply": 15
+        "supply": 15,
+        "waiting": 0,
+        "order": 3,
+        "published": 0
     },
     {
         "product_id": "onekey-lite",
-        "product_type": "lite",
         "name": "OneKey Lite",
+        "description": "OneKey Lite - Crypto Hardware Wallet",
         "image": "/assets/products/product-card-touch-2.webp",
+        "catalog_img": "/assets/products/product-card-touch-2.webp",
+        "catalog_hover_img": "/assets/products/product-card-touch-2.webp",
         "price": 15000,
-        "supply": 0
+        "supply": 0,
+        "waiting": 0,
+        "order": 4,
+        "published": 0
+    },
+    {
+        "product_id": "SY_cup",
+        "name": "Camping Mug",
+        "description": "OneKey Classic Bronze Stainless Steel Camping Mug",
+        "image": "/assets/products/SY_cup_01.webp",
+        "catalog_img": "/assets/products/SY_cup_01.webp",
+        "catalog_hover_img": "/assets/products/SY_cup_02.webp",
+        "price": 15000,
+        "supply": 2,
+        "waiting": 1,
+        "order": 5,
+        "published": 0
+    },
+    {
+        "product_id": "SY_t_shirt",
+        "name": "Green T-Shirt",
+        "description": "OneKey Classic Green T-Shirt",
+        "image": "/assets/products/SY_Tee_01.webp",
+        "catalog_img": "/assets/products/SY_Tee_01.webp",
+        "catalog_hover_img": "/assets/products/SY_Tee_01.webp",
+        "price": 15000,
+        "supply": 0,
+        "waiting": 1,
+        "order": 6,
+        "published": 0
+    },
+    {
+        "product_id": "SY_sheet",
+        "name": "Green Beach Towel",
+        "description": "OneKey Classic Green Beach Towel",
+        "image": "/assets/products/SY_sheet_01.webp",
+        "catalog_img": "/assets/products/SY_sheet_01.webp",
+        "catalog_hover_img": "/assets/products/SY_sheet_02.webp",
+        "price": 15000,
+        "supply": 0,
+        "waiting": 1,
+        "order": 7,
+        "published": 0
     }
 ]
