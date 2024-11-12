@@ -12,10 +12,8 @@ const Politika: FC<IPolitika> = ({ }) => {
 
     useEffect(() => {
         window.scrollTo(0, 0)
-        // const body = document.querySelector('body')
-        // if (body) {
-        //     body.style.background = '#F4F5F8'
-        // }
+        const body = document.querySelector('body')
+        if (body) body.style.overflow = 'auto'
     }, [])
 
     return (

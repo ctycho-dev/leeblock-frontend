@@ -13,6 +13,8 @@ import Catalog from './pages/catalog'
 import Checkout from './pages/checkout'
 import Politika from './pages/politika'
 import Agreement from './pages/agreement'
+import DeliveryPage from './pages/delivery'
+import PaymentPage from './pages/payment'
 import Error from './pages/error'
 
 const router = createBrowserRouter([
@@ -44,6 +46,16 @@ const router = createBrowserRouter([
     {
         path: "/agreement",
         element: <Agreement />,
+        errorElement: <Error />,
+    },
+    {
+        path: "/delivery",
+        element: <DeliveryPage />,
+        errorElement: <Error />,
+    },
+    {
+        path: "/payment",
+        element: <PaymentPage />,
         errorElement: <Error />,
     }
 ]);

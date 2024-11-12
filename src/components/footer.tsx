@@ -51,9 +51,9 @@ const Footer: FC<IFooter> = ({ }) => {
                                 <div className="flex tablet:justify-center">
                                     <ul>
                                         <li className="font-bold mb-4 text-base lg:text-xl">Покупателям</li>
-                                        <li className="text-[#b3b3b3] mb-2 text-sm lg:text-base hover:text-[#45E555] transition-colors duration-100 hover:cursor-pointer">Подобрать кошелек</li>
-                                        <li className="text-[#b3b3b3] mb-2 text-sm lg:text-base hover:text-[#45E555] transition-colors duration-100 hover:cursor-pointer">Оплата</li>
-                                        <li className="text-[#b3b3b3] mb-2 text-sm lg:text-base hover:text-[#45E555] transition-colors duration-100 hover:cursor-pointer">Доставка</li>
+                                        {/* <li className="text-[#b3b3b3] mb-2 text-sm lg:text-base hover:text-[#45E555] transition-colors duration-100 hover:cursor-pointer">Подобрать кошелек</li> */}
+                                        <li className="text-[#b3b3b3] mb-2 text-sm lg:text-base hover:text-[#45E555] transition-colors duration-100 hover:cursor-pointer"><Link to={'/payment'}>Оплата</Link></li>
+                                        <li className="text-[#b3b3b3] mb-2 text-sm lg:text-base hover:text-[#45E555] transition-colors duration-100 hover:cursor-pointer"><Link to={'/delivery'}>Доставка</Link></li>
                                         <li className="text-[#b3b3b3] mb-2 text-sm lg:text-base hover:text-[#45E555] transition-colors duration-100 hover:cursor-pointer">Поддержка</li>
                                     </ul>
                                 </div>
