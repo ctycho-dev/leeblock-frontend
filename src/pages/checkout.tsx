@@ -84,28 +84,31 @@ const Checkout: FC<ICheckout> = ({ }) => {
         setButtonDisabled(true)
         if (!chosenCity) {
             toast.error('Поле "Город" обязателено к заполнению')
+            return
         } else if (!chosenZip) {
             toast.error('Поле "Индекс" обязателено к заполнению')
+            return
         } else if (!chosenAddress) {
             toast.error('Поле "Адрес" обязателено к заполнению')
+            return
         } else if (!chosenName) {
             toast.error('Поле "Имя" обязателено к заполнению')
+            return
         } else if (!chosenSurname) {
             toast.error('Поле "Фамилия" обязателено к заполнению')
+            return
         } else if (!chosenPhone) {
             toast.error('Поле "Телефон" обязателено к заполнению')
+            return
         } else if (!isValidPhoneNumber(chosenPhone)) {
             toast.error('Поле "Телефон" не валидное')
+            return
         } else if (!chosenEmail) {
             toast.error('Поле "Email" обязателено к заполнению')
+            return
         } else if (!isValidEmail(chosenEmail)) {
             toast.error('Поле "Email" не валидное')
-        } else {
-            setIsLoading(true)
-            toast.success('Заявка принята в работу')
-            setTimeout(() => {
-                setIsLoading(false)
-            }, 3000)
+            return
         }
 
         let amount = 0
