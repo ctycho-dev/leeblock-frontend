@@ -10,7 +10,7 @@ export const products = [
         "price": 30000,
         "supply": 10,
         "waiting": 1,
-        "order": 0,
+        "sequence": 0,
         "published": 0
     },
     {
@@ -24,7 +24,7 @@ export const products = [
         "price": 29000,
         "supply": 10,
         "waiting": 1,
-        "order": 2,
+        "sequence": 2,
         "published": 0
     },
     {
@@ -37,7 +37,7 @@ export const products = [
         "price": 9000,
         "supply": 15,
         "waiting": 0,
-        "order": 3,
+        "sequence": 3,
         "published": 0
     },
     {
@@ -50,7 +50,7 @@ export const products = [
         "price": 15000,
         "supply": 0,
         "waiting": 0,
-        "order": 4,
+        "sequence": 4,
         "published": 0
     },
     {
@@ -63,7 +63,7 @@ export const products = [
         "price": 15000,
         "supply": 2,
         "waiting": 1,
-        "order": 5,
+        "sequence": 5,
         "published": 0
     },
     {
@@ -76,7 +76,7 @@ export const products = [
         "price": 15000,
         "supply": 0,
         "waiting": 1,
-        "order": 6,
+        "sequence": 6,
         "published": 0
     },
     {
@@ -89,7 +89,7 @@ export const products = [
         "price": 15000,
         "supply": 0,
         "waiting": 1,
-        "order": 7,
+        "sequence": 7,
         "published": 0
     }
 ]

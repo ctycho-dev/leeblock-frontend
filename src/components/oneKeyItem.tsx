@@ -13,7 +13,7 @@ const OneKeyItem: FC<IOneKeyItem> = ({ product, description, setBucketCounter, s
 
     return (
         <>
-            <div className="relative bg-[#F9FAFC] rounded-3xl p-8">
+            <div className="relative bg-[#F9FAFC] shadow-custom rounded-3xl p-8">
                 <div>
                     {
                         !product.supply ?
@@ -25,16 +25,16 @@ const OneKeyItem: FC<IOneKeyItem> = ({ product, description, setBucketCounter, s
                     </div>
                     <h3 className="text-2xl md:text-3xl lg:text-4xl font-semibold mb-2">{product.name}</h3>
                     <h5 className="text-[#767676] mb-4 text-sm md:text-base">{description}</h5>
-                    <div className="flex items-center gap-x-6 justify-between md:justify-normal">
-                        <div className="text-3xl md:text-4xl">
-                            {product.price}&#x20bd;
-                        </div>
-                        {
-                            product.supply ?
+                    {
+                        product.supply ?
+                            <div className="flex items-center gap-x-6 justify-between md:justify-normal">
+                                <div className="text-3xl md:text-4xl">
+                                    {product.price}&#x20bd;
+                                </div>
                                 <AddToCard product={product} text="В корзину" setBucketCounter={setBucketCounter} setBagItems={setBagItems} />
-                                : ''
-                        }
-                    </div>
+                            </div>
+                            : ''
+                    }
                 </div>
             </div>
         </>

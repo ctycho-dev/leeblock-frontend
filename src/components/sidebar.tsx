@@ -60,12 +60,12 @@ const Sidebar: FC<ISidebar> = ({ isSidebarOpen, setSidebarOpen, bagItems, setQua
                                     <div key={i} className="bg-white flex justify-between items-center px-4 py-2">
                                         <div className="flex justify-between items-center">
                                             <div>
-                                                <img src={item.sku.image} alt={item.sku.name} className="w-28 -ml-2" />
+                                                <img src={item.sku?.image} alt={item.sku?.name} className="w-28 -ml-2" />
                                             </div>
                                             <div>
                                                 <div className="mb-2 flex">
-                                                    <div className="text-xl font-bold">{item.sku.name}</div>
-                                                    <BagItemColor color={item.sku.color} />
+                                                    <div className="text-xl font-bold">{item.sku?.name}</div>
+                                                    <BagItemColor color={item.sku?.color} />
                                                 </div>
                                                 <ChangeAmount
                                                     index={i}
@@ -76,7 +76,7 @@ const Sidebar: FC<ISidebar> = ({ isSidebarOpen, setSidebarOpen, bagItems, setQua
                                             </div>
                                         </div>
                                         <div>
-                                            {item.sku.price} * {item.quantity}
+                                            {item.sku?.price} * {item.quantity}
                                         </div>
                                     </div>
                                 )

@@ -32,37 +32,37 @@ const Footer: FC<IFooter> = ({ }) => {
                             </div>
                         </div>
                         <div>
-                            <div className="grid grid-cols-2 tablet:grid-cols-3 justify-between mb-10 gap-y-10">
+                            <div className="grid grid-cols-2 tablet:grid-cols-3 justify-between mb-10 gap-y-10 gap-x-4">
                                 {/* <div>
                                     <ul>
-                                        <li className="font-bold mb-4 text-base lg:text-xl">Продукты</li>
-                                        <li className="text-[#b3b3b3] mb-2 text-sm lg:text-base hover:text-[#45E555] transition-colors duration-100 hover:cursor-pointer">OneKey Pro</li>
-                                        <li className="text-[#b3b3b3] mb-2 text-sm lg:text-base hover:text-[#45E555] transition-colors duration-100 hover:cursor-pointer">OneKey Classic 1S</li>
-                                        <li className="text-[#b3b3b3] mb-2 text-sm lg:text-base hover:text-[#45E555] transition-colors duration-100 hover:cursor-pointer">OneKey Touch</li>
+                                        <li className="font-bold mb-4 text-base lg:text-lg">Продукты</li>
+                                        <li className="text-[#b3b3b3] mb-2 text-sm hover:text-[#45E555] transition-colors duration-100 hover:cursor-pointer">OneKey Pro</li>
+                                        <li className="text-[#b3b3b3] mb-2 text-sm hover:text-[#45E555] transition-colors duration-100 hover:cursor-pointer">OneKey Classic 1S</li>
+                                        <li className="text-[#b3b3b3] mb-2 text-sm hover:text-[#45E555] transition-colors duration-100 hover:cursor-pointer">OneKey Touch</li>
                                     </ul>
                                 </div> */}
                                 <div>
                                     <ul>
-                                        <li className=" font-bold mb-4 text-base lg:text-xl">О нас</li>
-                                        <li className="text-[#b3b3b3] mb-2 text-sm lg:text-base hover:text-[#45E555] transition-colors duration-100 hover:cursor-pointer"><Link to={'/politika'}>Политика обработки персональных данных</Link></li>
-                                        <li className="text-[#b3b3b3] mb-2 text-sm lg:text-base hover:text-[#45E555] transition-colors duration-100 hover:cursor-pointer"><Link to={'/agreement'}>Документы сайта</Link></li>
+                                        <li className=" font-bold mb-4 text-base lg:text-lg">О нас</li>
+                                        <li className="text-[#b3b3b3] mb-2 text-sm hover:text-[#45E555] transition-colors duration-100 hover:cursor-pointer"><Link to={'/politika'}>Политика обработки персональных данных</Link></li>
+                                        <li className="text-[#b3b3b3] mb-2 text-sm hover:text-[#45E555] transition-colors duration-100 hover:cursor-pointer"><Link to={'/agreement'}>Документы сайта</Link></li>
                                     </ul>
                                 </div>
                                 <div className="flex tablet:justify-center">
                                     <ul>
-                                        <li className="font-bold mb-4 text-base lg:text-xl">Покупателям</li>
-                                        {/* <li className="text-[#b3b3b3] mb-2 text-sm lg:text-base hover:text-[#45E555] transition-colors duration-100 hover:cursor-pointer">Подобрать кошелек</li> */}
-                                        <li className="text-[#b3b3b3] mb-2 text-sm lg:text-base hover:text-[#45E555] transition-colors duration-100 hover:cursor-pointer"><Link to={'/payment'}>Оплата</Link></li>
-                                        <li className="text-[#b3b3b3] mb-2 text-sm lg:text-base hover:text-[#45E555] transition-colors duration-100 hover:cursor-pointer"><Link to={'/delivery'}>Доставка</Link></li>
-                                        <li className="text-[#b3b3b3] mb-2 text-sm lg:text-base hover:text-[#45E555] transition-colors duration-100 hover:cursor-pointer">Поддержка</li>
+                                        <li className="font-bold mb-4 text-base lg:text-lg">Покупателям</li>
+                                        {/* <li className="text-[#b3b3b3] mb-2 text-sm hover:text-[#45E555] transition-colors duration-100 hover:cursor-pointer">Подобрать кошелек</li> */}
+                                        <li className="text-[#b3b3b3] mb-2 text-sm hover:text-[#45E555] transition-colors duration-100 hover:cursor-pointer"><Link to={'/catalog'}>Каталог</Link></li>
+                                        <li className="text-[#b3b3b3] mb-2 text-sm hover:text-[#45E555] transition-colors duration-100 hover:cursor-pointer"><Link to={'/payment'}>Оплата и доставка</Link></li>
+                                        {/* <li className="text-[#b3b3b3] mb-2 text-sm hover:text-[#45E555] transition-colors duration-100 hover:cursor-pointer"><Link to={'/delivery'}>Доставка</Link></li> */}
+                                        <li className="text-[#b3b3b3] mb-2 text-sm hover:text-[#45E555] transition-colors duration-100 hover:cursor-pointer">Поддержка</li>
                                     </ul>
                                 </div>
                                 <div className="flex tablet:justify-end">
                                     <ul>
-                                        <li className="font-bold mb-4 text-base lg:text-xl">Контакты</li>
-                                        <li className="text-[#b3b3b3] mb-2 text-sm lg:text-base hover:text-[#45E555] transition-colors duration-100 hover:cursor-pointer">+7(900) 320-33-33</li>
-                                        <li className="text-[#b3b3b3] mb-2 text-sm lg:text-base hover:text-[#45E555] transition-colors duration-100 hover:cursor-pointer">info@leeblock.ru</li>
-                                        <li className="text-[#b3b3b3] mb-2 text-sm lg:text-base hover:text-[#45E555] transition-colors duration-100 hover:cursor-pointer">support@leeblock.ru</li>
+                                        <li className="font-bold mb-4 text-base lg:text-lg">Контакты</li>
+                                        <li className="text-[#b3b3b3] mb-2 text-sm hover:text-[#45E555] transition-colors duration-100 hover:cursor-pointer">+7(900) 320-33-33</li>
+                                        <li className="text-[#b3b3b3] mb-2 text-sm hover:text-[#45E555] transition-colors duration-100 hover:cursor-pointer">info@leeblock.ru</li>
                                     </ul>
                                 </div>
                             </div>

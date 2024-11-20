@@ -4,37 +4,36 @@ import ProductName from "./productName";
 
 import { Product } from "../types";
 
-import proWhite from '../assets/products/shop-product-card-proBig-white.webp'
-import proBlack from '../assets/products/shop-product-card-proBig-black.webp'
 import proBlackMobile from '../assets/products/pro-black.png'
 import proWhiteMobile from '../assets/products/pro-white.png'
 
 interface IOneKeyPro {
-    products: Product[]
+    proBlack: Product
+    proWhite: Product
     bucketCounter: number
     setBucketCounter: any
     setBagItems: any
 }
 
-const OneKeyPro: FC<IOneKeyPro> = ({ products, bucketCounter, setBucketCounter, setBagItems }) => {
+const OneKeyPro: FC<IOneKeyPro> = ({ proBlack, proWhite, bucketCounter, setBucketCounter, setBagItems }) => {
 
     const [colorWhite, setColorWhite] = useState(false)
-    const [currentProduct, setCurrentProduct] = useState<Product>(products[1])
+    const [currentProduct, setCurrentProduct] = useState<Product>(proBlack)
 
     const changeColor = (color: string) => {
 
         if (color == 'white') {
             setColorWhite(true)
-            setCurrentProduct(products[0])
+            setCurrentProduct(proWhite)
         } else {
             setColorWhite(false)
-            setCurrentProduct(products[1])
+            setCurrentProduct(proBlack)
         }
 
     }
     return (
         <>
-            <div className="bg-[#F9FAFC] rounded-3xl">
+            <div className="bg-[#F9FAFC] rounded-3xl shadow-custom">
                 <div className="flex flex-col-reverse tablet:grid tablet:grid-cols-2">
                     <div className="p-7 flex flex-col justify-between">
                         <div></div>
@@ -44,7 +43,7 @@ const OneKeyPro: FC<IOneKeyPro> = ({ products, bucketCounter, setBucketCounter, 
                             <div className="lg:flex">
                                 <div className="flex items-center justify-between flex-1 mb-4 lg:mb-0">
                                     <div className="text-3xl md:text-4xl">
-                                        {currentProduct.price}&#x20bd;
+                                        {currentProduct ? currentProduct.price : ''}&#x20bd;
                                     </div>
                                     <div className="flex gap-x-6 mr-4">
                                         <div className="flex gap-x-2">
@@ -80,12 +79,12 @@ const OneKeyPro: FC<IOneKeyPro> = ({ products, bucketCounter, setBucketCounter, 
                         {
                             colorWhite ?
                                 <div className="flex justify-center">
-                                    <img src={proWhite} alt="ProBig-white" className="hidden tablet:block" />
+                                    <img src={proWhite.image} alt="ProBig-white" className="hidden tablet:block" />
                                     <img src={proWhiteMobile} alt="ProBig-white" className="w-96 block tablet:hidden" />
                                 </div>
                                 :
                                 <div className="flex justify-center">
-                                    <img src={proBlack} alt="ProBig-Black" className="hidden tablet:block" />
+                                    <img src={proBlack.image} alt="ProBig-Black" className="hidden tablet:block" />
                                     <img src={proBlackMobile} alt="ProBig-Black" className="w-96 block tablet:hidden" />
                                 </div>
                         }

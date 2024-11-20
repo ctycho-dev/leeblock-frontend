@@ -10,7 +10,7 @@ export type Product = {
     price: number
     supply: number
     waiting?: number
-    order: number
+    sequence: number
     published: number
 }
 

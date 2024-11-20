@@ -64,7 +64,7 @@ const CityInput: FC<ICityInput> = ({ chosenCity, setChosenCity }) => {
                                         cities.map((item: Citites) => {
                                             if (
                                                 !chosenCity ||
-                                                item.name.includes(chosenCity)
+                                                item.name.toLowerCase().includes(chosenCity.toLocaleLowerCase())
                                             ) {
                                                 return (
                                                     <li

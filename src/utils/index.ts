@@ -32,7 +32,7 @@ function validateBagItems(list: any) {
                 'price' in x['sku'] &&
                 'supply' in x['sku'] &&
                 'waiting' in x['sku'] &&
-                'order' in x['sku'] &&
+                'sequence' in x['sku'] &&
                 'published' in x['sku']
             ) {
                 
@@ -72,21 +72,12 @@ export const getTotalSum = (list: MyBag[]) => {
     let sum = 0
 
     list.forEach((pr: MyBag) => {
-        sum += pr.quantity * pr.sku.price;
+        if (pr && pr.sku) {
+            sum += pr.quantity * pr.sku.price;
+        }
     })
 
     return sum
-}
-
-export const findProductById = (products: any, product_id: string) => {
-
-    for (const el of products) {
-        if (el.product_id === product_id) {
-            return el
-        }
-    }
-
-    return null
 }
 
 

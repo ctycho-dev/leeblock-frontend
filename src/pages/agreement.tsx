@@ -14,14 +14,14 @@ const Agreement: FC<IAgreement> = ({ }) => {
 
     return (
         <>
-            <header className="bg-white">
+            <header className="">
                 <div className="max-w-7xl m-auto px-6 py-4">
                     <Link to={'/'}>
                         <img src={logo} alt="LeeBlock" className="h-10" />
                     </Link>
                 </div>
             </header>
-            <main className="bg-white py-6">
+            <main className=" py-6">
                 <div className="max-w-4xl m-auto px-6 py-4">
                     <h1 className="text-4xl tablet:text-4xl font-bold mb-10">ПУБЛИЧНЫЙ ДОГОВОР – ОФЕРТА О ПРОДАЖЕ ТОВАРОВ</h1>
                     <p className="text-md tablet:text-base font-semibold mb-6">

@@ -19,7 +19,7 @@ const AddToCard: FC<IAddToCard> = ({ text, arrow, product, setBucketCounter, set
         try {
             let cards: MyBag[] = parseBagFromStorage()
 
-            const card = cards.find((item: MyBag) => item.sku.product_id == product.product_id)
+            const card = cards.find((item: MyBag) => item.sku?.product_id == product?.product_id)
 
             if (!card) {
                 cards.push({

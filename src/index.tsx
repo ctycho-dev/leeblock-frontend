@@ -17,6 +17,8 @@ import DeliveryPage from './pages/delivery'
 import PaymentPage from './pages/payment'
 import Error from './pages/error'
 
+import 'react-loading-skeleton/dist/skeleton.css'
+
 const router = createBrowserRouter([
     {
         path: "/",

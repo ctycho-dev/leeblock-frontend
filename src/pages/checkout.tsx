@@ -1,30 +1,34 @@
 import { FC, useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import Help from "../components/help";
+import HeaderSecond from "../components/headerSecond";
 import Footer from "../components/footer";
-import axios from "axios";
-import { Link } from "react-router-dom";
-import { MyBag } from "../types";
 import InputCustom from "../components/inputCutom";
 import CheckoutItem from "../components/checkoutItem";
-import CityInput from "../components/cityInput";
+import AddressDetails from "../components/addressDetails";
+
+import { MyBag } from "../types";
 import { getTotalSum, isValidEmail, isValidPhoneNumber } from "../utils";
+import { initPayment } from "../utils/tinkoff";
 import { Toaster, toast } from 'sonner'
-import logo from '../assets/logoShort.svg'
+import ReactLoading from 'react-loading';
+import Skeleton from 'react-loading-skeleton'
 
 
-
-declare global {
-    interface Window {
-        CDEKWidget: any; // Replace `any` with the specific type of CDEKWidget if you know it.
-    }
-}
+// declare global {
+//     interface Window {
+//         CDEKWidget: any;
+//     }
+// }
 
 interface ICheckout { }
 
 const Checkout: FC<ICheckout> = ({ }) => {
-
-    const [myBag, setMyBag] = useState<MyBag[] | []>([])
+    const navigate = useNavigate();
+    const [isDisabled, setButtonDisabled] = useState(false)
     const [isLoading, setIsLoading] = useState(false)
+    const [isRendered, setIsRendered] = useState(false)
+    const [myBag, setMyBag] = useState<MyBag[] | []>([])
 
     const [chosenCity, setChosenCity] = useState('')
     const [chosenZip, setChosenZip] = useState('')
@@ -37,7 +41,7 @@ const Checkout: FC<ICheckout> = ({ }) => {
 
     useEffect(() => {
         window.scrollTo(0, 0)
-        
+
         const body = document.querySelector('body')
         if (body) body.style.overflow = 'auto'
 
@@ -69,74 +73,109 @@ const Checkout: FC<ICheckout> = ({ }) => {
         //     }
 
         // })
+        setTimeout(() => {
+            setIsRendered(true)
+        }, 1000)
 
     }, [])
 
 
-    const sumbitRequest = () => {
+    const sumbitRequest = async () => {
+        setButtonDisabled(true)
+        // if (!chosenCity) {
+        //     toast.error('Поле "Город" обязателено к заполнению')
+        // } else if (!chosenZip) {
+        //     toast.error('Поле "Индекс" обязателено к заполнению')
+        // } else if (!chosenAddress) {
+        //     toast.error('Поле "Адрес" обязателено к заполнению')
+        // } else if (!chosenName) {
+        //     toast.error('Поле "Имя" обязателено к заполнению')
+        // } else if (!chosenSurname) {
+        //     toast.error('Поле "Фамилия" обязателено к заполнению')
+        // } else if (!chosenPhone) {
+        //     toast.error('Поле "Телефон" обязателено к заполнению')
+        // } else if (!isValidPhoneNumber(chosenPhone)) {
+        //     toast.error('Поле "Телефон" не валидное')
+        // } else if (!chosenEmail) {
+        //     toast.error('Поле "Email" обязателено к заполнению')
+        // } else if (!isValidEmail(chosenEmail)) {
+        //     toast.error('Поле "Email" не валидное')
+        // } else {
+        //     setIsLoading(true)
+        //     toast.success('Заявка принята в работу')
+        //     setTimeout(() => {
+        //         setIsLoading(false)
+        //     }, 3000)
+        // }
 
+        let amount = 0
 
-        if (!chosenCity) {
-            toast.error('Поле "Город" обязателено к заполнению')
-        } else if (!chosenZip) {
-            toast.error('Поле "Индекс" обязателено к заполнению')
-        } else if (!chosenAddress) {
-            toast.error('Поле "Адрес" обязателено к заполнению')
-        } else if (!chosenName) {
-            toast.error('Поле "Имя" обязателено к заполнению')
-        } else if (!chosenSurname) {
-            toast.error('Поле "Фамилия" обязателено к заполнению')
-        } else if (!chosenPhone) {
-            toast.error('Поле "Телефон" обязателено к заполнению')
-        } else if (!isValidPhoneNumber(chosenPhone)) {
-            toast.error('Поле "Телефон" не валидное')
-        } else if (!chosenEmail) {
-            toast.error('Поле "Email" обязателено к заполнению')
-        } else if (!isValidEmail(chosenEmail)) {
-            toast.error('Поле "Email" не валидное')
-        } else {
-            setIsLoading(true)
-            toast.success('Заявка принята в работу')
-            setTimeout(() => {
-                setIsLoading(false)
-            }, 3000)
+        const items = []
+        for (const x of myBag) {
+            // Сумма в копейках. Например, 3 руб. 12коп. — это число 312.
+            let price = x.sku.price * 100
+            items.push({
+                'Name': x.sku.name,
+                'Price': price,
+                'Quantity': x.quantity,
+                'Amount': price * x.quantity,
+                'Tax': 'vat10'
+            })
+            amount +=  price * x.quantity
         }
 
 
-        // console.log('chosenCity: ' + chosenCity)
-        // console.log('chosenZip: ' + chosenZip)
-        // console.log('chosenAddress: ' + chosenAddress)
-        // console.log('Name: ' + chosenName)
-        // console.log('Surname: ' + chosenSurname)
-        // console.log('chosenPhone: ' + chosenPhone)
-        // console.log('chosenEmail: ' + chosenEmail)
-        // console.log('chosenTelegram: ' + chosenTelegram)
+        const data = {
+            "Amount": amount,
+            "DATA": {
+                "Phone": "+79655829966",
+                "Email": "ilnur_gumerov_1996@mail.ru"
+            },
+            "Receipt": {
+                "Email": "info@leeblock.ru",
+                "Phone": "+79655829966",
+                "Taxation": "osn",
+                "Items": items
+            },
+            'city': chosenCity,
+            'zip': chosenZip,
+            'address': chosenAddress,
+            'first_name': chosenName,
+            'last_name': chosenSurname,
+            'phone': chosenPhone,
+            'email': chosenEmail
+        }
+
+        const res = await initPayment(data)
+        if (res && res.Success) {
+            localStorage.setItem('PaymentId', res.PaymentId)
+            localStorage.setItem('OrderId', res.OrderId)
+            window.open(res.PaymentURL)
+        } else {
+            toast.error(res?.Details)
+        }
+        setButtonDisabled(false)
     }
 
 
     return (
         <>
-            <header className="">
-                <div className="max-w-7xl m-auto px-6 py-4">
-                    <Link to={'/'}>
-                        <img src={logo} alt="LeeBlock" className="h-10" />
-                    </Link>
-                </div>
-            </header>
+            <HeaderSecond />
             {/* <div id="cdek-map" className="w-[800px] h-[600px]"></div> */}
-            <main className="">
-                <div className="max-w-7xl m-auto px-6 py-4">
+            <main className="bg-checkout">
+                <div className="max-w-7xl m-auto px-6 py-8">
                     <div className="flex flex-col-reverse md:grid md:grid-cols-2  gap-y-6 gap-x-6 pb-10 ">
                         <aside className="grid gap-y-6 lg:gap-y-8">
-                            <div className={`${isLoading ? 'bg-gray-100 opacity-50 pointer-events-none' : 'bg-white'} p-6 rounded-3xl checkout-block-shadow`}>
-                                <h2 className="text-xl font-bold text-h-checkout mb-4">Адрес доставки</h2>
-                                <div className="grid sm-mobile:grid-cols-21 gap-x-2 gap-y-3 mb-3">
-                                    <CityInput chosenCity={chosenCity} setChosenCity={setChosenCity} />
-                                    <InputCustom type="text" label="Индекс" value={chosenZip} placeholder="101000" onChangeFunc={setChosenZip} />
-                                </div>
-                                <InputCustom type="text" label="Адрес" value={chosenAddress} placeholder="ул. Зоологическая 2" onChangeFunc={setChosenAddress} />
-                            </div>
-                            <div className={`${isLoading ? 'bg-gray-100 opacity-50 pointer-events-none' : 'bg-white'} p-6 rounded-3xl checkout-block-shadow`}>
+                            <AddressDetails
+                                isLoading={isLoading}
+                                chosenCity={chosenCity}
+                                setChosenCity={setChosenCity}
+                                chosenZip={chosenZip}
+                                setChosenZip={setChosenZip}
+                                chosenAddress={chosenAddress}
+                                setChosenAddress={setChosenAddress}
+                            />
+                            {/* <div className={`${isLoading ? 'bg-gray-100 opacity-50 pointer-events-none' : 'bg-white'} p-6 rounded-3xl checkout-block-shadow`}>
                                 <h2 className="text-xl font-bold text-h-checkout mb-4">Ваши данные</h2>
                                 <div className="grid sm-mobile:grid-cols-21 gap-x-2 gap-y-3 mb-3">
                                     <InputCustom type="text" label="Имя" value={chosenName} placeholder="Иван" onChangeFunc={setChosenName} />
@@ -147,7 +186,7 @@ const Checkout: FC<ICheckout> = ({ }) => {
                                     <InputCustom type="text" label="Telegram" value={chosenTelegram} placeholder="@" onChangeFunc={setChosenTelegram} notRequired={true} />
                                 </div>
                                 <InputCustom type="text" label="Email" value={chosenEmail} placeholder="example@mail.ru" onChangeFunc={setChosenEmail} />
-                            </div>
+                            </div> */}
                             <div className={`${isLoading ? 'bg-gray-100 opacity-50 pointer-events-none' : 'bg-white'} p-6 rounded-3xl checkout-block-shadow`}>
                                 <h2 className="text-xl font-bold text-h-checkout mb-4">Способ доставки</h2>
 
@@ -159,9 +198,18 @@ const Checkout: FC<ICheckout> = ({ }) => {
                             <div className="flex gap-4 flex-col-reverse lg:flex-row">
                                 <div>
                                     <button
-                                        className="button-gradient w-full py-4 px-6 rounded-3xl flex justify-center items-center whitespace-nowrap font-bold"
-                                        onClick={sumbitRequest}>
+                                        className={`button-gradient w-full py-4 px-6 rounded-3xl 
+                                            flex justify-center items-center gap-x-2
+                                            whitespace-nowrap font-bold
+                                            disabled:pointer-events-none disabled:opacity-50`}
+                                        onClick={sumbitRequest}
+                                        disabled={isDisabled}>
                                         Подтвердить заказ
+                                        {
+                                            isDisabled ?
+                                                <ReactLoading type='spinningBubbles' color='#000' height={'20px'} width={'20px'} />
+                                                : ''
+                                        }
                                     </button>
                                 </div>
                                 <div className="text-xs">
@@ -174,28 +222,75 @@ const Checkout: FC<ICheckout> = ({ }) => {
                                 <h2 className="text-xl font-bold mb-4">Корзина</h2>
                                 <div className="mb-6">
                                     {
-                                        myBag?.map((item: MyBag, i: number) => {
-                                            return <CheckoutItem key={i} item={item} />
-                                        })
+                                        isRendered ?
+                                            myBag?.map((item: MyBag, i: number) => {
+                                                return <CheckoutItem key={i} item={item} />
+                                            })
+                                            :
+                                            <>
+                                                <Skeleton
+                                                    style={{
+                                                        borderRadius: '0.375rem'
+                                                    }}
+                                                    baseColor='#fff'
+                                                    className="h-[70px] rounded-2xl shadow-custom" />
+                                                <Skeleton
+                                                    style={{
+                                                        borderRadius: '0.375rem'
+                                                    }}
+                                                    baseColor='#fff'
+                                                    className="h-[70px] rounded-2xl shadow-custom" />
+                                            </>
                                     }
+
                                 </div>
                                 <div className="mb-6">
                                     <h2 className="text-lg font-bold mb-4">Промокод</h2>
                                     <div className="grid grid-cols-21 gap-x-2">
-                                        <div>
-                                            <input type="text" className="border p-2 rounded-lg w-full outline-none" placeholder="Код купона" />
-                                        </div>
-                                        <div>
-                                            <button className="button-gradient w-full p-2 rounded-lg flex justify-center items-center">Применить</button>
-                                        </div>
+                                        {
+                                            isRendered ?
+                                                <>
+                                                    <div>
+                                                        <input type="text" className="border p-2 rounded-xl w-full outline-none" placeholder="Код купона" />
+                                                    </div>
+                                                    <div>
+                                                        <button className="button-gradient w-full p-2 rounded-xl flex justify-center items-center">Применить</button>
+                                                    </div>
+                                                </>
+                                                :
+                                                <>
+                                                    <Skeleton
+                                                        style={{
+                                                            borderRadius: '0.375rem'
+                                                        }}
+                                                        baseColor='#fff'
+                                                        className="h-[50px] rounded-2xl shadow-custom" />
+                                                    <Skeleton
+                                                        style={{
+                                                            borderRadius: '0.375rem'
+                                                        }}
+                                                        baseColor='#fff'
+                                                        className="h-[50px] rounded-2xl shadow-custom" />
+                                                </>
+                                        }
                                     </div>
                                 </div>
-                                <div className="bg-[#5AE28C21] p-4 rounded-xl md:rounded-3xl">
-                                    <div className="flex justify-between items-center">
-                                        <div className="text-lg font-bold">Итого</div>
-                                        <div className="text-xl font-bold">{getTotalSum(myBag)}&#x20bd;</div>
-                                    </div>
-                                </div>
+                                {
+                                    isRendered ?
+                                        <div className="bg-[#5AE28C21] p-4 rounded-xl">
+                                            <div className="flex justify-between items-center">
+                                                <div className="text-lg font-bold">Итого</div>
+                                                <div className="text-xl font-bold">{getTotalSum(myBag)}&#x20bd;</div>
+                                            </div>
+                                        </div>
+                                        :
+                                        <Skeleton
+                                            style={{
+                                                borderRadius: '0.375rem'
+                                            }}
+                                            baseColor='#fff'
+                                            className="h-[50px] rounded-2xl shadow-custom" />
+                                }
                             </div>
                         </aside>
                     </div>

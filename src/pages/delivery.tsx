@@ -13,22 +13,19 @@ const DeliveryPage: FC<IDeliveryPage> = ({ }) => {
     useEffect(() => {
         window.scrollTo(0, 0)
         const body = document.querySelector('body')
-        if (body) {
-            body.style.overflow = 'auto'
-            body.style.background = '#fff'
-        }
+        if (body) body.style.overflow = 'auto'
     }, [])
 
     return (
         <>
-            <header className="bg-white">
+            <header className="">
                 <div className="max-w-7xl m-auto px-6 py-4">
                     <Link to={'/'}>
                         <img src={logo} alt="LeeBlock" className="h-10" />
                     </Link>
                 </div>
             </header>
-            <main className="bg-white py-6">
+            <main className=" py-6">
                 <div className="max-w-4xl m-auto px-6 py-4">
                     <h1 className="text-4xl font-bold mb-10">Доставка</h1>
                     <div className="mb-10 text-sm">

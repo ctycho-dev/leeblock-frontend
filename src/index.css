@@ -16,7 +16,7 @@ body {
     sans-serif; */
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background: rgb(240, 240, 240);
+  background: #F4F5F8;
 }
 
 code {
@@ -35,15 +35,14 @@ code {
 }
 
 .required:after {
-  content:" *";
+  content: " *";
   color: red;
 }
 
 /*--------------------------------
 -----------SWIPER-----------------
 ----------------------------------*/
-.swiper {
-}
+.swiper {}
 
 .swiper-pagination-bullet-active {
   background: rgb(90, 226, 140) !important;
@@ -55,7 +54,8 @@ code {
 }
 
 .hidden-header {
-  transform: translateY(-100%); /* Hide the header by moving it up */
+  transform: translateY(-100%);
+  /* Hide the header by moving it up */
 }
 
 .adv-block {
@@ -71,6 +71,7 @@ code {
 .hiddenn {
   display: none;
 }
+
 .reveal-block.visiblee {
   opacity: 1;
 }
