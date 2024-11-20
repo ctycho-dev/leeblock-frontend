@@ -66,9 +66,8 @@ export async function sendEmailNeedHelp(name: string, email: string, msg: string
     try {
         const res = await axios.post(`${process.env.REACT_APP_BACKEND}/v1/send_email`, data, {
             headers: {
-                'Origin': 'https://leeblock.ru',  // Ensure the correct origin is set
+                'Origin': 'https://www.leeblock.ru',  // Ensure the correct origin is set
                 'Content-Type': 'application/json',  // Specify JSON content type
-                'Authorization': 'Bearer your_token_here' // Add if needed
             }
         })
         return res

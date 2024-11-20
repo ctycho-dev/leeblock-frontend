@@ -10,7 +10,7 @@ const Footer: FC<IFooter> = ({ }) => {
 
     return (
         <>
-            <footer className="bg-[#13171D] rounded-t-[50px] text-white">
+            <footer className="bg-[#13171D] text-white">
                 <div className="max-w-7xl m-auto px-6 tablet:px-10 py-16">
                     <div className="grid ipad-air:grid-cols-a1 gap-14">
                         <div className="flex ipad-air:flex-col justify-between">
