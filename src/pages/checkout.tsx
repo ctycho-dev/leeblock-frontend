@@ -175,7 +175,7 @@ const Checkout: FC<ICheckout> = ({ }) => {
                                 chosenAddress={chosenAddress}
                                 setChosenAddress={setChosenAddress}
                             />
-                            {/* <div className={`${isLoading ? 'bg-gray-100 opacity-50 pointer-events-none' : 'bg-white'} p-6 rounded-3xl checkout-block-shadow`}>
+                            <div className={`${isLoading ? 'bg-gray-100 opacity-50 pointer-events-none' : 'bg-white'} p-6 rounded-3xl checkout-block-shadow`}>
                                 <h2 className="text-xl font-bold text-h-checkout mb-4">Ваши данные</h2>
                                 <div className="grid sm-mobile:grid-cols-21 gap-x-2 gap-y-3 mb-3">
                                     <InputCustom type="text" label="Имя" value={chosenName} placeholder="Иван" onChangeFunc={setChosenName} />
@@ -186,7 +186,7 @@ const Checkout: FC<ICheckout> = ({ }) => {
                                     <InputCustom type="text" label="Telegram" value={chosenTelegram} placeholder="@" onChangeFunc={setChosenTelegram} notRequired={true} />
                                 </div>
                                 <InputCustom type="text" label="Email" value={chosenEmail} placeholder="example@mail.ru" onChangeFunc={setChosenEmail} />
-                            </div> */}
+                            </div>
                             <div className={`${isLoading ? 'bg-gray-100 opacity-50 pointer-events-none' : 'bg-white'} p-6 rounded-3xl checkout-block-shadow`}>
                                 <h2 className="text-xl font-bold text-h-checkout mb-4">Способ доставки</h2>
 
