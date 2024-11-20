@@ -131,7 +131,7 @@ const Header: FC<IHeader> = ({ bucketCounter, setSidebarOpen }) => {
                         bg-white fixed left-4 right-4 tablet:right-auto tablet:top-4 bottom-4 
                         rounded-lg p-6 min-w-80 min-h-80
                         transition-transform duration-500
-                        ${isMobileMenuOpen ? '' : 'translate-y-[120%] tablet:translate-y-0 tablet:translate-x-[-110%]'}`}>
+                        ${isMobileMenuOpen ? '' : 'translate-y-[140%] tablet:translate-y-0 tablet:translate-x-[-110%]'}`}>
                         <div className="relative flex flex-col justify-between h-full">
                             <div>
                                 <div className="hidden bg-white mb-8 tablet:flex md:hidden shadow-custom rounded-full justify-center items-center w-12 h-12 hover:cursor-pointer"

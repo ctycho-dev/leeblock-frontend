@@ -82,31 +82,31 @@ const Checkout: FC<ICheckout> = ({ }) => {
 
     const sumbitRequest = async () => {
         setButtonDisabled(true)
-        // if (!chosenCity) {
-        //     toast.error('Поле "Город" обязателено к заполнению')
-        // } else if (!chosenZip) {
-        //     toast.error('Поле "Индекс" обязателено к заполнению')
-        // } else if (!chosenAddress) {
-        //     toast.error('Поле "Адрес" обязателено к заполнению')
-        // } else if (!chosenName) {
-        //     toast.error('Поле "Имя" обязателено к заполнению')
-        // } else if (!chosenSurname) {
-        //     toast.error('Поле "Фамилия" обязателено к заполнению')
-        // } else if (!chosenPhone) {
-        //     toast.error('Поле "Телефон" обязателено к заполнению')
-        // } else if (!isValidPhoneNumber(chosenPhone)) {
-        //     toast.error('Поле "Телефон" не валидное')
-        // } else if (!chosenEmail) {
-        //     toast.error('Поле "Email" обязателено к заполнению')
-        // } else if (!isValidEmail(chosenEmail)) {
-        //     toast.error('Поле "Email" не валидное')
-        // } else {
-        //     setIsLoading(true)
-        //     toast.success('Заявка принята в работу')
-        //     setTimeout(() => {
-        //         setIsLoading(false)
-        //     }, 3000)
-        // }
+        if (!chosenCity) {
+            toast.error('Поле "Город" обязателено к заполнению')
+        } else if (!chosenZip) {
+            toast.error('Поле "Индекс" обязателено к заполнению')
+        } else if (!chosenAddress) {
+            toast.error('Поле "Адрес" обязателено к заполнению')
+        } else if (!chosenName) {
+            toast.error('Поле "Имя" обязателено к заполнению')
+        } else if (!chosenSurname) {
+            toast.error('Поле "Фамилия" обязателено к заполнению')
+        } else if (!chosenPhone) {
+            toast.error('Поле "Телефон" обязателено к заполнению')
+        } else if (!isValidPhoneNumber(chosenPhone)) {
+            toast.error('Поле "Телефон" не валидное')
+        } else if (!chosenEmail) {
+            toast.error('Поле "Email" обязателено к заполнению')
+        } else if (!isValidEmail(chosenEmail)) {
+            toast.error('Поле "Email" не валидное')
+        } else {
+            setIsLoading(true)
+            toast.success('Заявка принята в работу')
+            setTimeout(() => {
+                setIsLoading(false)
+            }, 3000)
+        }
 
         let amount = 0
 
@@ -128,8 +128,8 @@ const Checkout: FC<ICheckout> = ({ }) => {
         const data = {
             "Amount": amount,
             "DATA": {
-                "Phone": "+79655829966",
-                "Email": "ilnur_gumerov_1996@mail.ru"
+                "Phone": chosenPhone,
+                "Email": chosenEmail
             },
             "Receipt": {
                 "Email": "info@leeblock.ru",
