@@ -83,10 +83,10 @@ const Header: FC<IHeader> = ({ bucketCounter, setSidebarOpen }) => {
                             </div>
                             <div className="hidden md:block">
                                 <ul className="flex gap-x-6 font-semibold text-base">
-                                    <li className="hover:text-[#45E555] hover:cursor-pointer"><Link to={'/catalog'}>Продукты</Link></li>
-                                    <li className="hover:text-[#45E555] hover:cursor-pointer"><Link to={'/sales'}>Акции</Link></li>
-                                    <li className="hover:text-[#45E555] hover:cursor-pointer"><Link to={'/about'}>О нас</Link></li>
-                                    <li className="hover:text-[#45E555] hover:cursor-pointer"><Link to={'/support'}>Поддержка</Link></li>
+                                    <li className="hover:text-green-primary hover:cursor-pointer"><Link to={'/catalog'}>Продукты</Link></li>
+                                    <li className="hover:text-green-primary hover:cursor-pointer"><Link to={'/sales'}>Акции</Link></li>
+                                    <li className="hover:text-green-primary hover:cursor-pointer"><Link to={'/about'}>О нас</Link></li>
+                                    <li className="hover:text-green-primary hover:cursor-pointer"><Link to={'/support'}>Поддержка</Link></li>
                                 </ul>
                             </div>
                         </div>
@@ -140,10 +140,10 @@ const Header: FC<IHeader> = ({ bucketCounter, setSidebarOpen }) => {
                                 </div>
                                 <div className="mb-20">
                                     <ul className="grid gap-y-5 font-semibold text-xl">
-                                        <li className="hover:text-[#45E555] hover:cursor-pointer"><Link to={'/catalog'}>Продукты</Link></li>
-                                        <li className="hover:text-[#45E555] hover:cursor-pointer"><Link to={'/sales'}>Акции</Link></li>
-                                        <li className="hover:text-[#45E555] hover:cursor-pointer"><Link to={'/about'}>О нас</Link></li>
-                                        <li className="hover:text-[#45E555] hover:cursor-pointer"><Link to={'/support'}>Поддержка</Link></li>
+                                        <li className="hover:text-green-primary hover:cursor-pointer"><Link to={'/catalog'}>Продукты</Link></li>
+                                        <li className="hover:text-green-primary hover:cursor-pointer"><Link to={'/sales'}>Акции</Link></li>
+                                        <li className="hover:text-green-primary hover:cursor-pointer"><Link to={'/about'}>О нас</Link></li>
+                                        <li className="hover:text-green-primary hover:cursor-pointer"><Link to={'/support'}>Поддержка</Link></li>
                                     </ul>
                                 </div>
                             </div>
@@ -152,6 +152,7 @@ const Header: FC<IHeader> = ({ bucketCounter, setSidebarOpen }) => {
                     </div>
                 </div>
             </div>
+            <div className="h-[100px]"></div>
         </>
     )
 }

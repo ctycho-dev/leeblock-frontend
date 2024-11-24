@@ -30,7 +30,7 @@ code {
 }
 
 .adv-icon {
-  height: 7rem;
+  height: 5rem;
 }
 
 
@@ -143,25 +143,3 @@ code {
 .react-tel-input input {
 } 
 
-/* Style the scrollbar track (background) */
-::-webkit-scrollbar-track {
-  background-color: #f1f1f1; /* Light gray background */
-  border-radius: 10px; /* Rounded corners */
-}
-
-/* Style the scrollbar thumb (the draggable part) */
-::-webkit-scrollbar-thumb {
-  background-color: #888; /* Dark gray thumb */
-  border-radius: 10px; /* Rounded corners */
-  border: 3px solid #f1f1f1; /* Adds a small border to separate thumb from track */
-}
-
-/* Style the scrollbar thumb on hover (when you mouse over it) */
-::-webkit-scrollbar-thumb:hover {
-  background-color: #555; /* Darker gray when hovered */
-}
-
-/* Optional: Style the scrollbar corner (where horizontal and vertical scrollbars meet) */
-::-webkit-scrollbar-corner {
-  background-color: transparent; /* No color for the corner */
-}

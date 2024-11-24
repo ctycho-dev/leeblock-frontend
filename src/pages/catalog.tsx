@@ -55,7 +55,7 @@ const Catalog: FC<ICatalog> = ({ }) => {
             <div className="bg-checkout">
                 <Header bucketCounter={bucketCounter} setSidebarOpen={setSidebarOpen} />
                 <div className="max-w-7xl m-auto px-6 tablet:px-10">
-                    <main className="pb-14 pt-32">
+                    <main className="pb-14 py-10">
                         <aside>
                         </aside>
                         <aside>

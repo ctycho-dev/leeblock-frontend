@@ -17,6 +17,8 @@ module.exports = {
       },
       boxShadow: {
         custom: '1px 1px 16px 0px rgba(0, 0, 0, 0.1)', // Tailwind uses rgba for transparency
+        custom2: 'rgba(99, 99, 99, 0.2) 0px 2px 8px 0px',
+        custom3: 'rgba(0, 0, 0, 0.24) 0px 3px 8px'
       },
       width: {
         'sidebar-desktop': '600px',
@@ -29,7 +31,9 @@ module.exports = {
         '221': '1fr 1fr auto'
       },
       colors: {
-        'h-checkout': '#838383'
+        'h-checkout': '#838383',
+        'gray-primary': '#6E6E6E',
+        'green-primary': '#45E555'
       }
     },
     screens: {
