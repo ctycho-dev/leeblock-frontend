@@ -5,11 +5,12 @@ interface IInputCustom {
     label: string
     value: string
     placeholder: string
+    name?: string
     onChangeFunc: any
     notRequired?: boolean
 }
 
-const InputCustom: FC<IInputCustom> = ({ type, label, value, placeholder, onChangeFunc, notRequired }) => {
+const InputCustom: FC<IInputCustom> = ({ type, label, value, placeholder, name, onChangeFunc, notRequired }) => {
 
     const handleChange = (event: any) => {
         onChangeFunc(event.target.value);
@@ -21,10 +22,11 @@ const InputCustom: FC<IInputCustom> = ({ type, label, value, placeholder, onChan
                 <label className={notRequired ? '' : 'required'}>{label}</label>
                 <input
                     type={type}
+                    name={name}
                     placeholder={placeholder}
                     value={value}
                     onChange={handleChange}
-                    className="border p-2 rounded-lg w-full outline-none mt-2"
+                    className="border h-10 px-2 rounded-lg w-full outline-none mt-2"
                 />
             </div>
         </>

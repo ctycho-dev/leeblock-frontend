@@ -24,6 +24,15 @@ code {
     monospace;
 }
 
+.link-custom {
+  color: #0000EE;
+  text-decoration: underline;
+}
+
+.adv-icon {
+  height: 7rem;
+}
+
 
 .button-gradient {
   background: linear-gradient(270deg, rgba(90, 226, 140, 0.89) 4.29%, rgba(211, 227, 130, 0.45) 153.33%),
@@ -96,4 +105,63 @@ code {
 .header-hidden {
   /* opacity: 0; */
   transform: translateY(-100%);
+}
+
+
+/* Style the entire scrollbar */
+::-webkit-scrollbar {
+  width: 12px;  /* Width of the vertical scrollbar */
+  height: 12px;
+}
+
+.react-tel-input .form-control {
+  width: 100% !important;
+  height: 100% !important;
+  background: transparent !important;
+  /* border: 1px solid #439F67 !important; */
+  border: none !important;
+  border-radius: 0.5rem !important;
+}
+
+.selected-flag {
+  /* background: #13171D !important;
+  border-radius: 0.5rem !important; */
+}
+
+.flag-dropdown {
+  background: none !important;
+  border: none !important;
+  /* background: #13171D !important; */
+  /* border: 1px solid #439F67 !important; */
+  border-radius: 0.5rem !important;
+}
+
+.selected-flag:hover {
+  background: none !important;
+}
+
+.react-tel-input input {
+} 
+
+/* Style the scrollbar track (background) */
+::-webkit-scrollbar-track {
+  background-color: #f1f1f1; /* Light gray background */
+  border-radius: 10px; /* Rounded corners */
+}
+
+/* Style the scrollbar thumb (the draggable part) */
+::-webkit-scrollbar-thumb {
+  background-color: #888; /* Dark gray thumb */
+  border-radius: 10px; /* Rounded corners */
+  border: 3px solid #f1f1f1; /* Adds a small border to separate thumb from track */
+}
+
+/* Style the scrollbar thumb on hover (when you mouse over it) */
+::-webkit-scrollbar-thumb:hover {
+  background-color: #555; /* Darker gray when hovered */
+}
+
+/* Optional: Style the scrollbar corner (where horizontal and vertical scrollbars meet) */
+::-webkit-scrollbar-corner {
+  background-color: transparent; /* No color for the corner */
 }

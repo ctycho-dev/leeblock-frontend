@@ -13,10 +13,10 @@ import Catalog from './pages/catalog'
 import Checkout from './pages/checkout'
 import Politika from './pages/politika'
 import Agreement from './pages/agreement'
-import DeliveryPage from './pages/delivery'
 import PaymentPage from './pages/payment'
 import Error from './pages/error'
 
+import 'react-phone-input-2/lib/style.css'
 import 'react-loading-skeleton/dist/skeleton.css'
 
 const router = createBrowserRouter([
@@ -51,12 +51,7 @@ const router = createBrowserRouter([
         errorElement: <Error />,
     },
     {
-        path: "/delivery",
-        element: <DeliveryPage />,
-        errorElement: <Error />,
-    },
-    {
-        path: "/payment",
+        path: "/payment_and_delivery",
         element: <PaymentPage />,
         errorElement: <Error />,
     }

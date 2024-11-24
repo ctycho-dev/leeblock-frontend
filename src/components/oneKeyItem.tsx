@@ -20,7 +20,7 @@ const OneKeyItem: FC<IOneKeyItem> = ({ product, description, setBucketCounter, s
                             <div className="absolute top-4 left-4 shadow-custom px-3 py-2 rounded-xl font-medium text-sm">Нет в наличии</div>
                             : ''
                     }
-                    <div className="flex justify-center">
+                    <div className="flex justify-center min-h-[280px]">
                         <img src={product.image} alt={product.name} className="w-96" />
                     </div>
                     <h3 className="text-2xl md:text-3xl lg:text-4xl font-semibold mb-2">{product.name}</h3>

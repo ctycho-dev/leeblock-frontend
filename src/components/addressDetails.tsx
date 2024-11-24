@@ -29,9 +29,9 @@ const AddressDetails: FC<IAddressDetails> = ({
                 <h2 className="text-xl font-bold text-h-checkout mb-4">Адрес доставки</h2>
                 <div className="grid sm-mobile:grid-cols-21 gap-x-2 gap-y-3 mb-3">
                     <CityInput chosenCity={chosenCity} setChosenCity={setChosenCity} />
-                    <InputCustom type="text" label="Индекс" value={chosenZip} placeholder="101000" onChangeFunc={setChosenZip} />
+                    <InputCustom type="text" name="postal-code" label="Индекс" value={chosenZip} placeholder="101000" onChangeFunc={setChosenZip} />
                 </div>
-                <InputCustom type="text" label="Адрес" value={chosenAddress} placeholder="ул. Зоологическая 2" onChangeFunc={setChosenAddress} />
+                <InputCustom type="text" name="city"  label="Адрес" value={chosenAddress} placeholder="ул. Зоологическая 2" onChangeFunc={setChosenAddress} />
             </div>
         </>
     )

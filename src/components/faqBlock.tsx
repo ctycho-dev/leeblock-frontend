@@ -2,15 +2,10 @@ import { FC, useState, useRef } from "react";
 
 import plus from '../assets/plus.svg'
 
-type FAQType = {
-    question: string
-    answer: string
-}
-
 interface IFAQBlock {
     index: number
     question: string
-    answer: string
+    answer: any
 }
 
 const FAQBlock: FC<IFAQBlock> = ({ index, question, answer }) => {
@@ -49,7 +44,7 @@ const FAQBlock: FC<IFAQBlock> = ({ index, question, answer }) => {
                     style={{ maxHeight: isOpen ? `${answerRef?.current?.scrollHeight}px` : '0' }}
                 >
                     <br />
-                    <span>{answer}</span>
+                    <span dangerouslySetInnerHTML={{ __html: answer }}></span>
                 </div>
             </div>
         </>

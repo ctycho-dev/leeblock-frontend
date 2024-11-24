@@ -64,7 +64,7 @@ const Catalog: FC<ICatalog> = ({ }) => {
                                     allProducts ?
                                         allProducts.map((product: Product, i) => {
                                             return (
-                                                <div key={i} className="relative bg-white rounded-md p-6 sm-mobile:p-4 md:p-6 shadow-custom fade-enter-active">
+                                                <div key={i} className="relative bg-white rounded-md p-6 sm-mobile:p-4 md:p-6 shadow-custom min-h-[400px]">
                                                     {
                                                         !product.supply ?
                                                             <div className="bg-white absolute top-4 left-4 shadow-custom px-3 py-2 rounded-xl font-medium text-xs tablet:text-sm">

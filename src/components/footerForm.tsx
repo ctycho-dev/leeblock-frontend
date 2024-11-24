@@ -4,6 +4,9 @@ import ReactLoading from 'react-loading';
 import { sendEmailCallRequired } from "../utils/email";
 import { isValidPhoneNumber } from "../utils";
 
+import PhoneInput from 'react-phone-input-2'
+
+
 interface IFooterForm {
 }
 
@@ -21,9 +24,6 @@ const FooterForm: FC<IFooterForm> = ({ }) => {
         }
         else if (!phone) {
             toast.error('Поле "Телефон" обязателено к заполнению')
-        }
-        else if (!isValidPhoneNumber(phone)) {
-            toast.error('Поле "Телефон" не валидное')
         }
         else {
             const res = await sendEmailCallRequired(name, phone)
@@ -44,22 +44,34 @@ const FooterForm: FC<IFooterForm> = ({ }) => {
         <>
             <div className="grid md:justify-end">
                 <span className="text-xs mb-2 text-[#45E555]">Заказать обратную связь?</span>
-                <div className="grid tablet:grid-cols-221 gap-y-2">
+                <div className="grid tablet:grid-cols-221 gap-y-2 tablet:gap-x-2">
                     <input
                         type="text"
+                        name="name"
                         placeholder="Name"
                         value={name}
                         onChange={(e) => { setName(e.target.value) }}
                         className="h-12 border border-[#439F67] rounded-lg outline-none bg-transparent px-4" />
-                    <input
-                        type="phone"
+                    {/* <input
+                        type="tel"
+                        name="phone"
                         placeholder="Телефон"
                         value={phone}
                         onChange={(e) => { setPhone(e.target.value) }}
-                        className="h-12 tablet:ml-2 border border-[#439F67] rounded-lg outline-none bg-transparent px-4" />
+                        className="h-12 tablet:ml-2 border border-[#439F67] rounded-lg outline-none bg-transparent px-4" /> */}
+                    <div className="border border-[#439F67] rounded-lg">
+                        <PhoneInput
+                            country={'ru'}
+                            value={phone}
+                            disableDropdown={true}
+                            containerClass={'h-12'}
+                            placeholder='+7 (965) 222 33 44'
+                            onChange={(e) => { setPhone(e) }}
+                        />
+                    </div>
                     <button
-                        className={`flex gap-x-2 items-center h-12 text-black button-gradient
-                            py-2 px-4 rounded-xl transition-all tablet:ml-2 duration-200
+                        className={`flex gap-x-2 items-center justify-center h-12 text-black font-bold button-gradient
+                            py-2 px-4 rounded-xl transition-all duration-200
                             hover:-mt-[2px] hover:mb-[2px] hover:cursor-pointer
                             disabled:pointer-events-none disabled:opacity-50`}
                         onClick={submitForm}

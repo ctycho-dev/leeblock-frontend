@@ -19,7 +19,7 @@ const MainScreen: FC<IMainScreen> = ({ }) => {
                             <h3 className="text-[#6E6E6E] text-sm tablet:text-base">Пользуйся передовыми решениями для защиты своих цифровых активов. Удобство, безопасность и контроль — всё в одном устройстве.</h3>
                         </div>
                         <div className="hidden tablet:flex justify-center">
-                            <img src={mainWallet} alt="Wallet" className="rotate-12 max-w-xs md:max-w-sm lg:max-w-md" />
+                            <img src='https://ctycho-s3.ru/web/leeblock/products/pro-black.png' alt="Wallet" className="rotate-12 max-w-xs md:max-w-sm lg:max-w-md" />
                         </div>
                     </div>
                     <div className="bg-white h-[130px] rounded-2xl shadow-custom flex items-center justify-between py-6 px-10 lg:px-20">

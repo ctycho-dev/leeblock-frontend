@@ -1,5 +1,6 @@
 import { FC, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import Help from "../components/help";
 import HeaderSecond from "../components/headerSecond";
 import Footer from "../components/footer";
@@ -13,6 +14,7 @@ import { initPayment } from "../utils/tinkoff";
 import { Toaster, toast } from 'sonner'
 import ReactLoading from 'react-loading';
 import Skeleton from 'react-loading-skeleton'
+import PhoneInput from 'react-phone-input-2'
 
 
 // declare global {
@@ -81,7 +83,6 @@ const Checkout: FC<ICheckout> = ({ }) => {
 
 
     const sumbitRequest = async () => {
-        setButtonDisabled(true)
         if (!chosenCity) {
             toast.error('Поле "Город" обязателено к заполнению')
             return
@@ -100,9 +101,6 @@ const Checkout: FC<ICheckout> = ({ }) => {
         } else if (!chosenPhone) {
             toast.error('Поле "Телефон" обязателено к заполнению')
             return
-        } else if (!isValidPhoneNumber(chosenPhone)) {
-            toast.error('Поле "Телефон" не валидное')
-            return
         } else if (!chosenEmail) {
             toast.error('Поле "Email" обязателено к заполнению')
             return
@@ -110,6 +108,7 @@ const Checkout: FC<ICheckout> = ({ }) => {
             toast.error('Поле "Email" не валидное')
             return
         }
+        setButtonDisabled(true)
 
         let amount = 0
 
@@ -124,7 +123,7 @@ const Checkout: FC<ICheckout> = ({ }) => {
                 'Amount': price * x.quantity,
                 'Tax': 'vat10'
             })
-            amount +=  price * x.quantity
+            amount += price * x.quantity
         }
 
 
@@ -181,23 +180,28 @@ const Checkout: FC<ICheckout> = ({ }) => {
                             <div className={`${isLoading ? 'bg-gray-100 opacity-50 pointer-events-none' : 'bg-white'} p-6 rounded-3xl checkout-block-shadow`}>
                                 <h2 className="text-xl font-bold text-h-checkout mb-4">Ваши данные</h2>
                                 <div className="grid sm-mobile:grid-cols-21 gap-x-2 gap-y-3 mb-3">
-                                    <InputCustom type="text" label="Имя" value={chosenName} placeholder="Иван" onChangeFunc={setChosenName} />
-                                    <InputCustom type="text" label="Фамилия" value={chosenSurname} placeholder="Иванов" onChangeFunc={setChosenSurname} />
+                                    <InputCustom type="text" name='name' label="Имя" value={chosenName} placeholder="Иван" onChangeFunc={setChosenName} />
+                                    <InputCustom type="text" name='lname' label="Фамилия" value={chosenSurname} placeholder="Иванов" onChangeFunc={setChosenSurname} />
                                 </div>
                                 <div className="grid sm-mobile:grid-cols-21 gap-x-2 gap-y-3 mb-3">
-                                    <InputCustom type="text" label="Телефон" value={chosenPhone} placeholder="+79653332211" onChangeFunc={setChosenPhone} />
-                                    <InputCustom type="text" label="Telegram" value={chosenTelegram} placeholder="@" onChangeFunc={setChosenTelegram} notRequired={true} />
+                                    {/* <InputCustom type="text" label="Телефон" value={chosenPhone} placeholder="+79653332211" onChangeFunc={setChosenPhone} /> */}
+                                    <div className="">
+                                        <label className={'required'}>Телефон</label>
+                                        <PhoneInput
+                                            country={'ru'}
+                                            value={chosenPhone}
+                                            containerClass={'mt-2 h-10 border rounded-lg'}
+                                            onChange={(e) => { setChosenPhone(e) }}
+                                        />
+                                    </div>
+                                    <InputCustom type="text" name='' label="Telegram" value={chosenTelegram} placeholder="@" onChangeFunc={setChosenTelegram} notRequired={true} />
                                 </div>
-                                <InputCustom type="text" label="Email" value={chosenEmail} placeholder="example@mail.ru" onChangeFunc={setChosenEmail} />
+                                <InputCustom type="text" name='email' label="Email" value={chosenEmail} placeholder="example@mail.ru" onChangeFunc={setChosenEmail} />
                             </div>
-                            <div className={`${isLoading ? 'bg-gray-100 opacity-50 pointer-events-none' : 'bg-white'} p-6 rounded-3xl checkout-block-shadow`}>
+                            {/* <div className={`${isLoading ? 'bg-gray-100 opacity-50 pointer-events-none' : 'bg-white'} p-6 rounded-3xl checkout-block-shadow`}>
                                 <h2 className="text-xl font-bold text-h-checkout mb-4">Способ доставки</h2>
 
-                            </div>
-                            <div className={`${isLoading ? 'bg-gray-100 opacity-50 pointer-events-none' : 'bg-white'} p-6 rounded-3xl checkout-block-shadow`}>
-                                <h2 className="text-xl font-bold text-h-checkout mb-4">Способ оплаты</h2>
-
-                            </div>
+                            </div> */}
                             <div className="flex gap-4 flex-col-reverse lg:flex-row">
                                 <div>
                                     <button
@@ -216,7 +220,7 @@ const Checkout: FC<ICheckout> = ({ }) => {
                                     </button>
                                 </div>
                                 <div className="text-xs">
-                                    Ваши личные данные будут использоваться для обработки ваших заказов, упрощения вашей работы с сайтом и для других целей, описанных в нашей <span className="underline">политика конфиденциальности</span>.
+                                    Ваши личные данные будут использоваться для обработки ваших заказов, упрощения вашей работы с сайтом и для других целей, описанных в нашей <Link to='/politika' className="underline ">политика конфиденциальности</Link>.
                                 </div>
                             </div>
                         </aside>

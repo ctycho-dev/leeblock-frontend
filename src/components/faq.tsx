@@ -4,7 +4,7 @@ import { faqList } from '../store/faq'
 
 type FAQType = {
     question: string
-    answer: string
+    answer: any
 }
 
 interface IFAQ { }

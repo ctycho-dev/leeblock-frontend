@@ -53,6 +53,7 @@ const Help: FC<IHelp> = ({ }) => {
                             <label className="font-bold text-base">Ваше имя</label>
                             <input
                                 type="text"
+                                name="name"
                                 value={name}
                                 onChange={(e) => { setName(e.target.value) }}
                                 className="border p-2 rounded-lg w-full outline-none mt-2" />
@@ -60,7 +61,8 @@ const Help: FC<IHelp> = ({ }) => {
                         <div className="mb-4">
                             <label className="font-bold text-base">Почта</label>
                             <input
-                                type="text"
+                                type="email"
+                                name="email"
                                 value={email}
                                 onChange={(e) => { setEmail(e.target.value) }}
                                 className="border p-2 rounded-lg w-full outline-none mt-2" />

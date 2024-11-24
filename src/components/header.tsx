@@ -5,10 +5,8 @@ import bucket from '../assets/bucket.svg'
 import search from '../assets/search.svg'
 import logoShort from '../assets/logoShort.svg'
 
-
-import ozon from '../assets/links/ozon.svg'
-import telegram from '../assets/links/telegram.svg'
 import plus from '../assets/plus.svg'
+import IconsList from "./iconsList";
 
 
 interface IHeader {
@@ -149,26 +147,9 @@ const Header: FC<IHeader> = ({ bucketCounter, setSidebarOpen }) => {
                                     </ul>
                                 </div>
                             </div>
-                            <div className="flex gap-x-4 border-t pt-4">
-                                <div className="border border-black rounded-md w-[40px] h-[40px] flex justify-center items-center">
-                                    <img src={telegram} alt="" className="w-[30px]" />
-                                </div>
-                                <div className="border border-black rounded-md w-[40px] h-[40px] flex justify-center items-center">
-                                    <img src={ozon} alt="" />
-                                </div>
-                            </div>
+                            <IconsList />
                         </div>
                     </div>
-                    {/* <div id="mobile-nav" className={`fixed w-screen h-screen left-0 bg-white py-24 overflow-hidden transition-all duration-500 ${isMobileMenuOpen ? 'top-0' : '-top-[100%]'} -z-10`}>
-                        <div className="px-6 py-6 md:py-3">
-                            <ul className="grid gap-y-6 font-semibold text-xl">
-                                <li className="hover:text-[#45E555]">Продукты</li>
-                                <li className="hover:text-[#45E555]">Акции</li>
-                                <li className="hover:text-[#45E555]">О нас</li>
-                                <li className="hover:text-[#45E555]">Поддержка</li>
-                            </ul>
-                        </div>
-                    </div> */}
                 </div>
             </div>
         </>

@@ -1,0 +1,20 @@
+version: "3.8"
+
+services:
+  react-app:
+    image: leeblock_react
+    ports:
+      - "3000:3000"
+    volumes:
+      - .:/app
+    environment:
+      NODE_ENV: production
+      REACT_APP_BACKEND: ${REACT_APP_BACKEND}
+    restart: always
+    # healthcheck:
+    #   test: ["executable", "arg"]
+    #   interval: 1m30s
+    #   timeout: 30s
+    #   retries: 5
+    #   start_period: 30s
+  

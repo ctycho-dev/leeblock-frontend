@@ -7,6 +7,7 @@ import BagItemColor from "./bagItemColor";
 import { getTotalSum } from "../utils";
 import { MyBag } from "../types";
 
+
 interface ISidebar {
     isSidebarOpen: boolean
     setSidebarOpen: any

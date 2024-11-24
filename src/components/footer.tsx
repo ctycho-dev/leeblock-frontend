@@ -1,8 +1,10 @@
 import { FC } from "react";
+import { Link } from "react-router-dom";
+
+import FooterForm from "./footerForm";
 
 import logoShort from '../assets/logoShortWhite.svg'
-import FooterForm from "./footerForm";
-import { Link } from "react-router-dom";
+import IconsListWhite from "./iconsListWhite";
 
 interface IFooter { }
 
@@ -51,19 +53,18 @@ const Footer: FC<IFooter> = ({ }) => {
                                 <div className="flex tablet:justify-center">
                                     <ul>
                                         <li className="font-bold mb-4 text-base lg:text-lg">Покупателям</li>
-                                        {/* <li className="text-[#b3b3b3] mb-2 text-sm hover:text-[#45E555] transition-colors duration-100 hover:cursor-pointer">Подобрать кошелек</li> */}
                                         <li className="text-[#b3b3b3] mb-2 text-sm hover:text-[#45E555] transition-colors duration-100 hover:cursor-pointer"><Link to={'/catalog'}>Каталог</Link></li>
-                                        <li className="text-[#b3b3b3] mb-2 text-sm hover:text-[#45E555] transition-colors duration-100 hover:cursor-pointer"><Link to={'/payment'}>Оплата и доставка</Link></li>
-                                        {/* <li className="text-[#b3b3b3] mb-2 text-sm hover:text-[#45E555] transition-colors duration-100 hover:cursor-pointer"><Link to={'/delivery'}>Доставка</Link></li> */}
+                                        <li className="text-[#b3b3b3] mb-2 text-sm hover:text-[#45E555] transition-colors duration-100 hover:cursor-pointer"><Link to={'/payment_and_delivery'}>Оплата и доставка</Link></li>
                                         <li className="text-[#b3b3b3] mb-2 text-sm hover:text-[#45E555] transition-colors duration-100 hover:cursor-pointer">Поддержка</li>
                                     </ul>
                                 </div>
-                                <div className="flex tablet:justify-end">
+                                <div className="grid tablet:justify-end">
                                     <ul>
                                         <li className="font-bold mb-4 text-base lg:text-lg">Контакты</li>
-                                        <li className="text-[#b3b3b3] mb-2 text-sm hover:text-[#45E555] transition-colors duration-100 hover:cursor-pointer">+7(900) 320-33-33</li>
+                                        <li className="text-[#b3b3b3] mb-2 text-sm hover:text-[#45E555] transition-colors duration-100 hover:cursor-pointer">+7(995) 629-58-89</li>
                                         <li className="text-[#b3b3b3] mb-2 text-sm hover:text-[#45E555] transition-colors duration-100 hover:cursor-pointer">info@leeblock.ru</li>
                                     </ul>
+                                    <IconsListWhite />
                                 </div>
                             </div>
                             <FooterForm />

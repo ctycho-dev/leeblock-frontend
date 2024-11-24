@@ -5,7 +5,8 @@ import ProductName from "./productName";
 import { Product } from "../types";
 
 import proBlackMobile from '../assets/products/pro-black.png'
-import proWhiteMobile from '../assets/products/pro-white.png'
+import proWhiteMobile from '../assets/products/proHover-9d1e6bda818595ff17e9e485d23c2439.png'
+
 
 interface IOneKeyPro {
     proBlack: Product
@@ -17,6 +18,7 @@ interface IOneKeyPro {
 
 const OneKeyPro: FC<IOneKeyPro> = ({ proBlack, proWhite, bucketCounter, setBucketCounter, setBagItems }) => {
 
+    const [isLoaded, setIsLoaded] = useState(false)
     const [colorWhite, setColorWhite] = useState(false)
     const [currentProduct, setCurrentProduct] = useState<Product>(proBlack)
 
@@ -31,6 +33,11 @@ const OneKeyPro: FC<IOneKeyPro> = ({ proBlack, proWhite, bucketCounter, setBucke
         }
 
     }
+
+    const handleImageLoad = () => {
+        setIsLoaded(true); // Set to true when image has fully loaded
+    };
+
     return (
         <>
             <div className="bg-[#F9FAFC] rounded-3xl shadow-custom">
@@ -76,18 +83,14 @@ const OneKeyPro: FC<IOneKeyPro> = ({ proBlack, proWhite, bucketCounter, setBucke
                         </div>
                     </div>
                     <div>
-                        {
-                            colorWhite ?
-                                <div className="flex justify-center">
-                                    <img src={proWhite.image} alt="ProBig-white" className="hidden tablet:block" />
-                                    <img src={proWhiteMobile} alt="ProBig-white" className="w-96 block tablet:hidden" />
-                                </div>
-                                :
-                                <div className="flex justify-center">
-                                    <img src={proBlack.image} alt="ProBig-Black" className="hidden tablet:block" />
-                                    <img src={proBlackMobile} alt="ProBig-Black" className="w-96 block tablet:hidden" />
-                                </div>
-                        }
+                        <div className={`${colorWhite ? '' : 'hidden'} flex justify-center min-h-[200px] lg:min-h-[400px]`}>
+                            <img src={proWhite.image} alt="ProBig-white" className="hidden tablet:block" />
+                            <img src={proWhiteMobile} alt="ProBig-white" className="mt-8 mb-4 w-48 block tablet:hidden" />
+                        </div>
+                        <div className={`${colorWhite ? 'hidden' : ''} flex justify-center min-h-[200px] lg:min-h-[400px]`}>
+                            <img src={proBlack.image} alt="ProBig-Black" className="hidden tablet:block" />
+                            <img src={proBlackMobile} alt="ProBig-Black" className="w-96 block tablet:hidden" />
+                        </div>
                     </div>
                 </div>
             </div>

@@ -49,6 +49,7 @@ const Advantages: FC<IAdvantages> = ({ }) => {
                                     return (
                                         <AdvantageBlock
                                             key={i}
+                                            image={item.image}
                                             title={item.title}
                                             subtitle={item.subtitle}
                                         />
