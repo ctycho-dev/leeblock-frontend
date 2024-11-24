@@ -2,11 +2,15 @@ import { FC, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
 import bucket from '../assets/bucket.svg'
+import bucketWhite from '../assets/bucketWhite.svg'
 import search from '../assets/search.svg'
 import logoShort from '../assets/logoShort.svg'
+import logoShortWhite from '../assets/logoShortWhite.svg'
 
-import plus from '../assets/plus.svg'
-import IconsList from "./iconsList";
+
+import { ShiftingDropDown } from "./shiftingDropDown";
+import MobileNav from "./mobileNav";
+import ThemeCustom from "./theme";
 
 
 interface IHeader {
@@ -72,30 +76,29 @@ const Header: FC<IHeader> = ({ bucketCounter, setSidebarOpen }) => {
         <>
             <div id="header" style={{
                 backgroundColor: `rgba(255, 255, 255, ${backgroundOpacity})`,
-            }} className={`fixed left-0 right-0 top-0 hover:bg-white z-50`}>
+            }} className={`fixed left-0 right-0 top-0 z-50 `}>
+                {/* }} className={`fixed left-0 right-0 top-0 z-50 bg-gradient-to-t from-gray-400 to-slate-900`}> */}
                 <div className="max-w-7xl m-auto px-6 tablet:px-10 py-4 tablet:py-6">
                     <header className="flex justify-between items-center">
                         <div className="flex gap-x-10 items-center">
                             <div className="group">
                                 <Link to={'/'}>
-                                    <img src={logoShort} alt="LeeBlock" className="h-10" />
+                                    <img src={logoShort} alt="LeeBlock" className="h-10 dark:hidden" />
+                                    <img src={logoShortWhite} alt="LeeBlock" className="h-10 hidden dark:block" />
                                 </Link>
                             </div>
                             <div className="hidden md:block">
-                                <ul className="flex gap-x-6 font-semibold text-base">
-                                    <li className="hover:text-green-primary hover:cursor-pointer"><Link to={'/catalog'}>Продукты</Link></li>
-                                    <li className="hover:text-green-primary hover:cursor-pointer"><Link to={'/sales'}>Акции</Link></li>
-                                    <li className="hover:text-green-primary hover:cursor-pointer"><Link to={'/about'}>О нас</Link></li>
-                                    <li className="hover:text-green-primary hover:cursor-pointer"><Link to={'/support'}>Поддержка</Link></li>
-                                </ul>
+                                <ShiftingDropDown />
                             </div>
                         </div>
                         <div className="flex gap-x-6 items-center">
                             {/* <div className="hidden md:block">
                                 <img src={search} alt='Search' className="h-[25px]" />
                             </div> */}
+                            {/* <ThemeCustom /> */}
                             <div className="relative hover:cursor-pointer" onClick={openSideBar}>
-                                <img src={bucket} alt='Bucket' className="h-[25px]" />
+                                <img src={bucket} alt='Bucket' className="h-[25px] dark:hidden" />
+                                <img src={bucketWhite} alt='Bucket' className="h-[25px] hidden dark:block" />
                                 <div className="absolute -top-2 -right-2 w-[20px] h-[20px]">
                                     {
                                         bucketCounter > 0 ?
@@ -119,37 +122,7 @@ const Header: FC<IHeader> = ({ bucketCounter, setSidebarOpen }) => {
                             </div>
                         </div>
                     </header>
-                    <div id="overlay" className={`
-                        bg-[#0006] fixed left-0 right-0 top-0 bottom-0
-                        transition-opacity duration-800
-                        ${isMobileMenuOpen ? 'opacity-100' : 'opacity-0 invisible'}
-                        `}>
-                    </div>
-                    <div id="mobile-nav" className={`z-50
-                        bg-white fixed left-4 right-4 tablet:right-auto tablet:top-4 bottom-4 
-                        rounded-lg p-6 min-w-80 min-h-80
-                        transition-transform duration-500
-                        ${isMobileMenuOpen ? '' : 'translate-y-[140%] tablet:translate-y-0 tablet:translate-x-[-110%]'}`}>
-                        <div className="relative flex flex-col justify-between h-full">
-                            <div>
-                                <div className="hidden bg-white mb-8 tablet:flex md:hidden shadow-custom rounded-full justify-center items-center w-12 h-12 hover:cursor-pointer"
-                                    onClick={openNavBar}><img src={plus} alt="" className="w-4 rotate-45" /></div>
-                                <div className="tablet:hidden absolute left-1/2 transform -translate-x-1/2 -translate-y-20">
-                                    <div className="bg-white mb-8 flex md:hidden shadow-custom rounded-full justify-center items-center w-12 h-12 hover:cursor-pointer"
-                                        onClick={openNavBar}><img src={plus} alt="" className="w-4 rotate-45" /></div>
-                                </div>
-                                <div className="mb-20">
-                                    <ul className="grid gap-y-5 font-semibold text-xl">
-                                        <li className="hover:text-green-primary hover:cursor-pointer"><Link to={'/catalog'}>Продукты</Link></li>
-                                        <li className="hover:text-green-primary hover:cursor-pointer"><Link to={'/sales'}>Акции</Link></li>
-                                        <li className="hover:text-green-primary hover:cursor-pointer"><Link to={'/about'}>О нас</Link></li>
-                                        <li className="hover:text-green-primary hover:cursor-pointer"><Link to={'/support'}>Поддержка</Link></li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <IconsList />
-                        </div>
-                    </div>
+                    <MobileNav isMobileMenuOpen={isMobileMenuOpen} openNavBar={openNavBar} />
                 </div>
             </div>
             <div className="h-[100px]"></div>

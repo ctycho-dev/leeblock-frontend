@@ -13,11 +13,11 @@ const OneKeyItem: FC<IOneKeyItem> = ({ product, description, setBucketCounter, s
 
     return (
         <>
-            <div className="relative bg-[#F9FAFC] shadow-custom rounded-3xl p-8">
+            <div className="relative bg-card-primary dark:bg-card-dark dark:text-white shadow-custom rounded-3xl p-8">
                 <div>
                     {
                         !product.supply ?
-                            <div className="absolute top-4 left-4 shadow-custom px-3 py-2 rounded-xl font-medium text-sm">Нет в наличии</div>
+                            <div className="absolute top-4 left-4 shadow-custom3 dark:shadow-custom4 px-3 py-2 rounded-xl font-medium text-sm">Нет в наличии</div>
                             : ''
                     }
                     <div className="flex justify-center min-h-[280px]">

@@ -40,13 +40,13 @@ const OneKeyPro: FC<IOneKeyPro> = ({ proBlack, proWhite, bucketCounter, setBucke
 
     return (
         <>
-            <div className="bg-[#F9FAFC] rounded-3xl shadow-custom">
+            <div className="bg-card-primary dark:bg-card-dark dark:text-white rounded-3xl shadow-custom">
                 <div className="flex flex-col-reverse tablet:grid tablet:grid-cols-2">
                     <div className="p-7 flex flex-col justify-between">
                         <div></div>
                         <div>
                             <h3 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-2">OneyKey Pro</h3>
-                            <h5 className="text-[#767676] mb-8 text-sm md:text-base">Biometric tech, air-gapped connection, so many reasons to go Pro.</h5>
+                            <h5 className="text-[#767676] mb-8 text-sm md:text-base">биометрические технологии, изолированное соединение — множество причин перейти на Pro-версию.</h5>
                             <div className="lg:flex">
                                 <div className="flex items-center justify-between flex-1 mb-4 lg:mb-0">
                                     <div className="text-3xl md:text-4xl">

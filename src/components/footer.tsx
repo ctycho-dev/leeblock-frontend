@@ -12,7 +12,7 @@ const Footer: FC<IFooter> = ({ }) => {
 
     return (
         <>
-            <footer className="bg-[#13171D] text-white">
+            <footer className="bg-dark-primary text-white">
                 <div className="max-w-7xl m-auto px-6 tablet:px-10 py-16">
                     <div className="grid ipad-air:grid-cols-a1 gap-14">
                         <div className="flex ipad-air:flex-col justify-between">
@@ -45,7 +45,8 @@ const Footer: FC<IFooter> = ({ }) => {
                                 </div> */}
                                 <div>
                                     <ul>
-                                        <li className=" font-bold mb-4 text-base lg:text-lg">О нас</li>
+                                        <li className=" font-bold mb-4 text-base lg:text-lg">Общее</li>
+                                        <li className="text-[#b3b3b3] mb-2 text-sm hover:text-[#45E555] transition-colors duration-100 hover:cursor-pointer"><Link to={'/about'}>О компании</Link></li>
                                         <li className="text-[#b3b3b3] mb-2 text-sm hover:text-[#45E555] transition-colors duration-100 hover:cursor-pointer"><Link to={'/politika'}>Политика обработки персональных данных</Link></li>
                                         <li className="text-[#b3b3b3] mb-2 text-sm hover:text-[#45E555] transition-colors duration-100 hover:cursor-pointer"><Link to={'/agreement'}>Документы сайта</Link></li>
                                     </ul>
@@ -61,8 +62,8 @@ const Footer: FC<IFooter> = ({ }) => {
                                 <div className="grid tablet:justify-end">
                                     <ul>
                                         <li className="font-bold mb-4 text-base lg:text-lg">Контакты</li>
-                                        <li className="text-[#b3b3b3] mb-2 text-sm hover:text-[#45E555] transition-colors duration-100 hover:cursor-pointer">+7(995) 629-58-89</li>
-                                        <li className="text-[#b3b3b3] mb-2 text-sm hover:text-[#45E555] transition-colors duration-100 hover:cursor-pointer">info@leeblock.ru</li>
+                                        <li className="text-[#b3b3b3] mb-2 text-sm hover:text-[#45E555] transition-colors duration-100 hover:cursor-pointer"><Link to={'tel:+79655829966'}>+7(995) 629-58-89</Link></li>
+                                        <li className="text-[#b3b3b3] mb-2 text-sm hover:text-[#45E555] transition-colors duration-100 hover:cursor-pointer"><Link to={'mailto:info@leeblock.ru'}>info@leeblock.ru</Link></li>
                                     </ul>
                                     <IconsListWhite />
                                 </div>

@@ -43,7 +43,7 @@ const Sidebar: FC<ISidebar> = ({ isSidebarOpen, setSidebarOpen, bagItems, setQua
                     overflow-hidden z-[999]
                     transition-all ${isSidebarOpen ? '' : 'hidden'}`}></div>
                 <div className={`
-                    bg-sidebar-block
+                    bg-sidebar-block dark:bg-card-dark
                     fixed top-0 right-0
                     h-full w-full tablet:w-sidebar-desktop z-[1000]
                     overflow-hidden transition-transform duration-500

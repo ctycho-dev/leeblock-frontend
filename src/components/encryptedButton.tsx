@@ -78,7 +78,8 @@ const EncryptButton: React.FC = () => {
             }}
             onMouseEnter={scramble}
             onMouseLeave={stopScramble}
-            className="group relative overflow-hidden rounded-lg border-[1px] border-neutral-500 bg-neutral-700 px-4 py-2 font-mono font-medium uppercase text-neutral-300 transition-colors hover:text-indigo-300"
+            className="group relative overflow-hidden rounded-lg border-[1px] border-neutral-500 bg-card-dark px-4 py-2 font-mono font-medium uppercase text-neutral-200 transition-colors hover:text-indigo-300"
+            // className="group relative overflow-hidden rounded-lg border-[1px] border-neutral-500 bg-neutral-700 px-4 py-2 font-mono font-medium uppercase text-neutral-300 transition-colors hover:text-indigo-300"
         >
             <div className="relative z-10 flex items-center gap-2">
                 <FiLock />

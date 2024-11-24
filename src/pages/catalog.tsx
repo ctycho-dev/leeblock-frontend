@@ -52,7 +52,7 @@ const Catalog: FC<ICatalog> = ({ }) => {
 
     return (
         <>
-            <div className="bg-checkout">
+            <div className="bg-checkout dark:bg-dark-primary">
                 <Header bucketCounter={bucketCounter} setSidebarOpen={setSidebarOpen} />
                 <div className="max-w-7xl m-auto px-6 tablet:px-10">
                     <main className="pb-14 py-10">
@@ -77,7 +77,7 @@ const Catalog: FC<ICatalog> = ({ }) => {
                                                             </div>
                                                             : ''
                                                     }
-                                                    <div className="group hover:cursor-pointer mb-2">
+                                                    <div className="group hover:cursor-pointer mb-2 min-h-[290px]">
                                                         <img src={product.catalog_img} alt="" className="group-hover:hidden" />
                                                         <img src={product.catalog_hover_img} alt="" className="hidden group-hover:block" />
                                                     </div>

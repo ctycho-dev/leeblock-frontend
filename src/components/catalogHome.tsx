@@ -2,6 +2,9 @@ import { FC, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import OneKeyPro from "./oneKeyPro";
 import OneKeyItem from "./oneKeyItem";
+import {
+    FiArrowRight
+  } from "react-icons/fi";
 
 import { Product } from "../types";
 import { getProductById, getProductsToDisplay } from "../utils/products";
@@ -42,16 +45,11 @@ const CatalogHome: FC<ICatalogHome> = ({ bucketCounter, setBucketCounter, setBag
 
     return (
         <>
-            <div id='catalog' className="bg-checkout rounded-t-[50px] -mt-20 py-20">
+            <div id='catalog' className="bg-checkout dark:bg-dark-primary dark:text-white rounded-t-[50px] -mt-20 py-20">
                 <div className="max-w-7xl m-auto px-6 tablet:px-10">
                     <Link to='/catalog' className="text-2xl tablet:text-3xl mb-14 font-bold flex items-center gap-x-2">
                         <span>Все товары</span>
-                        <div className="relative h-1">
-                            <div className="absolute -right-[1px] -top-[4px] rotate-45 bg-black h-[3px] w-3 rounded-lg"></div>
-                            <div className="bg-black h-[3px] w-6 rounded-lg"></div>
-                            <div className="absolute -right-[1px] top-[4px] -rotate-45 bg-black h-[3px] w-3 rounded-lg"></div>
-                        </div>
-                    
+                        <FiArrowRight />
                     </Link>
                     <div className="mb-4">
                         {

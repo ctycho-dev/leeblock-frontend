@@ -1,6 +1,7 @@
 import { FC, useState, useRef } from "react";
 
 import plus from '../assets/plus.svg'
+import plusWhite from '../assets/plusWhite.svg'
 
 interface IFAQBlock {
     index: number
@@ -26,7 +27,7 @@ const FAQBlock: FC<IFAQBlock> = ({ index, question, answer }) => {
 
     return (
         <>
-            <div className={`${index == 0 ? 'border-t' : ''} border-b border-[#0000009C] py-6`}>
+            <div className={`${index == 0 ? 'border-t' : ''} border-b border-[#0000009C] dark:bg-card-dark dark:px-4 dark:rounded-3xl dark:mb-2 py-6`}>
                 <div className="grid hover:cursor-pointer" onClick={toggleFAQ}>
                     <div className="grid grid-cols-1-20 items-center">
                         <div className="flex gap-x-4 tablet:gap-x-6 items-center">
@@ -34,7 +35,8 @@ const FAQBlock: FC<IFAQBlock> = ({ index, question, answer }) => {
                             <div className="text-sm tablet:text-md md:text-lg lg:text-xl font-semibold">{question}</div>
                         </div>
                         <div className={`${isOpen ? 'rotate-45' : ''} transition-all duration-300 ml-2`}>
-                            <img src={plus} alt="plus" className=""/>
+                            <img src={plus} alt="plus" className="dark:hidden"/>
+                            <img src={plusWhite} alt="plus" className="hidden dark:block"/>
                         </div>
                     </div>
                 </div>

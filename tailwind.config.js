@@ -1,5 +1,6 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
+  darkMode: 'class',
   content: [
     "./src/**/*.{js,jsx,ts,tsx}",
   ],
@@ -13,12 +14,16 @@ module.exports = {
         'sidebar': "rgba(0, 0, 0, 0.25)",
         'sidebar-block': 'rgb(248, 249, 250)',
         'checkout': '#F4F5F8',
-        'primary': 'rgb(240, 240, 240)'
+        'primary': 'rgb(240, 240, 240)',
+        'dark-primary': '#13171D',
+        'card-primary': '#F9FAFC',
+        'card-dark': '#36383DBF'
       },
       boxShadow: {
         custom: '1px 1px 16px 0px rgba(0, 0, 0, 0.1)', // Tailwind uses rgba for transparency
         custom2: 'rgba(99, 99, 99, 0.2) 0px 2px 8px 0px',
-        custom3: 'rgba(0, 0, 0, 0.24) 0px 3px 8px'
+        custom3: 'rgba(0, 0, 0, 0.24) 0px 3px 8px',
+        custom4: 'rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px'
       },
       width: {
         'sidebar-desktop': '600px',

@@ -47,7 +47,8 @@ const Home: FC<IHome> = ({ }) => {
 
     return (
         <>
-            <main className="tablet:bg-main-texture">
+            {/* <main className="tablet:bg-main-texture"> */}
+            <main className="tablet:bg-main-texture dark:bg-dark-primary dark:text-white">
                 {/* <Announcement /> */}
                 <Header
                     bucketCounter={bucketCounter}

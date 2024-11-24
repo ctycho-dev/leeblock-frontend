@@ -123,10 +123,6 @@ code {
   border-radius: 0.5rem !important;
 }
 
-.selected-flag {
-  /* background: #13171D !important;
-  border-radius: 0.5rem !important; */
-}
 
 .flag-dropdown {
   background: none !important;
@@ -140,6 +136,4 @@ code {
   background: none !important;
 }
 
-.react-tel-input input {
-} 
 

@@ -1,40 +1,70 @@
 import { FC } from "react";
 import { Link } from "react-router-dom";
-import ButtonMain from "./addToCard";
-import wallet from '../assets/wallet.png'
-import mainWallet from '../assets/walletbg.webp'
 import EncryptedButton from "./encryptedButton";
+
+import proWhite from '../assets/products/proHover-9d1e6bda818595ff17e9e485d23c2439.png'
+import { motion } from "framer-motion";
 
 interface IMainScreen {
 }
 
 const MainScreen: FC<IMainScreen> = ({ }) => {
-
+    let text = 'Будущее начинается здесь.'.split(' ')
+    let text2 = 'Пользуйся передовыми решениями для защиты своих цифровых активов. Удобство, безопасность и контроль — всё в одном устройстве.'.split(' ')
     return (
         <>
             <div className="max-w-7xl m-auto px-6 tablet:px-10 pb-12 pt-12">
-                <div className="flex flex-col gap-y-20">
-                    <div className="flex-1 flex md:grid md:grid-cols-2 items-center z-10">
+                <div className="min-h-[50vh] flex flex-col gap-y-20">
+                    {/* <div className="lg:min-h-[40vh] flex flex-col gap-y-20"> */}
+                    <div className="flex-1 grid tablet:grid-cols-2 items-center z-10">
                         <div>
-                            <h1 className="text-4xl md:text-5xl font-semibold mb-4">Будущее<br />начинается здесь.</h1>
-                            <h3 className="text-[#6E6E6E] text-sm tablet:text-base mb-8">Пользуйся передовыми решениями для защиты своих цифровых активов. Удобство, безопасность и контроль — всё в одном устройстве.</h3>
+                            {text.map((el, i) => (
+                                <motion.span
+                                    initial={{ opacity: 0 }}
+                                    animate={{ opacity: 1 }}
+                                    transition={{
+                                        duration: 2,
+                                        delay: i / 10,
+                                    }}
+                                    className="text-4xl md:text-5xl font-semibold"
+                                    key={i}
+                                >
+                                    {el}{" "}
+                                </motion.span>
+                            ))}
+                            <div className="mb-4"></div>
+                            {text2.map((el, i) => (
+                                <motion.span
+                                    initial={{ opacity: 0 }}
+                                    animate={{ opacity: 1 }}
+                                    transition={{
+                                        duration: 1,
+                                        delay: (i + 2) / 10,
+                                    }}
+                                    className="text-neutral-400 text-sm tablet:text-base mb-8"
+                                    key={i}
+                                >
+                                    {el}{" "}
+                                </motion.span>
+                            ))}
+                            <div className="mb-8"></div>
                             <div className="tablet:hidden">
                                 <EncryptedButton />
                             </div>
                         </div>
                         <div className="hidden tablet:flex justify-center">
-                            <img src='https://ctycho-s3.ru/web/leeblock/products/pro-black.png' alt="Wallet" className="rotate-12 max-w-xs md:max-w-sm lg:max-w-md" />
+                            <img src={proWhite} alt="Wallet" className="h-96" />
                         </div>
                     </div>
-                    <div className="bg-white rounded-2xl shadow-custom flex items-center justify-between py-8 px-6 md:px-10">
-                        <div className="grid grid-cols-2 h-full gap-x-10">
+                    <div className="bg-white dark:bg-card-dark dark:text-slate-200 rounded-2xl shadow-custom flex items-center justify-between py-8 px-6 md:px-10 z-10">
+                        <div className="flex h-full gap-x-10 justify-between tablet:justify-normal">
                             <div className="">
-                                <div className="font-bold sm-mobile:text-xl mb-2">Мы официальные<br />реселлеры</div>
+                                <div className="font-bold sm-mobile:text-lg mb-2">Мы официальные<br />реселлеры</div>
                                 <div className="underline text-gray-primary text-sm sm-mobile:text-base hover:text-green-primary hover:cursor-pointer">Как проверить?</div>
                             </div>
                             <div className="w-max">
                                 <Link to={'https://help.onekey.so/hc/en-us/articles/5967821214223-OneKey-Reseller-Network#h_01H98J3VYZJF5128YMYN2MCC6J'}
-                                className="bg-checkout h-full py-2 px-2 flex justify-center items-center rounded-lg shadow-custom2">
+                                    className="bg-checkout h-full py-2 px-2 flex justify-center items-center rounded-lg shadow-custom2">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="64" height="29" viewBox="0 0 64 29" fill="none">
                                         <path d="M27.2329 17.7513C26.6429 17.7513 26.1011 17.6119 25.6074 17.3331C25.1137 17.0542 24.7224 16.6693 24.4335 16.1783C24.1445 15.6812 24 15.1205 24 14.4961C24 13.8778 24.1445 13.3232 24.4335 12.8321C24.7224 12.3351 25.1137 11.9471 25.6074 11.6683C26.1011 11.3894 26.6429 11.25 27.2329 11.25C27.8289 11.25 28.3707 11.3894 28.8584 11.6683C29.352 11.9471 29.7403 12.3351 30.0233 12.8321C30.3122 13.3232 30.4567 13.8778 30.4567 14.4961C30.4567 15.1205 30.3122 15.6812 30.0233 16.1783C29.7403 16.6693 29.352 17.0542 28.8584 17.3331C28.3647 17.6119 27.8229 17.7513 27.2329 17.7513ZM27.2329 16.6147C27.6122 16.6147 27.9463 16.5299 28.2353 16.3601C28.5242 16.1844 28.75 15.9358 28.9125 15.6145C29.0751 15.2933 29.1564 14.9205 29.1564 14.4961C29.1564 14.0718 29.0751 13.702 28.9125 13.3868C28.75 13.0655 28.5242 12.82 28.2353 12.6503C27.9463 12.4806 27.6122 12.3957 27.2329 12.3957C26.8536 12.3957 26.5165 12.4806 26.2215 12.6503C25.9325 12.82 25.7067 13.0655 25.5442 13.3868C25.3816 13.702 25.3004 14.0718 25.3004 14.4961C25.3004 14.9205 25.3816 15.2933 25.5442 15.6145C25.7067 15.9358 25.9325 16.1844 26.2215 16.3601C26.5165 16.5299 26.8536 16.6147 27.2329 16.6147Z" fill="black" />
                                         <path d="M33.7176 12.5776C34.3136 12.5776 34.7952 12.7686 35.1625 13.1505C35.5297 13.5263 35.7133 14.0537 35.7133 14.7326V17.6878H34.4491V14.9054C34.4491 14.5053 34.3497 14.1992 34.1511 13.987C33.9524 13.7688 33.6815 13.6597 33.3383 13.6597C32.9892 13.6597 32.7122 13.7688 32.5075 13.987C32.3089 14.1992 32.2095 14.5053 32.2095 14.9054V17.6878H30.9453V12.6504H32.2095V13.2778C32.3781 13.0596 32.5918 12.8898 32.8507 12.7686C33.1156 12.6413 33.4046 12.5776 33.7176 12.5776Z" fill="black" />
