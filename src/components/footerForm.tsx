@@ -48,17 +48,10 @@ const FooterForm: FC<IFooterForm> = ({ }) => {
                     <input
                         type="text"
                         name="name"
-                        placeholder="Name"
+                        placeholder="Имя"
                         value={name}
                         onChange={(e) => { setName(e.target.value) }}
                         className="h-12 border border-[#439F67] rounded-lg outline-none bg-transparent px-4" />
-                    {/* <input
-                        type="tel"
-                        name="phone"
-                        placeholder="Телефон"
-                        value={phone}
-                        onChange={(e) => { setPhone(e.target.value) }}
-                        className="h-12 tablet:ml-2 border border-[#439F67] rounded-lg outline-none bg-transparent px-4" /> */}
                     <div className="border border-[#439F67] rounded-lg">
                         <PhoneInput
                             country={'ru'}
