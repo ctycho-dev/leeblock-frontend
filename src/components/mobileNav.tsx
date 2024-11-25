@@ -77,14 +77,16 @@ const MobileNav: FC<IMobileNav> = ({ isMobileMenuOpen, openNavBar }) => {
                                     </Link>
                                 </li>
                                 <li>
-                                    <Link to={'payment_and_delivery'} className="hover:text-green-primary hover:cursor-pointer flex gap-x-2 items-center">
+                                    <Link to={'/payment_and_delivery'} className="hover:text-green-primary hover:cursor-pointer flex gap-x-2 items-center">
                                         <FiFile className="text-2xl text-black" />
                                         <span className="text-sm">Оплата и доставка</span>
                                     </Link>
                                 </li>
                                 <li className="hover:text-green-primary hover:cursor-pointer flex gap-x-2 items-center">
-                                    <FiHelpCircle className="text-2xl text-black" />
-                                    <span className="text-sm">Поддержка</span>
+                                    <Link to={'/support'} className="hover:text-green-primary hover:cursor-pointer flex gap-x-2 items-center">
+                                        <FiHelpCircle className="text-2xl text-black" />
+                                        <span className="text-sm">Поддержка</span>
+                                    </Link>
                                 </li>
                                 <li className="hover:text-green-primary hover:cursor-pointer flex gap-x-2 items-center">
                                     <img src={phone} alt="" className="text-xl text-black" />

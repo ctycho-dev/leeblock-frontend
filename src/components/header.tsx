@@ -61,14 +61,14 @@ const Header: FC<IHeader> = ({ bucketCounter, setSidebarOpen }) => {
 
     const openNavBar = () => {
 
-        if (isMobileMenuOpen) {
-            const body = document.querySelector('body')
-            if (body) body.style.overflow = 'auto'
-        }
-        else {
-            const body = document.querySelector('body')
-            if (body) body.style.overflow = 'hidden'
-        }
+        // if (isMobileMenuOpen) {
+        //     const body = document.querySelector('body')
+        //     if (body) body.style.overflow = 'auto'
+        // }
+        // else {
+        //     const body = document.querySelector('body')
+        //     if (body) body.style.overflow = 'hidden'
+        // }
         setMobileMenuOpen(!isMobileMenuOpen)
     }
 

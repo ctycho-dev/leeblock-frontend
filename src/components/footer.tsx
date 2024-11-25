@@ -49,7 +49,7 @@ const Footer: FC<IFooter> = ({ }) => {
                                         <li className="font-bold mb-4 text-base lg:text-lg">Покупателям</li>
                                         <li className="text-[#b3b3b3] mb-2 text-sm hover:text-[#45E555] transition-colors duration-100 hover:cursor-pointer"><Link to={'/catalog'}>Каталог</Link></li>
                                         <li className="text-[#b3b3b3] mb-2 text-sm hover:text-[#45E555] transition-colors duration-100 hover:cursor-pointer"><Link to={'/payment_and_delivery'}>Оплата и доставка</Link></li>
-                                        <li className="text-[#b3b3b3] mb-2 text-sm hover:text-[#45E555] transition-colors duration-100 hover:cursor-pointer">Поддержка</li>
+                                        <li className="text-[#b3b3b3] mb-2 text-sm hover:text-[#45E555] transition-colors duration-100 hover:cursor-pointer"><Link to={'/support'}>Поддержка</Link></li>
                                     </ul>
                                 </div>
                                 <div className="grid tablet:justify-end">
