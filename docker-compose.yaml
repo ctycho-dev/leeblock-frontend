@@ -2,19 +2,18 @@ version: "3.8"
 
 services:
   react-app:
-    image: leeblock_react
+    image: leeblock_react:latest
+    build:
+      context: .
+      dockerfile: Dockerfile
     ports:
-      - "3000:3000"
-    volumes:
-      - .:/app
+      - "5123:5000"
     environment:
       NODE_ENV: production
-      REACT_APP_BACKEND: ${REACT_APP_BACKEND}
+      REACT_APP_BACKEND: ${REACT_APP_BACKEND} # Use environment variable substitution
     restart: always
-    # healthcheck:
-    #   test: ["executable", "arg"]
-    #   interval: 1m30s
-    #   timeout: 30s
-    #   retries: 5
-    #   start_period: 30s
-  
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:5000"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
