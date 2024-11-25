@@ -1,6 +1,6 @@
 import { FC, useState, useEffect } from "react";
 import { Toaster, toast } from 'sonner'
-import { MyBag, Product } from "../types";
+import { MyBag } from "../types";
 
 interface IChangeAmount {
     index: number

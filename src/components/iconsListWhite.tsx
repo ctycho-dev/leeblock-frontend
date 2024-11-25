@@ -1,4 +1,4 @@
-import { FC, useState, useRef } from "react";
+import { FC } from "react";
 import { Link } from "react-router-dom";
 
 import ozon from '../assets/links/icons8-ozon.svg'

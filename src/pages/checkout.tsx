@@ -9,7 +9,7 @@ import CheckoutItem from "../components/checkoutItem";
 import AddressDetails from "../components/addressDetails";
 
 import { MyBag } from "../types";
-import { getTotalSum, isValidEmail, isValidPhoneNumber } from "../utils";
+import { getTotalSum, isValidEmail } from "../utils";
 import { initPayment } from "../utils/tinkoff";
 import { Toaster, toast } from 'sonner'
 import ReactLoading from 'react-loading';

@@ -1,12 +1,11 @@
 import { FC, useState, useEffect } from "react";
 import { Toaster, toast } from 'sonner'
 
-import Announcement from "../components/announcement";
 import Header from "../components/header";
 import MainScreen from "../components/mainScreen";
-import Advantages from "../components/advantages";
+import Advantages from "../components/advantage/advantages";
 import CatalogHome from "../components/catalogHome";
-import FAQ from "../components/faq";
+import FAQ from "../components/faq/faq";
 import Footer from "../components/footer";
 import Sidebar from "../components/sidebar";
 
@@ -27,7 +26,7 @@ const Home: FC<IHome> = ({ }) => {
         window.scrollTo(0, 0)
         const body = document.querySelector('body')
         if (body) body.style.overflow = 'auto'
-        
+
         updateBagItems(setBucketCounter, setBagItems)
 
         const orderId = localStorage.getItem('OrderId')
@@ -49,7 +48,6 @@ const Home: FC<IHome> = ({ }) => {
         <>
             {/* <main className="tablet:bg-main-texture"> */}
             <main className="tablet:bg-main-texture dark:bg-dark-primary dark:text-white">
-                {/* <Announcement /> */}
                 <Header
                     bucketCounter={bucketCounter}
                     setSidebarOpen={setSidebarOpen}

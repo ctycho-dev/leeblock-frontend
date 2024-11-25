@@ -1,6 +1,8 @@
 import { FC, useEffect, useState } from "react";
 import AdvantageBlock from "./advantageBlock";
-import { adv } from "../store/advantages";
+import { adv } from "../../store/advantages";
+// import BubbleText from "../bubbleText/bubbleText";
+import HorizontalScrollCarousel from './horizontalCarousel'
 
 interface IAdvantages { }
 
@@ -40,6 +42,7 @@ const Advantages: FC<IAdvantages> = ({ }) => {
         <>
             <div id='advantages' className="bg-[#13171D] text-white pt-20 pb-40">
                 <div className="max-w-7xl m-auto px-6 tablet:px-10">
+                    {/* <BubbleText text='Преимущества' text_style='text-5xl tablet:text-3xl mb-14 font-thin text-white' /> */}
                     <h2 className="text-2xl tablet:text-3xl mb-14 font-bold">Преимущества</h2>
 
                     <div id="scroll-section" className="scroll-area -me-6 tablet:-me-10 lg:me-0 mb-10">
@@ -58,6 +61,7 @@ const Advantages: FC<IAdvantages> = ({ }) => {
                             }
                         </div>
                     </div>
+                    {/* <HorizontalScrollCarousel /> */}
                     <div id="progress-bar" className="lg:hidden bg-[#36383DBF] h-[2px]">
                         <div style={{width: `${scrollX}%`}} className="bg-white h-[2px]"></div>
                     </div>

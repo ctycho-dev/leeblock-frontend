@@ -1,16 +1,20 @@
-import { FC } from "react";
+import { FC, useState } from "react";
 import { Link } from "react-router-dom";
 import EncryptedButton from "./encryptedButton";
 
 import proWhite from '../assets/products/proHover-9d1e6bda818595ff17e9e485d23c2439.png'
 import { motion } from "framer-motion";
+import SpringModal from "./springModal";
 
 interface IMainScreen {
 }
 
 const MainScreen: FC<IMainScreen> = ({ }) => {
+    const [isOpen, setIsOpen] = useState(false)
+
     let text = 'Б-у-д-у-щ-е-е- -н-а-ч-и-н-а-е-т-с-я- -з-д-е-с-ь-.'.split('-')
     let text2 = 'Пользуйся передовыми решениями для защиты своих цифровых активов. Удобство, безопасность и контроль — всё в одном устройстве.'.split(' ')
+
     return (
         <>
             <div className="max-w-7xl m-auto px-6 tablet:px-10 pb-12 pt-12">
@@ -59,7 +63,7 @@ const MainScreen: FC<IMainScreen> = ({ }) => {
                         <div className="flex h-full gap-x-10 justify-between tablet:justify-normal">
                             <div className="">
                                 <div className="font-bold sm-mobile:text-lg mb-2">Мы официальные<br />реселлеры</div>
-                                <div className="underline text-gray-primary text-sm sm-mobile:text-base hover:text-green-primary hover:cursor-pointer">Как проверить?</div>
+                                <div onClick={() => setIsOpen(true)} className="underline text-gray-primary text-sm sm-mobile:text-base hover:text-green-primary hover:cursor-pointer">Как проверить?</div>
                             </div>
                             <div className="w-max">
                                 <Link to={'https://help.onekey.so/hc/en-us/articles/5967821214223-OneKey-Reseller-Network#h_01H98J3VYZJF5128YMYN2MCC6J'} target="_blank"
@@ -82,6 +86,7 @@ const MainScreen: FC<IMainScreen> = ({ }) => {
                     </div>
                 </div>
             </div>
+            <SpringModal isOpen={isOpen} setIsOpen={setIsOpen} />
         </>
     )
 }

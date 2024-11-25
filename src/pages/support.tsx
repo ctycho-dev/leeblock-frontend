@@ -1,5 +1,4 @@
 import { FC, useEffect } from "react";
-import { Link } from "react-router-dom";
 import HeaderSecond from "../components/headerSecond";
 import Footer from "../components/footer";
 import Help from "../components/help";

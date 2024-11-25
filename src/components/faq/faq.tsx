@@ -1,6 +1,6 @@
 import { FC } from "react";
 import FAQBlock from "./faqBlock";
-import { faqList } from '../store/faq'
+import { faqList } from '../../store/faq'
 
 type FAQType = {
     question: string

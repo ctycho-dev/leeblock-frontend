@@ -1,6 +1,5 @@
-import { FC, useEffect, useState } from "react";
+import { FC, useState } from "react";
 import AddToCard from "./addToCard";
-import ProductName from "./productName";
 
 import { Product } from "../types";
 
@@ -18,7 +17,6 @@ interface IOneKeyPro {
 
 const OneKeyPro: FC<IOneKeyPro> = ({ proBlack, proWhite, bucketCounter, setBucketCounter, setBagItems }) => {
 
-    const [isLoaded, setIsLoaded] = useState(false)
     const [colorWhite, setColorWhite] = useState(false)
     const [currentProduct, setCurrentProduct] = useState<Product>(proBlack)
 
@@ -33,10 +31,6 @@ const OneKeyPro: FC<IOneKeyPro> = ({ proBlack, proWhite, bucketCounter, setBucke
         }
 
     }
-
-    const handleImageLoad = () => {
-        setIsLoaded(true); // Set to true when image has fully loaded
-    };
 
     return (
         <>

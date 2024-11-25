@@ -1,14 +1,9 @@
 import { FC, useState, useRef } from "react";
 import { Link } from "react-router-dom";
 import {
-    FiArrowRight,
-    FiBarChart2,
-    FiChevronDown,
     FiHome,
-    FiPieChart,
     FiFile,
     FiFolder,
-    FiUsers,
     FiHelpCircle
 } from "react-icons/fi";
 

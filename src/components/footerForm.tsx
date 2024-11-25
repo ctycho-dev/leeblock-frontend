@@ -2,7 +2,6 @@ import { FC, useState } from "react";
 import { Toaster, toast } from 'sonner'
 import ReactLoading from 'react-loading';
 import { sendEmailCallRequired } from "../utils/email";
-import { isValidPhoneNumber } from "../utils";
 
 import PhoneInput from 'react-phone-input-2'
 

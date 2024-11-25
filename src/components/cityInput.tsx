@@ -1,5 +1,4 @@
 import { FC, useEffect, useState } from "react";
-import InputCustom from "./inputCutom";
 import { getCities } from "../utils/rest";
 import { Citites } from "../types";
 
