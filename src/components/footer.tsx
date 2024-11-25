@@ -18,7 +18,7 @@ const Footer: FC<IFooter> = ({ }) => {
                         <div className="flex ipad-air:flex-col justify-between">
                             <div className="ipad-air:mb-10">
                                 <Link to={'/'}>
-                                    <img src={logoShort} alt="LeeBlock" className="w-16" />
+                                    <img src={logoShort} alt="LeeBlock" className="w-14" />
                                 </Link>
                             </div>
                             <div>
@@ -35,14 +35,7 @@ const Footer: FC<IFooter> = ({ }) => {
                         </div>
                         <div>
                             <div className="grid grid-cols-2 tablet:grid-cols-3 justify-between mb-10 gap-y-10 gap-x-4">
-                                {/* <div>
-                                    <ul>
-                                        <li className="font-bold mb-4 text-base lg:text-lg">Продукты</li>
-                                        <li className="text-[#b3b3b3] mb-2 text-sm hover:text-[#45E555] transition-colors duration-100 hover:cursor-pointer">OneKey Pro</li>
-                                        <li className="text-[#b3b3b3] mb-2 text-sm hover:text-[#45E555] transition-colors duration-100 hover:cursor-pointer">OneKey Classic 1S</li>
-                                        <li className="text-[#b3b3b3] mb-2 text-sm hover:text-[#45E555] transition-colors duration-100 hover:cursor-pointer">OneKey Touch</li>
-                                    </ul>
-                                </div> */}
+     
                                 <div>
                                     <ul>
                                         <li className=" font-bold mb-4 text-base lg:text-lg">Общее</li>
@@ -62,7 +55,7 @@ const Footer: FC<IFooter> = ({ }) => {
                                 <div className="grid tablet:justify-end">
                                     <ul>
                                         <li className="font-bold mb-4 text-base lg:text-lg">Контакты</li>
-                                        <li className="text-[#b3b3b3] mb-2 text-sm hover:text-[#45E555] transition-colors duration-100 hover:cursor-pointer"><Link to={'tel:+79655829966'}>+7(995) 629-58-89</Link></li>
+                                        <li className="text-[#b3b3b3] mb-2 text-sm hover:text-[#45E555] transition-colors duration-100 hover:cursor-pointer"><a href="tel:+79956295889">+7(995) 629-58-89</a></li>
                                         <li className="text-[#b3b3b3] mb-2 text-sm hover:text-[#45E555] transition-colors duration-100 hover:cursor-pointer"><Link to={'mailto:info@leeblock.ru'}>info@leeblock.ru</Link></li>
                                     </ul>
                                     <IconsListWhite />

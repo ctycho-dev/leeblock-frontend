@@ -75,7 +75,7 @@ const Header: FC<IHeader> = ({ bucketCounter, setSidebarOpen }) => {
     return (
         <>
             <div id="header" style={{
-                backgroundColor: `rgba(255, 255, 255, ${backgroundOpacity})`,
+                backgroundColor: `rgb(244, 245, 248, ${backgroundOpacity})`,
             }} className={`fixed left-0 right-0 top-0 z-50 `}>
                 {/* }} className={`fixed left-0 right-0 top-0 z-50 bg-gradient-to-t from-gray-400 to-slate-900`}> */}
                 <div className="max-w-7xl m-auto px-6 tablet:px-10 py-4 tablet:py-6">
@@ -125,7 +125,7 @@ const Header: FC<IHeader> = ({ bucketCounter, setSidebarOpen }) => {
                     <MobileNav isMobileMenuOpen={isMobileMenuOpen} openNavBar={openNavBar} />
                 </div>
             </div>
-            <div className="h-[100px]"></div>
+            <div className="h-[90px]"></div>
         </>
     )
 }

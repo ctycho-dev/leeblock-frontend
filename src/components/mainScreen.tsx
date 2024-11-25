@@ -9,13 +9,12 @@ interface IMainScreen {
 }
 
 const MainScreen: FC<IMainScreen> = ({ }) => {
-    let text = 'Будущее начинается здесь.'.split(' ')
+    let text = 'Б-у-д-у-щ-е-е- -н-а-ч-и-н-а-е-т-с-я- -з-д-е-с-ь-.'.split('-')
     let text2 = 'Пользуйся передовыми решениями для защиты своих цифровых активов. Удобство, безопасность и контроль — всё в одном устройстве.'.split(' ')
     return (
         <>
             <div className="max-w-7xl m-auto px-6 tablet:px-10 pb-12 pt-12">
                 <div className="min-h-[50vh] flex flex-col gap-y-20">
-                    {/* <div className="lg:min-h-[40vh] flex flex-col gap-y-20"> */}
                     <div className="flex-1 grid tablet:grid-cols-2 items-center z-10">
                         <div>
                             {text.map((el, i) => (
@@ -24,12 +23,12 @@ const MainScreen: FC<IMainScreen> = ({ }) => {
                                     animate={{ opacity: 1 }}
                                     transition={{
                                         duration: 2,
-                                        delay: i / 10,
+                                        delay: i / 20,
                                     }}
                                     className="text-4xl md:text-5xl font-semibold"
                                     key={i}
                                 >
-                                    {el}{" "}
+                                    {el}
                                 </motion.span>
                             ))}
                             <div className="mb-4"></div>
@@ -39,7 +38,7 @@ const MainScreen: FC<IMainScreen> = ({ }) => {
                                     animate={{ opacity: 1 }}
                                     transition={{
                                         duration: 1,
-                                        delay: (i + 2) / 10,
+                                        delay: (i + 10) / 10,
                                     }}
                                     className="text-neutral-400 text-sm tablet:text-base mb-8"
                                     key={i}

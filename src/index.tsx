@@ -14,6 +14,7 @@ import Checkout from './pages/checkout'
 import Politika from './pages/politika'
 import Agreement from './pages/agreement'
 import PaymentPage from './pages/payment'
+import SupportPage from './pages/support'
 import Error from './pages/error'
 
 import 'react-phone-input-2/lib/style.css'
@@ -53,6 +54,11 @@ const router = createBrowserRouter([
     {
         path: "/payment_and_delivery",
         element: <PaymentPage />,
+        errorElement: <Error />,
+    },
+    {
+        path: "/support",
+        element: <SupportPage />,
         errorElement: <Error />,
     }
 ]);

@@ -190,66 +190,28 @@ const Nub: React.FC<NubProps> = ({ selected }) => {
 
 const Products: React.FC = () => {
 
-
-  // useEffect(() => {
-  //   const fetchAPI = async () => {
-  //     const fetchedBlack = await getProductById('onekey-pro-black')
-  //     const fetchedWhite = await getProductById('onekey-classic-1s')
-  //     console.log(fetchedBlack)
-  //     console.log(fetchedWhite)
-  //     // if (fetchedWhite && fetchedWhite.data) {
-  //     //     setWhitePro(fetchedWhite.data)
-  //     // }
-  //     // if (fetchedBlack && fetchedBlack.data) {
-  //     //     setBlackPro(fetchedBlack.data)
-  //     // }
-  //     // if (fetchedItemsToDisplay && fetchedItemsToDisplay.data) {
-  //     //     setItemsToDisplay(fetchedItemsToDisplay.data)
-  //     // }
-  // }
-
-  // fetchAPI()
-  // }, [])
   return (
     <div>
-      <div className="text-white flex gap-4">
-        <div>
-          
-        </div>
-        <div>
-          <h3 className="mb-2 text-sm font-medium">Scaleup</h3>
-          <a href="#" className="mb-1 block text-sm text-neutral-400">
-            Live Coaching
-          </a>
-          <a href="#" className="mb-1 block text-sm text-neutral-400">
-            Reviews
-          </a>
-          <a href="#" className="block text-sm text-neutral-400">
-            Tax/VAT
-          </a>
-        </div>
-        <div>
-          <h3 className="mb-2 text-sm font-medium">Enterprise</h3>
-          <a href="#" className="mb-1 block text-sm text-neutral-400">
-            White glove
-          </a>
-          <a href="#" className="mb-1 block text-sm text-neutral-400">
-            SOX Compliance
-          </a>
-          <a href="#" className="block text-sm text-neutral-400">
-            Staffing
-          </a>
-          <a href="#" className="block text-sm text-neutral-400">
-            More
-          </a>
-        </div>
+      <div className="flex gap-4">
+      <Link to={'/catalog'} className="grid justify-center gap-y-2">
+          <img src="https://ctycho-s3.ru/web/leeblock/products/OneKeyPro_Main_Image_White_01.png" alt="" className="w-44" />
+          <div className="text-sm text-center">Onekey Pro White</div>
+        </Link>
+        <Link to={'/catalog'} className="grid justify-center gap-y-2">
+          <img src="https://ctycho-s3.ru/web/leeblock/products/Classic1S_Main_Image02.png" alt="" className="w-44" />
+          <div className="text-sm text-center">OneKey Classic 1S</div>
+        </Link>
+        <Link to={'/catalog'} className="grid justify-center gap-y-2">
+          <img src="https://ctycho-s3.ru/web/leeblock/products/SY_cup_01.webp" alt="" className="w-44" />
+          <div className="text-sm text-center">Camping Mug</div>
+        </Link>
       </div>
-
-      <button className="ml-auto mt-4 flex items-center gap-1 text-sm text-green-primary">
-        {/* <button className="ml-auto mt-4 flex items-center gap-1 text-sm text-indigo-300"> */}
-        <span>View more</span>
-        <FiArrowRight />
-      </button>
+      <div className="flex justify-end">
+        <Link to={'/catalog'} className="ml-auto mt-4 flex items-center gap-1 text-sm text-green-primary">
+          <span>View more</span>
+          <FiArrowRight />
+        </Link>
+      </div>
     </div>
   );
 };
@@ -285,13 +247,13 @@ const General: React.FC = () => {
 const Customers: React.FC = () => {
   return (
     <div className="grid grid-cols-2 gap-4 divide-x divide-neutral-700">
-      <Link to={'/politika'}
+      <Link to={'/payment_and_delivery'}
         className="flex w-full flex-col items-center justify-center py-2 text-neutral-600 transition-colors hover:text-neutral-900"
       >
         <FiFile className="mb-2 text-xl text-black" />
         <span className="text-xs">Оплата и доставка</span>
       </Link>
-      <Link to={'/agreement'}
+      <Link to={'/support'}
         className="flex w-full flex-col items-center justify-center py-2 text-neutral-600 transition-colors hover:text-neutral-900"
       >
         <FiHelpCircle className="mb-2 text-xl text-black" />

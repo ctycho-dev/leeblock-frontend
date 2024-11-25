@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import Footer from "../components/footer";
 import logo from '../assets/logoShort.svg'
 import Help from "../components/help";
+import HeaderSecond from "../components/headerSecond";
 
 interface IAgreement { }
 
@@ -14,23 +15,17 @@ const Agreement: FC<IAgreement> = ({ }) => {
 
     return (
         <>
-            <header className="">
-                <div className="max-w-7xl m-auto px-6 py-4">
-                    <Link to={'/'}>
-                        <img src={logo} alt="LeeBlock" className="h-10" />
-                    </Link>
-                </div>
-            </header>
+            <HeaderSecond />
             <main className=" py-6">
                 <div className="max-w-4xl m-auto px-6 py-4">
-                    <h1 className="text-4xl tablet:text-4xl font-bold mb-10">ПУБЛИЧНЫЙ ДОГОВОР – ОФЕРТА О ПРОДАЖЕ ТОВАРОВ</h1>
+                    <h1 className="text-2xl tablet:text-4xl font-bold mb-10">ПУБЛИЧНЫЙ ДОГОВОР – ОФЕРТА О ПРОДАЖЕ ТОВАРОВ</h1>
                     <p className="text-md tablet:text-base font-semibold mb-6">
                         Настоящий договор между интернет-магазином ИП Аблизина Валерия Валерьевна
                         и пользователем услуг интернет-магазина, именуемым в дальнейшем «Покупатель» определяет условия приобретения товаров через сайт интернет-магазина https://www.leeblock.ru
                         Настоящий договор – оферта действует с 01.01.2024 года.
                     </p>
                     <div className="mb-10 text-sm">
-                        <h2 className="text-2xl font-bold mb-6 tablet:mb-8">1. Общие положения</h2>
+                        <h2 className="text-xl tablet:text-2xl font-bold mb-6 tablet:mb-8">1. Общие положения</h2>
                         <ul>
                             <li className="grid grid-cols-a1 gap-x-4 items-center mb-4">
                                 <div className="button-gradient text-white text-xs w-6 h-6 rounded-full flex items-center justify-center">1</div>
@@ -83,7 +78,7 @@ const Agreement: FC<IAgreement> = ({ }) => {
                         </ul>
                     </div>
                     <div className="mb-10 text-sm">
-                        <h2 className="text-2xl font-bold mb-6 tablet:mb-8">2. СТАТУС ИНТЕРНЕТ - МАГАЗИНА LEEBLOCK.RU</h2>
+                        <h2 className="text-xl tablet:text-2xl font-bold mb-6 tablet:mb-8">2. СТАТУС ИНТЕРНЕТ - МАГАЗИНА LEEBLOCK.RU</h2>
                         <ul>
                             <li className="grid grid-cols-a1 gap-x-4 items-center mb-4">
                                 <div className="button-gradient text-white text-xs w-6 h-6 rounded-full flex items-center justify-center">1</div>
@@ -106,7 +101,7 @@ const Agreement: FC<IAgreement> = ({ }) => {
                         </ul>
                     </div>
                     <div className="mb-10 text-sm">
-                        <h2 className="text-2xl font-bold mb-6 tablet:mb-8">3. СТАТУС ПОКУПАТЕЛЯ</h2>
+                        <h2 className="text-xl tablet:text-2xl font-bold mb-6 tablet:mb-8">3. СТАТУС ПОКУПАТЕЛЯ</h2>
                         <ul>
                             <li className="grid grid-cols-a1 gap-x-4 items-center mb-4">
                                 <div className="button-gradient text-white text-xs w-6 h-6 rounded-full flex items-center justify-center">1</div>
@@ -135,7 +130,7 @@ const Agreement: FC<IAgreement> = ({ }) => {
                         </ul>
                     </div>
                     <div className="mb-10 text-sm">
-                        <h2 className="text-2xl font-bold mb-6 tablet:mb-8">4. ПРЕДМЕТ ОФЕРТЫ</h2>
+                        <h2 className="text-xl tablet:text-2xl font-bold mb-6 tablet:mb-8">4. ПРЕДМЕТ ОФЕРТЫ</h2>
                         <ul>
                             <li className="grid grid-cols-a1 gap-x-4 items-center mb-4">
                                 <div className="button-gradient text-white text-xs w-6 h-6 rounded-full flex items-center justify-center">1</div>
@@ -164,7 +159,7 @@ const Agreement: FC<IAgreement> = ({ }) => {
                         </ul>
                     </div>
                     <div className="mb-10 text-sm">
-                        <h2 className="text-2xl font-bold mb-6 tablet:mb-8">5. ОПРЕДЕЛЕНИЯ</h2>
+                        <h2 className="text-xl tablet:text-2xl font-bold mb-6 tablet:mb-8">5. ОПРЕДЕЛЕНИЯ</h2>
                         <ul>
                             <li className="grid grid-cols-a1 gap-x-4 items-center mb-4">
                                 <div className="button-gradient text-white text-xs w-6 h-6 rounded-full flex items-center justify-center">1</div>
@@ -235,7 +230,7 @@ const Agreement: FC<IAgreement> = ({ }) => {
                         </ul>
                     </div>
                     <div className="mb-10 text-sm">
-                        <h2 className="text-2xl font-bold mb-6 tablet:mb-8">6. ПОРЯДОК ЗАКЛЮЧЕНИЯ ДОГОВОРА КУПЛИ-ПРОДАЖИ</h2>
+                        <h2 className="text-xl tablet:text-2xl font-bold mb-6 tablet:mb-8">6. ПОРЯДОК ЗАКЛЮЧЕНИЯ ДОГОВОРА КУПЛИ-ПРОДАЖИ</h2>
                         <ul>
                             <li className="grid grid-cols-a1 gap-x-4 items-center mb-4">
                                 <div className="button-gradient text-white text-xs w-6 h-6 rounded-full flex items-center justify-center">1</div>
@@ -273,7 +268,7 @@ const Agreement: FC<IAgreement> = ({ }) => {
                         </ul>
                     </div>
                     <div className="mb-10 text-sm">
-                        <h2 className="text-2xl font-bold mb-6 tablet:mb-8">7. ИНФОРМАЦИЯ О ТОВАРЕ</h2>
+                        <h2 className="text-xl tablet:text-2xl font-bold mb-6 tablet:mb-8">7. ИНФОРМАЦИЯ О ТОВАРЕ</h2>
                         <ul>
                             <li className="grid grid-cols-a1 gap-x-4 items-center mb-4">
                                 <div className="button-gradient text-white text-xs w-6 h-6 rounded-full flex items-center justify-center">1</div>
@@ -314,7 +309,7 @@ const Agreement: FC<IAgreement> = ({ }) => {
                         </ul>
                     </div>
                     <div className="mb-10 text-sm">
-                        <h2 className="text-2xl font-bold mb-6 tablet:mb-8">8. ПОРЯДОК ПРИОБРЕТЕНИЯ ТОВАРА</h2>
+                        <h2 className="text-xl tablet:text-2xl font-bold mb-6 tablet:mb-8">8. ПОРЯДОК ПРИОБРЕТЕНИЯ ТОВАРА</h2>
                         <ul>
                             <li className="grid grid-cols-a1 gap-x-4 items-center mb-4">
                                 <div className="button-gradient text-white text-xs w-6 h-6 rounded-full flex items-center justify-center">1</div>
@@ -355,7 +350,7 @@ const Agreement: FC<IAgreement> = ({ }) => {
                         </ul>
                     </div>
                     <div className="mb-10 text-sm">
-                        <h2 className="text-2xl font-bold mb-6 tablet:mb-8">9. ЦЕНА ТОВАРА</h2>
+                        <h2 className="text-xl tablet:text-2xl font-bold mb-6 tablet:mb-8">9. ЦЕНА ТОВАРА</h2>
                         <ul>
                             <li className="grid grid-cols-a1 gap-x-4 items-center mb-4">
                                 <div className="button-gradient text-white text-xs w-6 h-6 rounded-full flex items-center justify-center">1</div>
@@ -378,7 +373,7 @@ const Agreement: FC<IAgreement> = ({ }) => {
                         </ul>
                     </div>
                     <div className="mb-10 text-sm">
-                        <h2 className="text-2xl font-bold mb-6 tablet:mb-8">10. ОПЛАТА ТОВАРА</h2>
+                        <h2 className="text-xl tablet:text-2xl font-bold mb-6 tablet:mb-8">10. ОПЛАТА ТОВАРА</h2>
                         <ul>
                             <li className="grid grid-cols-a1 gap-x-4 items-center mb-4">
                                 <div className="button-gradient text-white text-xs w-6 h-6 rounded-full flex items-center justify-center">1</div>
@@ -407,7 +402,7 @@ const Agreement: FC<IAgreement> = ({ }) => {
                         </ul>
                     </div>
                     <div className="mb-10 text-sm">
-                        <h2 className="text-2xl font-bold mb-6 tablet:mb-8">11. ДОСТАВКА ТОВАРОВ</h2>
+                        <h2 className="text-xl tablet:text-2xl font-bold mb-6 tablet:mb-8">11. ДОСТАВКА ТОВАРОВ</h2>
                         <ul>
                             <li className="grid grid-cols-a1 gap-x-4 items-center mb-4">
                                 <div className="button-gradient text-white text-xs w-6 h-6 rounded-full flex items-center justify-center">1</div>
@@ -538,7 +533,7 @@ const Agreement: FC<IAgreement> = ({ }) => {
                         </ul>
                     </div>
                     <div className="mb-10 text-sm">
-                        <h2 className="text-2xl font-bold mb-6 tablet:mb-8">12. ГАРАНТИИ НА ТОВАР</h2>
+                        <h2 className="text-xl tablet:text-2xl font-bold mb-6 tablet:mb-8">12. ГАРАНТИИ НА ТОВАР</h2>
                         <ul>
                             <li className="grid grid-cols-a1 gap-x-4 items-center mb-4">
                                 <div className="button-gradient text-white text-xs w-6 h-6 rounded-full flex items-center justify-center">1</div>
@@ -579,7 +574,7 @@ const Agreement: FC<IAgreement> = ({ }) => {
                         </ul>
                     </div>
                     <div className="mb-10 text-sm">
-                        <h2 className="text-2xl font-bold mb-6 tablet:mb-8">13. ВОЗВРАТ ТОВАРА</h2>
+                        <h2 className="text-xl tablet:text-2xl font-bold mb-6 tablet:mb-8">13. ВОЗВРАТ ТОВАРА</h2>
                         <ul>
                             <li className="grid grid-cols-a1 gap-x-4 items-center mb-4">
                                 <div className="button-gradient text-white text-xs w-6 h-6 rounded-full flex items-center justify-center">1</div>
@@ -633,7 +628,7 @@ const Agreement: FC<IAgreement> = ({ }) => {
                         </ul>
                     </div>
                     <div className="mb-10 text-sm">
-                        <h2 className="text-2xl font-bold mb-6 tablet:mb-8">14. ПРОЧИЕ УСЛОВИЯ</h2>
+                        <h2 className="text-xl tablet:text-2xl font-bold mb-6 tablet:mb-8">14. ПРОЧИЕ УСЛОВИЯ</h2>
                         <ul>
                             <li className="grid grid-cols-a1 gap-x-4 items-center mb-4">
                                 <div className="button-gradient text-white text-xs w-6 h-6 rounded-full flex items-center justify-center">1</div>
@@ -680,7 +675,7 @@ const Agreement: FC<IAgreement> = ({ }) => {
                         </ul>
                     </div>
                     <div className="mb-10 text-sm">
-                        <h2 className="text-2xl font-bold mb-6 tablet:mb-8">15. АДРЕС И РЕКВИЗИТЫ ПРОДАВЦА</h2>
+                        <h2 className="text-xl tablet:text-2xl font-bold mb-6 tablet:mb-8">15. АДРЕС И РЕКВИЗИТЫ ПРОДАВЦА</h2>
                         <p className="font-bold mb-4">Индивидуальный предприниматель Аблизина Валерия Валерьевна</p>
                         <table>
                             <tbody>

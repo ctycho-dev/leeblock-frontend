@@ -20,7 +20,7 @@ const PaymentPage: FC<IPaymentPage> = ({ }) => {
             <HeaderSecond />
             <main className="py-6">
                 <div className="max-w-4xl m-auto px-6 py-4">
-                    <h1 className="text-4xl font-bold mb-10">Оплата</h1>
+                    <h1 className="text-2xl tablet:text-4xl font-bold mb-6 tablet:mb-10">Оплата</h1>
                     <div className="mb-10 text-sm">
                         <ul>
                             <li className="grid grid-cols-a1 gap-x-4 items-center mb-4">
@@ -59,7 +59,7 @@ const PaymentPage: FC<IPaymentPage> = ({ }) => {
                             </li>
                         </ul>
                     </div>
-                    <h1 className="text-4xl font-bold mb-10">Доставка</h1>
+                    <h1 className="text-2xl tablet:text-4xl font-bold mb-6 tablet:mb-10">Доставка</h1>
                     <div className="mb-10 text-sm">
                         <ul>
                             <li className="grid grid-cols-a1 gap-x-4 items-center mb-4">

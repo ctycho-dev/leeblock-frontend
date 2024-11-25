@@ -4,6 +4,7 @@ import Header from "../components/header";
 import Footer from "../components/footer";
 import Help from "../components/help";
 import logo from '../assets/logoShort.svg'
+import HeaderSecond from "../components/headerSecond";
 
 
 interface IPolitika { }
@@ -18,18 +19,12 @@ const Politika: FC<IPolitika> = ({ }) => {
 
     return (
         <>
-            <header className="">
-                <div className="max-w-7xl m-auto px-6 py-4">
-                    <Link to={'/'}>
-                        <img src={logo} alt="LeeBlock" className="h-10" />
-                    </Link>
-                </div>
-            </header>
+            <HeaderSecond />
             <main className="py-6">
                 <div className="max-w-4xl m-auto px-6 py-4">
-                    <h1 className="text-4xl font-bold mb-10">Политика обработки персональных данных</h1>
+                    <h1 className="text-2xl tablet:text-4xl font-bold mb-10">Политика обработки персональных данных</h1>
                     <div className="mb-10 text-sm">
-                        <h2 className="text-2xl font-bold mb-6 tablet:mb-8">Общие положения</h2>
+                        <h2 className="text-xl tablet:text-2xl font-bold mb-6 tablet:mb-8">Общие положения</h2>
                         <p className="text-md tablet:text-base font-semibold mb-4">
                             Настоящая политика обработки персональных данных составлена в соответствии с требованиями Федерального
                             закона от 27.07.2006. №152-ФЗ «О персональных данных» и определяет порядок обработки персональных данных
@@ -55,7 +50,7 @@ const Politika: FC<IPolitika> = ({ }) => {
                         </ul>
                     </div>
                     <div className="mb-10 text-sm">
-                        <h2 className="text-2xl font-bold mb-8">Основные понятия, используемые в Политике</h2>
+                        <h2 className="text-2xl tablet:text-4xl font-bold mb-8">Основные понятия, используемые в Политике</h2>
                         <ul>
                             <li className="grid grid-cols-a1 gap-x-4 items-center mb-4">
                                 <div className="button-gradient text-white text-sm w-6 h-6 rounded-full flex items-center justify-center">1</div>
@@ -163,7 +158,7 @@ const Politika: FC<IPolitika> = ({ }) => {
                         </ul>
                     </div>
                     <div className="mb-10 text-sm">
-                        <h2 className="text-2xl font-bold mb-8">Оператор может обрабатывать следующие персональные данные Пользователя</h2>
+                        <h2 className="text-2xl tablet:text-4xl font-bold mb-8">Оператор может обрабатывать следующие персональные данные Пользователя</h2>
                         <ul>
                             <li className="grid grid-cols-a1 gap-x-4 items-center mb-4">
                                 <div className="button-gradient text-white text-sm w-6 h-6 rounded-full flex items-center justify-center">1</div>
@@ -199,7 +194,7 @@ const Politika: FC<IPolitika> = ({ }) => {
                         </ul>
                     </div>
                     <div className="mb-10 text-sm">
-                        <h2 className="text-2xl font-bold mb-8">Цели обработки персональных данных</h2>
+                        <h2 className="text-xl tablet:text-2xl font-bold mb-8">Цели обработки персональных данных</h2>
                         <ul>
                             <li className="grid grid-cols-a1 gap-x-4 items-center mb-4">
                                 <div className="button-gradient text-white text-sm w-6 h-6 rounded-full flex items-center justify-center">1</div>
@@ -228,7 +223,7 @@ const Politika: FC<IPolitika> = ({ }) => {
                         </ul>
                     </div>
                     <div className="mb-10 text-sm">
-                        <h2 className="text-2xl font-bold mb-8">Правовые основания обработки персональных данных</h2>
+                        <h2 className="text-xl tablet:text-2xl font-bold mb-8">Правовые основания обработки персональных данных</h2>
                         <ul>
                             <li className="grid grid-cols-a1 gap-x-4 items-center mb-4">
                                 <div className="button-gradient text-white text-sm w-6 h-6 rounded-full flex items-center justify-center">1</div>
@@ -249,7 +244,7 @@ const Politika: FC<IPolitika> = ({ }) => {
                         </ul>
                     </div>
                     <div className="mb-10 text-sm">
-                        <h2 className="text-2xl font-bold mb-8">Порядок сбора, хранения, передачи и других видов обработки персональных данных</h2>
+                        <h2 className="text-xl tablet:text-2xl font-bold mb-8">Порядок сбора, хранения, передачи и других видов обработки персональных данных</h2>
                         <p className="text-base font-semibold mb-4">
                             Безопасность персональных данных, которые обрабатываются Оператором, обеспечивается путем реализации правовых, организационных и технических мер, необходимых для выполнения в полном объеме требований действующего законодательства в области защиты персональных данных.
                         </p>
@@ -291,7 +286,7 @@ const Politika: FC<IPolitika> = ({ }) => {
                         </ul>
                     </div>
                     <div className="mb-10 text-sm">
-                        <h2 className="text-2xl font-bold mb-8">Трансграничная передача персональных данных</h2>
+                        <h2 className="text-xl tablet:text-2xl font-bold mb-8">Трансграничная передача персональных данных</h2>
                         <ul>
                             <li className="grid grid-cols-a1 gap-x-4 items-center mb-4">
                                 <div className="button-gradient text-white text-sm w-6 h-6 rounded-full flex items-center justify-center">1</div>
@@ -313,7 +308,7 @@ const Politika: FC<IPolitika> = ({ }) => {
                         </ul>
                     </div>
                     <div className="mb-10 text-sm">
-                        <h2 className="text-2xl font-bold mb-8">Заключительные положения</h2>
+                        <h2 className="text-xl tablet:text-2xl font-bold mb-8">Заключительные положения</h2>
                         <ul>
                             <li className="grid grid-cols-a1 gap-x-4 items-center mb-4">
                                 <div className="button-gradient text-white text-sm w-6 h-6 rounded-full flex items-center justify-center">1</div>
