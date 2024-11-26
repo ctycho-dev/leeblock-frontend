@@ -29,6 +29,8 @@ const CatalogHome: FC<ICatalogHome> = ({ bucketCounter, setBucketCounter, setBag
             const fetchedBlack = await getProductById('onekey-pro-black')
             const fetchedWhite = await getProductById('onekey-pro-white')
             const fetchedItemsToDisplay = await getProductsToDisplay()
+            console.log('--------------------')
+            console.log(fetchedBlack)
             if (fetchedWhite && fetchedWhite.data) {
                 setWhitePro(fetchedWhite.data)
             }
