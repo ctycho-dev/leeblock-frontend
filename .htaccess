@@ -1,0 +1,3 @@
+RewriteEngine On
+RewriteCond %{HTTP_HOST} ^leeblock.ru
+RewriteRule (.*) http://www.leeblock.ru/$1 [R=301,L]
