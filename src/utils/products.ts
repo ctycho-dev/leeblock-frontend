@@ -24,7 +24,7 @@ export async function getProductById(id: string) {
                 "Content-Type": "application/json"
             }
         })
-        console.log(res.headers)
+
         return res
     } catch (error) {
         console.error(error)
