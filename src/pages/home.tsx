@@ -54,7 +54,9 @@ const Home: FC<IHome> = ({ }) => {
                 />
                 <MainScreen />
             </main>
-            <video src="/representation.mp4" autoPlay loop playsInline preload="true" muted></video>
+            <div className="max-w-[1920px] m-auto">
+                <video src="/representation.mp4" autoPlay loop playsInline preload="true" muted></video>
+            </div>
             <Advantages />
             <CatalogHome
                 bucketCounter={bucketCounter}

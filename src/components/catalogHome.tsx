@@ -41,7 +41,7 @@ const CatalogHome: FC<ICatalogHome> = ({ bucketCounter, setBucketCounter, setBag
             }
         }
 
-        // fetchAPI()
+        fetchAPI()
 
     }, [])
 

@@ -38,7 +38,7 @@ const Catalog: FC<ICatalog> = ({ }) => {
             }
         }
 
-        // fetchAPI()
+        fetchAPI()
 
     }, [])
 
