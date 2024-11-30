@@ -56,7 +56,7 @@ const FaqBlock: FC<IFaqBlock> = ({ question, answer }) => {
                 <div
                     ref={answerRef}
                     // className="overflow-hidden text-slate-400"
-                    className="text-slate-400 overflow-hidden transition-[max-height] duration-300 ease-out text-sm md:text-base"
+                    className="text-sm text-zinc-400 overflow-hidden transition-[max-height] duration-300 ease-out"
                     // style={{ height: 0, marginBottom: 0 }}
                     style={{ 
                         maxHeight: isOpen ? `${answerRef?.current?.scrollHeight}px` : '0',
