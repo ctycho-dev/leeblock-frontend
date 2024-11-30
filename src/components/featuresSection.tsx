@@ -34,6 +34,56 @@ const FeaturesSection: FC = () => {
         setTranslateX((prev) => (prev < 0 ? prev + 370 : prev));
     };
 
+    const NextButtons: FC = () => {
+
+        return (
+            <>
+                <button
+                    className={`rounded-lg border-[1px] border-zinc-700 bg-zinc-900 p-1.5 text-2xl transition-opacity disabled:opacity-30`}
+                    disabled={translateX == 0}
+                    aria-label="Previous"
+                    onClick={handlePrevious}
+                >
+                    <svg
+                        stroke="currentColor"
+                        fill="none"
+                        strokeWidth="2"
+                        viewBox="0 0 24 24"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        height="1em"
+                        width="1em"
+                        xmlns="http://www.w3.org/2000/svg"
+                    >
+                        <line x1="19" y1="12" x2="5" y2="12" />
+                        <polyline points="12 19 5 12 12 5" />
+                    </svg>
+                </button>
+                <button
+                    className="rounded-lg border-[1px] border-zinc-700 bg-zinc-900 p-1.5 text-2xl transition-opacity disabled:opacity-30"
+                    disabled={translateX * -1 >= maxTranslateX}
+                    aria-label="Next"
+                    onClick={handleNext}
+                >
+                    <svg
+                        stroke="currentColor"
+                        fill="none"
+                        strokeWidth="2"
+                        viewBox="0 0 24 24"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        height="1em"
+                        width="1em"
+                        xmlns="http://www.w3.org/2000/svg"
+                    >
+                        <line x1="5" y1="12" x2="19" y2="12" />
+                        <polyline points="12 5 19 12 12 19" />
+                    </svg>
+                </button>
+            </>
+        )
+    }
+
     return (
         <section className="relative overflow-hidden text-white border-b border-zinc-700 bg-zinc-900/30 py-16">
             <div className="relative z-10 overflow-hidden">
@@ -47,49 +97,8 @@ const FeaturesSection: FC = () => {
                                 Ваш надежный партнер для безопасного, надежного и удобного управления криптовалютой
                             </p>
                         </div>
-                        <div className="flex items-center gap-2">
-                            <button
-                                className={`rounded-lg border-[1px] border-zinc-700 bg-zinc-900 p-1.5 text-2xl transition-opacity disabled:opacity-30`}
-                                disabled={translateX == 0}
-                                aria-label="Previous"
-                                onClick={handlePrevious}
-                            >
-                                <svg
-                                    stroke="currentColor"
-                                    fill="none"
-                                    strokeWidth="2"
-                                    viewBox="0 0 24 24"
-                                    strokeLinecap="round"
-                                    strokeLinejoin="round"
-                                    height="1em"
-                                    width="1em"
-                                    xmlns="http://www.w3.org/2000/svg"
-                                >
-                                    <line x1="19" y1="12" x2="5" y2="12" />
-                                    <polyline points="12 19 5 12 12 5" />
-                                </svg>
-                            </button>
-                            <button
-                                className="rounded-lg border-[1px] border-zinc-700 bg-zinc-900 p-1.5 text-2xl transition-opacity disabled:opacity-30"
-                                disabled={translateX * -1 >= maxTranslateX}
-                                aria-label="Next"
-                                onClick={handleNext}
-                            >
-                                <svg
-                                    stroke="currentColor"
-                                    fill="none"
-                                    strokeWidth="2"
-                                    viewBox="0 0 24 24"
-                                    strokeLinecap="round"
-                                    strokeLinejoin="round"
-                                    height="1em"
-                                    width="1em"
-                                    xmlns="http://www.w3.org/2000/svg"
-                                >
-                                    <line x1="5" y1="12" x2="19" y2="12" />
-                                    <polyline points="12 5 19 12 12 19" />
-                                </svg>
-                            </button>
+                        <div className="hidden md:flex items-center gap-2">
+                            <NextButtons />
                         </div>
                     </div>
                     <div
@@ -229,11 +238,16 @@ const FeaturesSection: FC = () => {
                             </div>
                         ))}
                     </div>
+                    <div className="flex md:hidden items-center justify-end gap-2 mt-6">
+                        <NextButtons />
+                    </div>
                 </div>
             </div>
             <div className="absolute bottom-0 left-0 z-0 size-72 -translate-x-1/2 translate-y-1/2 rounded-full bg-zinc-900 blur-2xl"></div>
         </section>
     );
+
 };
 
 export default FeaturesSection;
+
