@@ -1,4 +1,4 @@
-import { FC, useEffect } from "react";
+import { FC, useEffect, useState } from "react";
 import HeaderSecond from "../components/headerSecond";
 import Footer from "../components/footer";
 import Help from "../components/help";
@@ -7,6 +7,7 @@ import Help from "../components/help";
 interface ISupportPage { }
 
 const SupportPage: FC<ISupportPage> = ({ }) => {
+    const [openHelp, setOpenHelp] = useState(false)
 
     useEffect(() => {
         window.scrollTo(0, 0)
@@ -69,7 +70,7 @@ const SupportPage: FC<ISupportPage> = ({ }) => {
                             <li className="grid grid-cols-a1 gap-x-4 items-center mb-4">
                                 <div className="button-gradient text-white text-sm w-6 h-6 rounded-full flex items-center justify-center">2</div>
                                 <div>
-                                Написать в чат на сайте.
+                                Написать <span className="link-custom hover:cursor-pointer" onClick={() => { setOpenHelp(true)}}>в чат</span> на сайте.
                                 </div>
                             </li>
                         </ul>
@@ -77,7 +78,7 @@ const SupportPage: FC<ISupportPage> = ({ }) => {
                 </div>
             </main>
             <Footer />
-            <Help />
+            <Help openHelp={openHelp} setOpenHelp={setOpenHelp} />
         </>
     )
 }

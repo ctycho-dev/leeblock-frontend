@@ -13,6 +13,7 @@ import { updateBagItems } from "../utils";
 
 import { MyBag } from "../types";
 import Help from "../components/help";
+import FeaturesSection from "../components/featuresSection";
 
 interface IHome { }
 
@@ -57,13 +58,18 @@ const Home: FC<IHome> = ({ }) => {
             <div className="max-w-[1920px] m-auto">
                 <video src="/representation.mp4" autoPlay loop playsInline preload="true" muted></video>
             </div>
-            <Advantages />
+            <div className="bg-[#09090B]">
+                <FeaturesSection />
+            </div>
+            {/* <Advantages /> */}
             <CatalogHome
                 bucketCounter={bucketCounter}
                 setBucketCounter={setBucketCounter}
                 setBagItems={setBagItems}
             />
-            <FAQ />
+            <div className="bg-[#09090B] py-16">
+                <FAQ />
+            </div>
             <Footer />
             <Sidebar
                 isSidebarOpen={isSidebarOpen}

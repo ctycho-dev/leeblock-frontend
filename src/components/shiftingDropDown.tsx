@@ -286,7 +286,7 @@ const Contacts: React.FC = () => {
 
 const TABS: TabType[] = [
   {
-    title: "Products",
+    title: "Продукция",
     Component: Products,
   },
   {

@@ -62,7 +62,7 @@ const FooterForm: FC<IFooterForm> = ({ }) => {
                         />
                     </div>
                     <button
-                        className={`flex gap-x-2 items-center justify-center h-12 text-black font-bold button-gradient
+                        className={`flex gap-x-2 items-center justify-center h-12 text-black font-bold bg-gradient-to-r from-green-400 via-green-600 to-green-800
                             py-2 px-4 rounded-xl transition-all duration-200
                             hover:-mt-[2px] hover:mb-[2px] hover:cursor-pointer
                             disabled:pointer-events-none disabled:opacity-50`}

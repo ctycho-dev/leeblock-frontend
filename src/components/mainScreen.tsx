@@ -29,7 +29,7 @@ const MainScreen: FC<IMainScreen> = ({ }) => {
                                         duration: 2,
                                         delay: i / 20,
                                     }}
-                                    className="text-4xl md:text-5xl font-semibold"
+                                    className="text-4xl md:text-5xl font-semibold "
                                     key={i}
                                 >
                                     {el}
