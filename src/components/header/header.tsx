@@ -1,16 +1,15 @@
 import { FC, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
-import bucket from '../assets/bucket.svg'
-import bucketWhite from '../assets/bucketWhite.svg'
-import search from '../assets/search.svg'
-import logoShort from '../assets/logoShort.svg'
-import logoShortWhite from '../assets/logoShortWhite.svg'
-
+import bucket from '../../assets/bucket.svg'
+import bucketWhite from '../../assets/bucketWhite.svg'
+import search from '../../assets/search.svg'
+import logoShort from '../../assets/logoShort.svg'
+import logoShortWhite from '../../assets/logoShortWhite.svg'
 
 import { ShiftingDropDown } from "./shiftingDropDown";
 import MobileNav from "./mobileNav";
-import ThemeCustom from "./theme";
+// import ThemeCustom from "./theme";
 
 
 interface IHeader {

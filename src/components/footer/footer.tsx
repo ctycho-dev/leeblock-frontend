@@ -3,8 +3,8 @@ import { Link } from "react-router-dom";
 
 import FooterForm from "./footerForm";
 
-import logoShort from '../assets/logoShortWhite.svg'
-import IconsListWhite from "./iconsListWhite";
+import logoShort from '../../assets/logoShortWhite.svg'
+import IconsListWhite from "../iconsListWhite";
 
 interface IFooter { }
 
@@ -40,8 +40,9 @@ const Footer: FC<IFooter> = ({ }) => {
                                     <ul>
                                         <li className=" font-bold mb-4 text-base lg:text-lg">Общее</li>
                                         <li className="text-[#b3b3b3] mb-2 text-sm hover:text-[#45E555] transition-colors duration-100 hover:cursor-pointer"><Link to={'/about'}>О компании</Link></li>
+                                        <li className="text-[#b3b3b3] mb-2 text-sm hover:text-[#45E555] transition-colors duration-100 hover:cursor-pointer"><a href={'#faq-section'}>FAQ</a></li>
                                         <li className="text-[#b3b3b3] mb-2 text-sm hover:text-[#45E555] transition-colors duration-100 hover:cursor-pointer"><Link to={'/politika'}>Политика обработки персональных данных</Link></li>
-                                        <li className="text-[#b3b3b3] mb-2 text-sm hover:text-[#45E555] transition-colors duration-100 hover:cursor-pointer"><Link to={'/agreement'}>Документы сайта</Link></li>
+                                        <li className="text-[#b3b3b3] mb-2 text-sm hover:text-[#45E555] transition-colors duration-100 hover:cursor-pointer"><Link to={'/agreement'}>Договор-офферта</Link></li>
                                     </ul>
                                 </div>
                                 <div className="flex tablet:justify-center">

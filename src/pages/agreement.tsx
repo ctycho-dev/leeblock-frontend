@@ -1,9 +1,9 @@
 import { FC, useEffect } from "react";
 import { Link } from "react-router-dom";
-import Footer from "../components/footer";
+import Footer from "../components/footer/footer";
 import logo from '../assets/logoShort.svg'
 import Help from "../components/help";
-import HeaderSecond from "../components/headerSecond";
+import HeaderSecond from "../components/header/headerSecond";
 
 interface IAgreement { }
 
@@ -538,7 +538,7 @@ const Agreement: FC<IAgreement> = ({ }) => {
                             <li className="grid grid-cols-a1 gap-x-4 items-center mb-4">
                                 <div className="button-gradient text-white text-xs w-6 h-6 rounded-full flex items-center justify-center">1</div>
                                 <div>
-                                Гарантийный срок эксплуатации на товар устанавливает производитель. Срок гарантии указывается на сайте.
+                                    Гарантийный срок эксплуатации на товар устанавливает производитель. Срок гарантии указывается на сайте.
                                 </div>
                             </li>
                             <li className="grid grid-cols-a1 gap-x-4 items-center mb-4">
@@ -556,19 +556,19 @@ const Agreement: FC<IAgreement> = ({ }) => {
                             <li className="grid grid-cols-a1 gap-x-4 items-center mb-2 ml-4">
                                 <div className="button-gradient text-white text-xs w-5 h-5 rounded-full flex items-center justify-center">b</div>
                                 <div>
-                                использования товара не по назначению
+                                    использования товара не по назначению
                                 </div>
                             </li>
                             <li className="grid grid-cols-a1 gap-x-4 items-center mb-2 ml-4">
                                 <div className="button-gradient text-white text-xs w-5 h-5 rounded-full flex items-center justify-center">c</div>
                                 <div>
-                                действий, направленных на повреждение или уничтожение товара, действий непреодолимой силы
+                                    действий, направленных на повреждение или уничтожение товара, действий непреодолимой силы
                                 </div>
                             </li>
                             <li className="grid grid-cols-a1 gap-x-4 items-center mb-2 ml-4">
                                 <div className="button-gradient text-white text-xs w-5 h-5 rounded-full flex items-center justify-center">d</div>
                                 <div>
-                                a так же на товар, имеющий механические повреждения, следы самостоятельного ремонта или изменения конструкции.
+                                    a так же на товар, имеющий механические повреждения, следы самостоятельного ремонта или изменения конструкции.
                                 </div>
                             </li>
                         </ul>
@@ -579,49 +579,49 @@ const Agreement: FC<IAgreement> = ({ }) => {
                             <li className="grid grid-cols-a1 gap-x-4 items-center mb-4">
                                 <div className="button-gradient text-white text-xs w-6 h-6 rounded-full flex items-center justify-center">1</div>
                                 <div>
-                                Покупатель вправе отказаться от товара в любое время до его передачи, а после передачи товара - в течение семи дней, в порядке и на условиях, предусмотренных Законом «О защите прав потребителей».
+                                    Покупатель вправе отказаться от товара в любое время до его передачи, а после передачи товара - в течение семи дней, в порядке и на условиях, предусмотренных Законом «О защите прав потребителей».
 
                                 </div>
                             </li>
                             <li className="grid grid-cols-a1 gap-x-4 items-center mb-4">
                                 <div className="button-gradient text-white text-xs w-6 h-6 rounded-full flex items-center justify-center">2</div>
                                 <div>
-                                Возврат товара надлежащего качества возможен в случае, если сохранены его товарный вид (упаковка), потребительские свойства, а также документ, подтверждающий факт и условия покупки указанного товара.
+                                    Возврат товара надлежащего качества возможен в случае, если сохранены его товарный вид (упаковка), потребительские свойства, а также документ, подтверждающий факт и условия покупки указанного товара.
 
                                 </div>
                             </li>
                             <li className="grid grid-cols-a1 gap-x-4 items-center mb-4">
                                 <div className="button-gradient text-white text-xs w-6 h-6 rounded-full flex items-center justify-center">3</div>
                                 <div>
-                                Покупатель не вправе отказаться от товара надлежащего качества, имеющего индивидуально- определенные свойства, если указанный товар может быть использован исключительно приобретающим его Покупателем (в т.ч. не стандартные (по желанию Покупателя) размеры и др.) а также от Товара цена которого указана за метраж.  
+                                    Покупатель не вправе отказаться от товара надлежащего качества, имеющего индивидуально- определенные свойства, если указанный товар может быть использован исключительно приобретающим его Покупателем (в т.ч. не стандартные (по желанию Покупателя) размеры и др.) а также от Товара цена которого указана за метраж.
 
                                 </div>
                             </li>
                             <li className="grid grid-cols-a1 gap-x-4 items-center mb-4">
                                 <div className="button-gradient text-white text-xs w-6 h-6 rounded-full flex items-center justify-center">4</div>
                                 <div>
-                                Возврат товара, в случаях, предусмотренных законом и настоящим Договором, производится по адресу г. Оренбург, пр. Автоматики д. 10/3. 
+                                    Возврат товара, в случаях, предусмотренных законом и настоящим Договором, производится по адресу г. Оренбург, пр. Автоматики д. 10/3.
 
                                 </div>
                             </li>
                             <li className="grid grid-cols-a1 gap-x-4 items-center mb-4">
                                 <div className="button-gradient text-white text-xs w-6 h-6 rounded-full flex items-center justify-center">5</div>
                                 <div>
-                                При отказе Покупателя от товара надлежащего качества Продавец возвращает ему сумму, уплаченную в соответствии с договором, за исключением расходов Продавца на осуществление  возврата суммы внесенной им предоплаты по заказу и расходов на доставку от Покупателя возвращенного товара, не позднее чем через 10 дней, с даты предъявления Покупателем соответствующего требования.
+                                    При отказе Покупателя от товара надлежащего качества Продавец возвращает ему сумму, уплаченную в соответствии с договором, за исключением расходов Продавца на осуществление  возврата суммы внесенной им предоплаты по заказу и расходов на доставку от Покупателя возвращенного товара, не позднее чем через 10 дней, с даты предъявления Покупателем соответствующего требования.
 
                                 </div>
                             </li>
                             <li className="grid grid-cols-a1 gap-x-4 items-center mb-4">
                                 <div className="button-gradient text-white text-xs w-6 h-6 rounded-full flex items-center justify-center">6</div>
                                 <div>
-                                В случае, если возврат суммы осуществляется не одновременно с возвратом товара, возврат указанной суммы осуществляется Продавцом путем перечисления на банковский счет Покупателя.
+                                    В случае, если возврат суммы осуществляется не одновременно с возвратом товара, возврат указанной суммы осуществляется Продавцом путем перечисления на банковский счет Покупателя.
 
                                 </div>
                             </li>
                             <li className="grid grid-cols-a1 gap-x-4 items-center mb-4">
                                 <div className="button-gradient text-white text-xs w-6 h-6 rounded-full flex items-center justify-center">7</div>
                                 <div>
-                                Указанный в настоящем пункте способ возврата денежных средств может использоваться Продавцом и в иных случаях возврата денежных средств, предусмотренных настоящим договором и законодательством РФ.
+                                    Указанный в настоящем пункте способ возврата денежных средств может использоваться Продавцом и в иных случаях возврата денежных средств, предусмотренных настоящим договором и законодательством РФ.
 
                                 </div>
                             </li>
@@ -633,42 +633,42 @@ const Agreement: FC<IAgreement> = ({ }) => {
                             <li className="grid grid-cols-a1 gap-x-4 items-center mb-4">
                                 <div className="button-gradient text-white text-xs w-6 h-6 rounded-full flex items-center justify-center">1</div>
                                 <div>
-                                К отношениям между Покупателем и Продавцом применяется законодательство Российской Федерации.
+                                    К отношениям между Покупателем и Продавцом применяется законодательство Российской Федерации.
 
                                 </div>
                             </li>
                             <li className="grid grid-cols-a1 gap-x-4 items-center mb-4">
                                 <div className="button-gradient text-white text-xs w-6 h-6 rounded-full flex items-center justify-center">2</div>
                                 <div>
-                                При необходимости Продавец и Покупатель вправе в любое время оформить договор купли-продажи товара в форме письменного двухстороннего соглашения, не противоречащего положениям настоящей оферты.
+                                    При необходимости Продавец и Покупатель вправе в любое время оформить договор купли-продажи товара в форме письменного двухстороннего соглашения, не противоречащего положениям настоящей оферты.
 
                                 </div>
                             </li>
                             <li className="grid grid-cols-a1 gap-x-4 items-center mb-4">
                                 <div className="button-gradient text-white text-xs w-6 h-6 rounded-full flex items-center justify-center">3</div>
                                 <div>
-                                Требования Покупателя об устранении недостатков товара подлежат удовлетворению в течение 45 календарных дней с момента получения Продавцом указанного требования. Иные требования Покупателя подлежат удовлетворению в сроки, установленные действующим законодательством РФ.
+                                    Требования Покупателя об устранении недостатков товара подлежат удовлетворению в течение 45 календарных дней с момента получения Продавцом указанного требования. Иные требования Покупателя подлежат удовлетворению в сроки, установленные действующим законодательством РФ.
 
                                 </div>
                             </li>
                             <li className="grid grid-cols-a1 gap-x-4 items-center mb-4">
                                 <div className="button-gradient text-white text-xs w-6 h-6 rounded-full flex items-center justify-center">4</div>
                                 <div>
-                                В случае возникновения вопросов и претензий со стороны Покупателя, он должен обратиться в Центр обслуживания клиентов по телефону, указанному на сайте или по e-mail: info@leeblock.ru
+                                    В случае возникновения вопросов и претензий со стороны Покупателя, он должен обратиться в Центр обслуживания клиентов по телефону, указанному на сайте или по e-mail: info@leeblock.ru
 
                                 </div>
                             </li>
                             <li className="grid grid-cols-a1 gap-x-4 items-center mb-4">
                                 <div className="button-gradient text-white text-xs w-6 h-6 rounded-full flex items-center justify-center">5</div>
                                 <div>
-                                Настоящий договор вступает в силу с даты акцепта Покупателем настоящей оферты и действует до полного исполнения обязательств Сторонами.
+                                    Настоящий договор вступает в силу с даты акцепта Покупателем настоящей оферты и действует до полного исполнения обязательств Сторонами.
 
                                 </div>
                             </li>
                             <li className="grid grid-cols-a1 gap-x-4 items-center mb-4">
                                 <div className="button-gradient text-white text-xs w-6 h-6 rounded-full flex items-center justify-center">6</div>
                                 <div>
-                                Интернет-магазин оставляет за собой право расширять и сокращать товарное предложение на сайте, регулировать доступ к покупке любых товаров, а также приостанавливать или прекращать продажу любых товаров по своему собственному усмотрению.
+                                    Интернет-магазин оставляет за собой право расширять и сокращать товарное предложение на сайте, регулировать доступ к покупке любых товаров, а также приостанавливать или прекращать продажу любых товаров по своему собственному усмотрению.
 
                                 </div>
                             </li>

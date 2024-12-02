@@ -6,13 +6,15 @@ import {
     FiFolder,
     FiHelpCircle
 } from "react-icons/fi";
+import { MdOutlineSupportAgent } from "react-icons/md";
 
-import IconsList from "./iconsList";
 
-import plus from '../assets/plus.svg'
-import email from '../assets/links/mail.svg'
-import phone from '../assets/links/headphones.svg'
-import shoppingBud from '../assets/links/shopping-bag.svg'
+import IconsList from "../iconsList";
+
+import plus from '../../assets/plus.svg'
+import email from '../../assets/links/mail.svg'
+import phone from '../../assets/links/headphones.svg'
+import shoppingBud from '../../assets/links/shopping-bag.svg'
 
 
 interface IMobileNav {
@@ -21,6 +23,21 @@ interface IMobileNav {
 }
 
 const MobileNav: FC<IMobileNav> = ({ isMobileMenuOpen, openNavBar }) => {
+
+    const scrollToFaq = () => {
+        openNavBar(false)
+        const faqSection = document.getElementById('faq-section');
+        if (faqSection) {
+            const offset = 80; // Offset in pixels
+            const elementPosition = faqSection.getBoundingClientRect().top + window.pageYOffset;
+            const offsetPosition = elementPosition - offset;
+
+            window.scrollTo({
+                top: offsetPosition,
+                behavior: 'smooth'
+            });
+        }
+    };
 
 
     return (
@@ -55,20 +72,26 @@ const MobileNav: FC<IMobileNav> = ({ isMobileMenuOpen, openNavBar }) => {
                                 </li>
                                 <li >
                                     <Link to={'/about'} className="hover:text-green-primary hover:cursor-pointer flex gap-x-2 items-center">
-                                        <FiHome className="mb-2 text-2xl text-black" />
+                                        <FiHome className="text-2xl text-black" />
                                         <span className="text-sm">О компании</span>
                                     </Link>
                                 </li>
                                 <li >
+                                    <div onClick={scrollToFaq} className="hover:text-green-primary hover:cursor-pointer flex gap-x-2 items-center">
+                                        <FiHelpCircle className="text-2xl text-black" />
+                                        <span className="text-sm">FAQ</span>
+                                    </div>
+                                </li>
+                                <li >
                                     <Link to={'/politika'} className="hover:text-green-primary hover:cursor-pointer flex gap-x-2 items-center">
-                                        <FiFile className="mb-2 text-2xl text-black" />
+                                        <FiFile className="text-2xl text-black" />
                                         <span className="text-sm">Политика</span>
                                     </Link>
                                 </li>
                                 <li>
                                     <Link to={'/agreement'} className="hover:text-green-primary hover:cursor-pointer flex gap-x-2 items-center">
                                         <FiFolder className="text-2xl text-black" />
-                                        <span className="text-sm">Документы</span>
+                                        <span className="text-sm">Договор-офферта</span>
                                     </Link>
                                 </li>
                                 <li>
@@ -79,7 +102,7 @@ const MobileNav: FC<IMobileNav> = ({ isMobileMenuOpen, openNavBar }) => {
                                 </li>
                                 <li className="hover:text-green-primary hover:cursor-pointer flex gap-x-2 items-center">
                                     <Link to={'/support'} className="hover:text-green-primary hover:cursor-pointer flex gap-x-2 items-center">
-                                        <FiHelpCircle className="text-2xl text-black" />
+                                        <MdOutlineSupportAgent className="text-2xl text-black" />
                                         <span className="text-sm">Поддержка</span>
                                     </Link>
                                 </li>

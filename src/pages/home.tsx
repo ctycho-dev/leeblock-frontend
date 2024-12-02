@@ -1,19 +1,18 @@
 import { FC, useState, useEffect } from "react";
 import { Toaster, toast } from 'sonner'
 
-import Header from "../components/header";
+import Header from "../components/header/header";
 import MainScreen from "../components/mainScreen";
-import Advantages from "../components/advantage/advantages";
 import CatalogHome from "../components/catalogHome";
 import FAQ from "../components/faq/faq";
-import Footer from "../components/footer";
-import Sidebar from "../components/sidebar";
+import Footer from "../components/footer/footer";
+import Sidebar from "../components/header/sidebar";
 
 import { updateBagItems } from "../utils";
 
 import { MyBag } from "../types";
 import Help from "../components/help";
-import FeaturesSection from "../components/featuresSection";
+import FeaturesSection from "../components/featuresSection/featuresSection";
 
 interface IHome { }
 
@@ -61,13 +60,12 @@ const Home: FC<IHome> = ({ }) => {
             <div className="bg-[#09090B]">
                 <FeaturesSection />
             </div>
-            {/* <Advantages /> */}
             <CatalogHome
                 bucketCounter={bucketCounter}
                 setBucketCounter={setBucketCounter}
                 setBagItems={setBagItems}
             />
-            <div className="bg-[#09090B] py-16">
+            <div id="faq-section" className="bg-[#09090B] py-16">
                 <FAQ />
             </div>
             <Footer />

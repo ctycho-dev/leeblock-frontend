@@ -2,7 +2,6 @@ import { FC, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import OneKeyPro from "./oneKeyPro";
 import OneKeyItem from "./oneKeyItem";
-import BubbleText from "./bubbleText/bubbleText";
 import {
     FiArrowRight
   } from "react-icons/fi";

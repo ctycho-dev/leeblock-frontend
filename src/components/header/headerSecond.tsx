@@ -1,6 +1,6 @@
 import { FC } from "react";
 import { Link } from "react-router-dom";
-import logo from '../assets/logoShort.svg'
+import logo from '../../assets/logoShort.svg'
 
 
 interface IHeaderSecond {

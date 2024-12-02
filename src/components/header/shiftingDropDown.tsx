@@ -1,22 +1,19 @@
 import React, { useEffect, useState } from "react";
 import {
   FiArrowRight,
-  FiBarChart2,
   FiChevronDown,
   FiHome,
-  FiPieChart,
   FiFile,
   FiFolder,
-  FiUsers,
   FiHelpCircle
 } from "react-icons/fi";
+import { MdOutlineSupportAgent } from "react-icons/md";
 import { Link } from "react-router-dom";
 import { AnimatePresence, motion } from "framer-motion";
-import { getProductById } from "../utils/products";
 
 
-import email from '../assets/links/mail.svg'
-import phone from '../assets/links/headphones.svg'
+import email from '../../assets/links/mail.svg'
+import phone from '../../assets/links/headphones.svg'
 
 // Define types for the tab structure
 interface TabType {
@@ -193,7 +190,7 @@ const Products: React.FC = () => {
   return (
     <div>
       <div className="flex gap-4">
-      <Link to={'/catalog'} className="grid justify-center gap-y-2">
+        <Link to={'/catalog'} className="grid justify-center gap-y-2">
           <img src="https://ctycho-s3.ru/web/leeblock/products/OneKeyPro_Main_Image_White_01.png" alt="" className="w-44" />
           <div className="text-sm text-center">Onekey Pro White</div>
         </Link>
@@ -208,7 +205,7 @@ const Products: React.FC = () => {
       </div>
       <div className="flex justify-end">
         <Link to={'/catalog'} className="ml-auto mt-4 flex items-center gap-1 text-sm text-green-primary">
-          <span>View more</span>
+          <span>Показать все</span>
           <FiArrowRight />
         </Link>
       </div>
@@ -238,15 +235,30 @@ const General: React.FC = () => {
       >
         {/* <FiPieChart className="mb-2 text-xl text-black" /> */}
         <FiFolder className="mb-2 text-xl text-black" />
-        <span className="text-xs">Документы</span>
+        <span className="text-xs">Офферта</span>
       </Link>
     </div>
   );
 };
 
 const Customers: React.FC = () => {
+
+  const scrollToFaq = () => {
+    const faqSection = document.getElementById('faq-section');
+    if (faqSection) {
+        const offset = 80; // Offset in pixels
+        const elementPosition = faqSection.getBoundingClientRect().top + window.pageYOffset;
+        const offsetPosition = elementPosition - offset;
+
+        window.scrollTo({
+            top: offsetPosition,
+            behavior: 'smooth'
+        });
+    }
+};
+
   return (
-    <div className="grid grid-cols-2 gap-4 divide-x divide-neutral-700">
+    <div className="grid grid-cols-3 gap-4 divide-x divide-neutral-700">
       <Link to={'/payment_and_delivery'}
         className="flex w-full flex-col items-center justify-center py-2 text-neutral-600 transition-colors hover:text-neutral-900"
       >
@@ -256,9 +268,15 @@ const Customers: React.FC = () => {
       <Link to={'/support'}
         className="flex w-full flex-col items-center justify-center py-2 text-neutral-600 transition-colors hover:text-neutral-900"
       >
-        <FiHelpCircle className="mb-2 text-xl text-black" />
+        <MdOutlineSupportAgent className="mb-2 text-xl text-black" />
         <span className="text-xs">Поддержка</span>
       </Link>
+      <div onClick={scrollToFaq}
+        className="flex w-full flex-col items-center justify-center py-2 text-neutral-600 transition-colors hover:text-neutral-900 hover:cursor-pointer"
+      >
+        <FiHelpCircle className="mb-2 text-xl text-black" />
+        <span className="text-xs">FAQ</span>
+      </div>
     </div>
   );
 };
@@ -290,10 +308,6 @@ const TABS: TabType[] = [
     Component: Products,
   },
   {
-    title: "Общее",
-    Component: General,
-  },
-  {
     title: "Покупателям",
     Component: Customers,
   },
@@ -301,4 +315,8 @@ const TABS: TabType[] = [
     title: "Контакты",
     Component: Contacts,
   },
+  {
+    title: "Общее",
+    Component: General,
+  }
 ].map((n, idx) => ({ ...n, id: idx + 1 }));

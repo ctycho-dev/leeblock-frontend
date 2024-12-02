@@ -1,7 +1,7 @@
 import { FC, useEffect } from "react";
 import { Link } from "react-router-dom";
-import HeaderSecond from "../components/headerSecond";
-import Footer from "../components/footer";
+import HeaderSecond from "../components/header/headerSecond";
+import Footer from "../components/footer/footer";
 import Help from "../components/help";
 
 
@@ -65,13 +65,13 @@ const PaymentPage: FC<IPaymentPage> = ({ }) => {
                             <li className="grid grid-cols-a1 gap-x-4 items-center mb-4">
                                 <div className="button-gradient text-white text-sm w-6 h-6 rounded-full flex items-center justify-center">1</div>
                                 <div>
-                                Доставка осуществляется через реализованный на сайте веб-сервис транспортной компании (ТК) СДЭК. При оформлении заказа вы сразу можете ознакомиться со сроками доставки и её стоимостью. Доставку до ТК осуществляем БЕСПЛАТНО на следующий день после оплаты заказа. 
+                                    Доставка осуществляется через реализованный на сайте веб-сервис транспортной компании (ТК) СДЭК. При оформлении заказа вы сразу можете ознакомиться со сроками доставки и её стоимостью. Доставку до ТК осуществляем БЕСПЛАТНО на следующий день после оплаты заказа.
                                 </div>
                             </li>
                             <li className="grid grid-cols-a1 gap-x-4 items-center mb-4">
                                 <div className="button-gradient text-white text-sm w-6 h-6 rounded-full flex items-center justify-center">2</div>
                                 <div>
-                                При необходимости доставки иными транспортными компаниями свяжитесь с нашим менеджером интернет- магазина. Мы работаем со всеми основными ТК: Деловые Линии, ПЭК, Байкал, DPD, Почта России.
+                                    При необходимости доставки иными транспортными компаниями свяжитесь с нашим менеджером интернет- магазина. Мы работаем со всеми основными ТК: Деловые Линии, ПЭК, Байкал, DPD, Почта России.
                                 </div>
 
                             </li>

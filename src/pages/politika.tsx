@@ -1,7 +1,7 @@
 import { FC, useEffect } from "react";
-import Footer from "../components/footer";
+import Footer from "../components/footer/footer";
 import Help from "../components/help";
-import HeaderSecond from "../components/headerSecond";
+import HeaderSecond from "../components/header/headerSecond";
 
 
 interface IPolitika { }

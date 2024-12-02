@@ -18,6 +18,9 @@ const FAQsSection: FC<IFAQsSection> = ({ }) => {
         <>
             <div className="relative">
                 <div className="relative z-10 flex flex-col items-center justify-center">
+                    <span className="mb-8 bg-gradient-to-r from-green-400 via-green-600 to-green-800 bg-clip-text font-medium text-transparent">
+                        Остались еще вопросы?
+                    </span>
                     <span className="bg-gradient-to-r from-green-400 via-green-600 to-green-800 bg-clip-text text-transparent mb-8 text-5xl font-bold">FAQs</span>
                 </div>
 

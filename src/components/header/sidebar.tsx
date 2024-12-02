@@ -2,10 +2,10 @@ import { FC, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { Toaster, toast } from 'sonner'
 import ReactLoading from 'react-loading';
-import ChangeAmount from "./changeAmount";
-import BagItemColor from "./bagItemColor";
-import { getTotalSum } from "../utils";
-import { MyBag } from "../types";
+import ChangeAmount from "../changeAmount";
+import BagItemColor from "../bagItemColor";
+import { getTotalSum } from "../../utils";
+import { MyBag } from "../../types";
 
 
 interface ISidebar {

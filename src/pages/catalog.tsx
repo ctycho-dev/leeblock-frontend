@@ -1,11 +1,11 @@
 import { FC, useState, useEffect } from "react";
 import { MyBag } from "../types";
 import { updateBagItems } from "../utils";
-import Header from "../components/header";
-import Sidebar from "../components/sidebar";
+import Header from "../components/header/header";
+import Sidebar from "../components/header/sidebar";
 import { Product } from "../types";
 import AddToCard from "../components/addToCard";
-import Footer from "../components/footer";
+import Footer from "../components/footer/footer";
 import Help from "../components/help";
 
 import Skeleton from 'react-loading-skeleton'

@@ -1,6 +1,6 @@
 import { FC } from "react";
-import HeaderSecond from "../components/headerSecond";
-import Footer from "../components/footer";
+import HeaderSecond from "../components/header/headerSecond";
+import Footer from "../components/footer/footer";
 import Help from "../components/help";
 import sirTim from '../assets/Sir_Tim_Berners-Lee_(cropped).jpg'
 

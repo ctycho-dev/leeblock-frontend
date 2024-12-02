@@ -4,6 +4,9 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap');
 
+html {
+  scroll-behavior: smooth;
+}
 
 body {
   margin: 0;
@@ -25,7 +28,7 @@ code {
 }
 
 .link-custom {
-  color: #0000EE;
+  color: #fff;
   text-decoration: underline;
 }
 
