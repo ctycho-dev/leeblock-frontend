@@ -106,7 +106,9 @@ const FeaturesSection: FC = () => {
                         <FeatureBlock />
                     </div>
                     <div id="scroll-section" className="md:hidden scroll-area -me-6 tablet:-me-10 lg:me-0 mb-10">
-                        <div className="adv-items">
+                        <div className="grid" style={{
+                            gridTemplateColumns: 'repeat(5, 1fr)',
+                        }}>
                             <FeatureBlock />
                         </div>
                     </div>
