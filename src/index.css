@@ -14,9 +14,6 @@ body {
   font-optical-sizing: auto;
   font-weight: 500;
   font-style: normal;
-  /* font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif; */
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background: #F4F5F8;
@@ -27,15 +24,9 @@ code {
     monospace;
 }
 
-.link-custom {
-  color: #fff;
-  text-decoration: underline;
-}
-
 .adv-icon {
   height: 5rem;
 }
-
 
 .button-gradient {
   background: linear-gradient(270deg, rgba(90, 226, 140, 0.89) 4.29%, rgba(211, 227, 130, 0.45) 153.33%),
@@ -51,41 +42,9 @@ code {
   color: red;
 }
 
-/*--------------------------------
------------SWIPER-----------------
-----------------------------------*/
-.swiper {}
-
-.swiper-pagination-bullet-active {
-  background: rgb(90, 226, 140) !important;
-}
-
 
 #header {
   transition: transform .6s ease-in-out;
-}
-
-.hidden-header {
-  transform: translateY(-100%);
-  /* Hide the header by moving it up */
-}
-
-.adv-block {
-  transition: margin .2s ease-in-out;
-}
-
-
-.reveal-block {
-  opacity: 0;
-  transition: opacity 0.5s ease-in-out;
-}
-
-.hiddenn {
-  display: none;
-}
-
-.reveal-block.visiblee {
-  opacity: 1;
 }
 
 .scroll-area {
@@ -99,21 +58,9 @@ code {
   display: none;
 }
 
-.adv-items {
-  display: grid;
-  grid: auto / auto-flow min(80vw, 350px);
-  gap: 20px;
-}
 
-.header-hidden {
-  /* opacity: 0; */
-  transform: translateY(-100%);
-}
-
-
-/* Style the entire scrollbar */
 ::-webkit-scrollbar {
-  width: 12px;  /* Width of the vertical scrollbar */
+  width: 12px;
   height: 12px;
 }
 
@@ -121,22 +68,6 @@ code {
   width: 100% !important;
   height: 100% !important;
   background: transparent !important;
-  /* border: 1px solid #439F67 !important; */
   border: none !important;
   border-radius: 0.5rem !important;
 }
-
-
-.flag-dropdown {
-  background: none !important;
-  border: none !important;
-  /* background: #13171D !important; */
-  /* border: 1px solid #439F67 !important; */
-  border-radius: 0.5rem !important;
-}
-
-.selected-flag:hover {
-  background: none !important;
-}
-
-

@@ -58,19 +58,19 @@ const SupportPage: FC<ISupportPage> = ({ }) => {
                             <li className="grid grid-cols-a1 gap-x-4 items-center mb-4">
                                 <div className="button-gradient text-white text-sm w-6 h-6 rounded-full flex items-center justify-center">1</div>
                                 <div>
-                                    Вы можете позвонить нам по телефону <a href="tel:+79956295889" className="link-custom">+7(995) 629-58-89</a>
+                                    Вы можете позвонить нам по телефону <a href="tel:+79956295889" className="underline text-blue-600">+7(995) 629-58-89</a>
                                 </div>
                             </li>
                             <li className="grid grid-cols-a1 gap-x-4 items-center mb-4">
                                 <div className="button-gradient text-white text-sm w-6 h-6 rounded-full flex items-center justify-center">3</div>
                                 <div>
-                                    Написать письмо по адресу <a href="mailto:info@leeblock.ru" className="link-custom">info@leeblock.ru</a>
+                                    Написать письмо по адресу <a href="mailto:info@leeblock.ru" className="underline text-blue-600">info@leeblock.ru</a>
                                 </div>
                             </li>
                             <li className="grid grid-cols-a1 gap-x-4 items-center mb-4">
                                 <div className="button-gradient text-white text-sm w-6 h-6 rounded-full flex items-center justify-center">2</div>
                                 <div>
-                                    Написать <span className="link-custom hover:cursor-pointer" onClick={() => { setOpenHelp(true) }}>в чат</span> на сайте.
+                                    Написать <span className="underline text-blue-600 hover:cursor-pointer" onClick={() => { setOpenHelp(true) }}>в чат</span> на сайте.
                                 </div>
                             </li>
                         </ul>
