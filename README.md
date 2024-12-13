@@ -80,3 +80,4 @@ deploy.sh            # Deployment script
    - Start the container using `docker-compose.yml`.
 
 3. The application will be available at `http://localhost:5123` by default.
+

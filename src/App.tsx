@@ -11,6 +11,7 @@ import Agreement from './pages/agreement'
 import PaymentPage from './pages/payment'
 import SupportPage from './pages/support'
 import Error from './pages/error'
+import Test from './pages/test'
 
 const App = () => {
 
@@ -30,6 +31,7 @@ const App = () => {
                 <Route element={<Agreement />} path="/agreement" errorElement={<Error />} />
                 <Route element={<PaymentPage />} path="/payment_and_delivery" errorElement={<Error />} />
                 <Route element={<SupportPage />} path="/support" errorElement={<Error />} />
+                <Route element={<Test />} path="/test" errorElement={<Error />} />
             </Routes>
         </BrowserRouter>
     )

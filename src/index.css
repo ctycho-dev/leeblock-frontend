@@ -71,3 +71,12 @@ code {
   border: none !important;
   border-radius: 0.5rem !important;
 }
+
+.react-tel-input .flag-dropdown {
+  background-color: transparent !important;
+  border: none !important;
+}
+
+.react-tel-input:hover .flag-dropdown {
+  background-color: transparent !important;
+}

@@ -18,6 +18,7 @@ const CityInput: FC<ICityInput> = ({ chosenCity, setChosenCity }) => {
         async function fetchMyAPI() {
             if (!cities.length) {
                 const fetchedCitites = await getCities()
+                console.log(fetchedCitites)
                 setCitites(fetchedCitites)
             }
         }
