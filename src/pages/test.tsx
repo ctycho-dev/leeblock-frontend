@@ -16,6 +16,8 @@ import ReactLoading from 'react-loading';
 import Skeleton from 'react-loading-skeleton'
 import PhoneInput from 'react-phone-input-2'
 
+import { City } from "../types";
+
 
 declare global {
     interface Window {
@@ -25,14 +27,14 @@ declare global {
 
 interface ICheckout { }
 
-const Test: FC<ICheckout> = ({ }) => {
+const Checkout: FC<ICheckout> = ({ }) => {
     const navigate = useNavigate();
     const [isDisabled, setButtonDisabled] = useState(false)
     const [isLoading, setIsLoading] = useState(false)
     const [isRendered, setIsRendered] = useState(false)
     const [myBag, setMyBag] = useState<MyBag[] | []>([])
 
-    const [chosenCity, setChosenCity] = useState('')
+    const [chosenCity, setChosenCity] = useState<City | null>(null)
     const [chosenZip, setChosenZip] = useState('')
     const [chosenAddress, setChosenAddress] = useState('')
     const [chosenName, setChosenName] = useState('')
@@ -361,4 +363,4 @@ const Test: FC<ICheckout> = ({ }) => {
     )
 }
 
-export default Test
+export default Checkout

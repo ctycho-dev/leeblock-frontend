@@ -16,6 +16,8 @@ import ReactLoading from 'react-loading';
 import Skeleton from 'react-loading-skeleton'
 import PhoneInput from 'react-phone-input-2'
 
+import { City } from "../types";
+
 
 declare global {
     interface Window {
@@ -32,7 +34,7 @@ const Checkout: FC<ICheckout> = ({ }) => {
     const [isRendered, setIsRendered] = useState(false)
     const [myBag, setMyBag] = useState<MyBag[] | []>([])
 
-    const [chosenCity, setChosenCity] = useState('')
+    const [chosenCity, setChosenCity] = useState<City | null>(null)
     const [chosenZip, setChosenZip] = useState('')
     const [chosenAddress, setChosenAddress] = useState('')
     const [chosenName, setChosenName] = useState('')
@@ -64,64 +66,64 @@ const Checkout: FC<ICheckout> = ({ }) => {
 
 
         // document.addEventListener('DOMContentLoaded', () => {
-        // console.log('hello')
-        // if (window && window.CDEKWidget) {
-        //     new window.CDEKWidget({
-        //         from: 'Новосибирск',
-        //         root: 'cdek-map',
-        //         apiKey: 'bad51c9b-3d1c-4809-b170-8a9c35aef92a',
-        //         servicePath: 'http://158.160.136.110:8005',
-        //         defaultLocation: 'Новосибирск'
-        //     })
-        //     // new window.CDEKWidget({
-        //     //     from: {
-        //     //       country_code: 'RU',
-        //     //       city: 'Новосибирск',
-        //     //       postal_code: 630009,
-        //     //       code: 270,
-        //     //       address: 'ул. Большевистская, д. 101',
-        //     //     },
-        //     //     root: 'cdek-map',
-        //     //     apiKey: '0a19f132-bc3e-4393-96e9-e05ba8d38f10',
-        //     //     canChoose: true,
-        //     //     servicePath: 'http://158.160.136.110:8005',
-        //     //     hideFilters: {
-        //     //       have_cashless: false,
-        //     //       have_cash: false,
-        //     //       is_dressing_room: false,
-        //     //       type: false,
-        //     //     },
-        //     //     hideDeliveryOptions: {
-        //     //       office: false,
-        //     //       door: false,
-        //     //     },
-        //     //     debug: false,
-        //     //     goods: [
-        //     //       {
-        //     //         width: 10,
-        //     //         height: 10,
-        //     //         length: 10,
-        //     //         weight: 10,
-        //     //       },
-        //     //     ],
-        //     //     defaultLocation: [55.0415, 82.9346],
-        //     //     lang: 'rus',
-        //     //     currency: 'RUB',
-        //     //     tariffs: {
-        //     //       office: [234, 136, 138],
-        //     //       door: [233, 137, 139],
-        //     //     },
-        //     //     onReady() {
-        //     //       alert('Виджет загружен');
-        //     //     },
-        //     //     onCalculate() {
-        //     //       alert('Расчет стоимости доставки произведен');
-        //     //     },
-        //     //     onChoose() {
-        //     //       alert('Доставка выбрана');
-        //     //     },
-        //     //   });
-        // }
+        console.log('hello')
+        if (window && window.CDEKWidget) {
+            // new window.CDEKWidget({
+            //     from: 'Казань',
+            //     root: 'cdek-map',
+            //     apiKey: 'bad51c9b-3d1c-4809-b170-8a9c35aef92a',
+            //     servicePath: 'https://www.ghost-php-server.ru',
+            //     defaultLocation: 'Казань'
+            // })
+            // new window.CDEKWidget({
+            //     from: {
+            //       country_code: 'RU',
+            //       city: 'Новосибирск',
+            //       postal_code: 630009,
+            //       code: 270,
+            //       address: 'ул. Большевистская, д. 101',
+            //     },
+            //     root: 'cdek-map',
+            //     apiKey: 'bad51c9b-3d1c-4809-b170-8a9c35aef92a',
+            //     canChoose: true,
+            //     servicePath: 'http://158.160.136.110:8005',
+            //     hideFilters: {
+            //       have_cashless: false,
+            //       have_cash: false,
+            //       is_dressing_room: false,
+            //       type: false,
+            //     },
+            //     hideDeliveryOptions: {
+            //       office: false,
+            //       door: false,
+            //     },
+            //     debug: false,
+            //     goods: [
+            //       {
+            //         width: 10,
+            //         height: 10,
+            //         length: 10,
+            //         weight: 10,
+            //       },
+            //     ],
+            //     defaultLocation: [55.0415, 82.9346],
+            //     lang: 'rus',
+            //     currency: 'RUB',
+            //     tariffs: {
+            //       office: [234, 136, 138],
+            //       door: [233, 137, 139],
+            //     },
+            //     onReady() {
+            //       alert('Виджет загружен');
+            //     },
+            //     onCalculate() {
+            //       alert('Расчет стоимости доставки произведен');
+            //     },
+            //     onChoose() {
+            //       alert('Доставка выбрана');
+            //     },
+            //   });
+        }
 
         // })
 
@@ -216,7 +218,6 @@ const Checkout: FC<ICheckout> = ({ }) => {
             <HeaderSecond />
             <main className="bg-checkout">
                 <div className="max-w-7xl m-auto px-6 py-8">
-                    {/* <div id="cdek-map" className="w-[800px] h-[600px]"></div> */}
                     <div className="flex flex-col-reverse md:grid md:grid-cols-2  gap-y-6 gap-x-6 pb-10 ">
                         <aside className="grid gap-y-6 lg:gap-y-8">
                             <AddressDetails

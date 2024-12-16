@@ -19,7 +19,7 @@ export type MyBag = {
     quantity: number
 }
 
-export type Citites = {
+export type City = {
     code: number
     name: string
 }

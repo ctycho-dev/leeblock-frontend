@@ -1,16 +1,16 @@
 import { FC, useEffect, useState } from "react";
 import { getCities } from "../utils/rest";
-import { Citites } from "../types";
+import { City } from "../types";
 
 
 interface ICityInput {
-    chosenCity: string
+    chosenCity: City | null
     setChosenCity: any
 }
 
 const CityInput: FC<ICityInput> = ({ chosenCity, setChosenCity }) => {
 
-    const [cities, setCitites] = useState<Citites[] | []>([])
+    const [cities, setCitites] = useState<City[] | []>([])
     const [isFocused, setIsFocused] = useState(false);
 
 
@@ -22,9 +22,7 @@ const CityInput: FC<ICityInput> = ({ chosenCity, setChosenCity }) => {
                 setCitites(fetchedCitites)
             }
         }
-
         fetchMyAPI()
-
     }, [])
 
 
@@ -48,7 +46,7 @@ const CityInput: FC<ICityInput> = ({ chosenCity, setChosenCity }) => {
                     <input
                         type="text"
                         placeholder='Москва'
-                        value={chosenCity}
+                        value={chosenCity?.name}
                         onChange={handleChange}
                         onFocus={handleFocus}
                         onBlur={handleBlur}
@@ -61,10 +59,10 @@ const CityInput: FC<ICityInput> = ({ chosenCity, setChosenCity }) => {
                             <ul className='bg-white border py-2 rounded-lg transition-all grid gap-y-2 max-h-[200px] overflow-scroll'>
                                 {
                                     cities ?
-                                        cities.map((item: Citites) => {
+                                        cities.map((item: City) => {
                                             if (
                                                 !chosenCity ||
-                                                item.name.toLowerCase().includes(chosenCity.toLocaleLowerCase())
+                                                item.name.toLowerCase().includes(chosenCity.name.toLocaleLowerCase())
                                             ) {
                                                 return (
                                                     <li

@@ -3,9 +3,12 @@ import { FC } from "react";
 import CityInput from "./cityInput";
 import InputCustom from "./inputCutom";
 
+import { City } from "../types";
+
+
 interface IAddressDetails {
     isLoading: boolean
-    chosenCity: string
+    chosenCity: City | null
     setChosenCity: any
     chosenZip: string
     setChosenZip: any
