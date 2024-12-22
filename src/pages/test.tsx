@@ -146,16 +146,23 @@ const Checkout: FC<ICheckout> = ({ }) => {
     const chooseDeliveryPoint = () => {
         if (window && window.CDEKWidget && chosenCity) {
             new window.CDEKWidget({
-                from: chosenCity.name,
+                from: {
+                    country_code: 'RU',
+                    city: 'Санкт-Петербург',
+                    code: 137,
+                },
                 root: 'cdek-map',
                 apiKey: 'bad51c9b-3d1c-4809-b170-8a9c35aef92a',
                 servicePath: 'https://www.ghost-php-server.ru',
-                defaultLocation: 'Москва',
+                defaultLocation: chosenCity.name,
                 onCalculate() {
-                    alert('Расчет стоимости доставки произведен');
+                    console.log('Расчет стоимости доставки произведен');
                 },
-                onChoose() {
-                    alert('Доставка выбрана');
+                onChoose(one: any, two: any, three: any) {
+                    console.log('Доставка выбрана');
+                    console.log(one)
+                    console.log(two)
+                    console.log(three)
                 },
             })
 
