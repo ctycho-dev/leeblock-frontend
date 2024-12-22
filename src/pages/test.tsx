@@ -150,6 +150,7 @@ const Checkout: FC<ICheckout> = ({ }) => {
                 root: 'cdek-map',
                 apiKey: 'bad51c9b-3d1c-4809-b170-8a9c35aef92a',
                 servicePath: 'https://www.ghost-php-server.ru',
+                defaultLocation: 'Москва',
                 onCalculate() {
                     alert('Расчет стоимости доставки произведен');
                 },
