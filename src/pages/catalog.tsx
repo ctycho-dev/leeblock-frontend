@@ -12,7 +12,77 @@ import Skeleton from 'react-loading-skeleton'
 
 import { getProducts, getProductById } from "../utils/products";
 
+interface IProductElement {
+    item: Product
+    setBucketCounter: any
+    setBagItems: any
+}
+
 interface ICatalog { }
+
+
+const ProductElement: FC<IProductElement> = ({ item, setBucketCounter, setBagItems }) => {
+
+    const [imageChosen, setImageChosen] = useState(0)
+    const [imagesList, setImages] = useState<[] | null>(null)
+
+    useEffect(() => {
+        if (item.images) {
+            try {
+                setImages(JSON.parse(item.images))
+            } catch (e) { }
+
+        }
+    }, [])
+
+    return (
+        <>
+            <div className="relative bg-white rounded-md p-6 sm-mobile:p-4 md:p-6 shadow-custom min-h-[400px]">
+                {
+                    !item.supply ?
+                        <div className="bg-white absolute top-4 left-4 shadow-custom px-3 py-2 rounded-xl font-medium text-xs tablet:text-sm">
+                            {
+                                item.waiting ?
+                                    'В пути'
+                                    :
+                                    'Нет в наличии'
+                            }
+                        </div>
+                        : ''
+                }
+                <div className="group hover:cursor-pointer mb-2 min-h-[290px]">
+                    <img src={imagesList ? imagesList[imageChosen] : ''} alt="" />
+                </div>
+                <div className="font-[800] text-base tablet:text-lg mb-2">{item.description}</div>
+                {
+                    item.supply ?
+                        <div className="text-base tablet:text-lg mb-2">&#x20bd; {item.price}</div>
+                        : ''
+                }
+                <div className="flex justify-end mb-2">
+                    {
+                        item.supply ?
+                            <AddToCard product={item} text="В корзину" setBucketCounter={setBucketCounter} setBagItems={setBagItems} />
+                            : ''
+                    }
+                </div>
+                <div className="flex gap-x-2">
+                    {
+                        imagesList?.map((imgItem, i) => {
+                            return (
+                                <span key={`${item.product_id}_${i}`} className="hover:cursor-pointer" onClick={() => { setImageChosen(i) }}>
+                                    <img src={imgItem} alt="" className={`w-14 h-14 p-1 rounded-md border-gray-500 ${imageChosen == i ? 'border' : ''}`} />
+                                </span>
+                            )
+                        })
+                    }
+                </div>
+            </div>
+
+        </>
+    )
+}
+
 
 const Catalog: FC<ICatalog> = ({ }) => {
     const [isLoading, setIsLoading] = useState(true);
@@ -31,7 +101,6 @@ const Catalog: FC<ICatalog> = ({ }) => {
 
         const fetchAPI = async () => {
             const fetchedProducts = await getProducts()
-
             if (fetchedProducts && fetchedProducts.data) {
                 setAllProducts(fetchedProducts.data)
                 setIsLoading(false)
@@ -64,37 +133,7 @@ const Catalog: FC<ICatalog> = ({ }) => {
                                     allProducts ?
                                         allProducts.map((product: Product, i) => {
                                             return (
-                                                <div key={i} className="relative bg-white rounded-md p-6 sm-mobile:p-4 md:p-6 shadow-custom min-h-[400px]">
-                                                    {
-                                                        !product.supply ?
-                                                            <div className="bg-white absolute top-4 left-4 shadow-custom px-3 py-2 rounded-xl font-medium text-xs tablet:text-sm">
-                                                                {
-                                                                    product.waiting ?
-                                                                        'В пути'
-                                                                        :
-                                                                        'Нет в наличии'
-                                                                }
-                                                            </div>
-                                                            : ''
-                                                    }
-                                                    <div className="group hover:cursor-pointer mb-2 min-h-[290px]">
-                                                        <img src={product.catalog_img} alt="" className="group-hover:hidden" />
-                                                        <img src={product.catalog_hover_img} alt="" className="hidden group-hover:block" />
-                                                    </div>
-                                                    <div className="font-[800] text-base tablet:text-lg mb-2">{product.description}</div>
-                                                    {
-                                                        product.supply ?
-                                                            <div className="text-base tablet:text-lg mb-2">&#x20bd; {product.price}</div>
-                                                            : ''
-                                                    }
-                                                    <div className="flex justify-end">
-                                                        {
-                                                            product.supply ?
-                                                                <AddToCard product={product} text="В корзину" setBucketCounter={setBucketCounter} setBagItems={setBagItems} />
-                                                                : ''
-                                                        }
-                                                    </div>
-                                                </div>
+                                                <ProductElement key={product.product_id} item={product} setBucketCounter={setBucketCounter} setBagItems={setBagItems} />
                                             )
                                         })
                                         :

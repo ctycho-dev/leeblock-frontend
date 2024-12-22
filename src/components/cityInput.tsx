@@ -9,7 +9,7 @@ interface ICityInput {
 }
 
 const CityInput: FC<ICityInput> = ({ chosenCity, setChosenCity }) => {
-
+    const [city, setCity] = useState('')
     const [cities, setCitites] = useState<City[] | []>([])
     const [isFocused, setIsFocused] = useState(false);
 
@@ -18,7 +18,6 @@ const CityInput: FC<ICityInput> = ({ chosenCity, setChosenCity }) => {
         async function fetchMyAPI() {
             if (!cities.length) {
                 const fetchedCitites = await getCities()
-                console.log(fetchedCitites)
                 setCitites(fetchedCitites)
             }
         }
@@ -27,7 +26,7 @@ const CityInput: FC<ICityInput> = ({ chosenCity, setChosenCity }) => {
 
 
     const handleChange = (event: any) => {
-        setChosenCity(event.target.value);
+        setCity(event.target.value);
     };
 
     const handleFocus = () => {
@@ -38,6 +37,11 @@ const CityInput: FC<ICityInput> = ({ chosenCity, setChosenCity }) => {
         setIsFocused(false);
     };
 
+    const handleClick = (item: City) => {
+        setChosenCity(item)
+        setCity(item.name);
+    }
+
     return (
         <>
             <div className="relative">
@@ -46,7 +50,12 @@ const CityInput: FC<ICityInput> = ({ chosenCity, setChosenCity }) => {
                     <input
                         type="text"
                         placeholder='Москва'
-                        value={chosenCity?.name}
+                        autoComplete="off"
+                        autoCorrect="off"
+                        autoCapitalize="off"
+                        spellCheck='false'
+                        aria-autocomplete="list"
+                        value={city}
                         onChange={handleChange}
                         onFocus={handleFocus}
                         onBlur={handleBlur}
@@ -60,15 +69,17 @@ const CityInput: FC<ICityInput> = ({ chosenCity, setChosenCity }) => {
                                 {
                                     cities ?
                                         cities.map((item: City) => {
+                                            
                                             if (
-                                                !chosenCity ||
-                                                item.name.toLowerCase().includes(chosenCity.name.toLocaleLowerCase())
+                                                !city ||
+                                                item?.name.toLowerCase().includes(city.toLocaleLowerCase())
                                             ) {
                                                 return (
                                                     <li
                                                         key={item.code}
                                                         className="hover:bg-slate-100 px-4 py-2 hover:cursor-pointer"
-                                                        onMouseDown={() => { setChosenCity(item.name) }}>
+                                                        onMouseDown={() => { handleClick(item) }}
+                                                    >
                                                         {item.name}
                                                     </li>
                                                 )

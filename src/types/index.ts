@@ -5,6 +5,7 @@ export type Product = {
     description: string
     color?: string
     image?: string
+    images?: string
     catalog_img?: string
     catalog_hover_img?: string
     price: number
@@ -12,6 +13,10 @@ export type Product = {
     waiting?: number
     sequence: number
     published: number
+    weight: number
+    height: number
+    length: number
+    width: number
 }
 
 export type MyBag = {

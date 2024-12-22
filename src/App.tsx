@@ -18,20 +18,21 @@ const App = () => {
     return (
         <BrowserRouter>
             <Routes>
-                <Route element={<Home />} path="/" errorElement={<Error />} />
-                <Route element={<Login />} path="/login" errorElement={<Error />} />
+                <Route element={<Home />} path="/" />
+                <Route element={<Login />} path="/login" />
                 <Route element={<ProtectedRoute />}>
-                    <Route element={<Dashboard />} path="/dashboard" errorElement={<Error />} />
+                    <Route element={<Dashboard />} path="/console" />
                 </Route>
-                <Route element={<Home />} path="/dashboard" errorElement={<Error />} />
-                <Route element={<About />} path="/about" errorElement={<Error />} />
-                <Route element={<Catalog />} path="/catalog" errorElement={<Error />} />
-                <Route element={<Checkout />} path="/checkout" errorElement={<Error />} />
-                <Route element={<Politika />} path="/politika" errorElement={<Error />} />
-                <Route element={<Agreement />} path="/agreement" errorElement={<Error />} />
-                <Route element={<PaymentPage />} path="/payment_and_delivery" errorElement={<Error />} />
-                <Route element={<SupportPage />} path="/support" errorElement={<Error />} />
-                <Route element={<Test />} path="/test" errorElement={<Error />} />
+                <Route element={<Home />} path="/dashboard" />
+                <Route element={<About />} path="/about" />
+                <Route element={<Catalog />} path="/catalog" />
+                <Route element={<Checkout />} path="/checkout" />
+                <Route element={<Politika />} path="/politika" />
+                <Route element={<Agreement />} path="/agreement" />
+                <Route element={<PaymentPage />} path="/payment_and_delivery" />
+                <Route element={<SupportPage />} path="/support" />
+                <Route element={<Test />} path="/test" />
+                <Route element={<Error />} path="*" />
             </Routes>
         </BrowserRouter>
     )

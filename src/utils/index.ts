@@ -27,8 +27,8 @@ function validateBagItems(list: any) {
                 'name' in x['sku'] &&
                 'color' in x['sku'] &&
                 'image' in x['sku'] &&
-                'catalog_img' in x['sku'] &&
-                'catalog_hover_img' in x['sku'] &&
+                // 'catalog_img' in x['sku'] &&
+                // 'catalog_hover_img' in x['sku'] &&
                 'price' in x['sku'] &&
                 'supply' in x['sku'] &&
                 'waiting' in x['sku'] &&

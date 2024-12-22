@@ -13,6 +13,7 @@ CREATE TABLE IF NOT EXISTS products (
     sequence INTEGER NOT NULL DEFAULT 100,
     published INTEGER NOT NULL DEFAULT 0,
     display_on_main NOT NULL DEFAULT 0,
+    images TEXT,
     color VARCHAR(100)
 );
 
