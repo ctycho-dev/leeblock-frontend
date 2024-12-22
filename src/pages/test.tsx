@@ -145,69 +145,74 @@ const Checkout: FC<ICheckout> = ({ }) => {
 
     const chooseDeliveryPoint = () => {
         if (window && window.CDEKWidget && chosenCity) {
-            // new window.CDEKWidget({
-            //     from: 'Казань',
-            //     root: 'cdek-map',
-            //     apiKey: 'bad51c9b-3d1c-4809-b170-8a9c35aef92a',
-            //     servicePath: 'https://www.ghost-php-server.ru',
-            //     defaultLocation: 'Казань'
-            // })
-
             new window.CDEKWidget({
-                // from: {
-                //   country_code: 'RU',
-                //   city: 'Новосибирск',
-                //   postal_code: 630009,
-                //   code: 270,
-                //   address: 'ул. Большевистская, д. 101',
-                // },
-                from: {
-                    country_code: 'RU',
-                    city: chosenCity.name,
-                    // postal_code: 630009,
-                    code: chosenCity.code,
-                    // address: 'ул. Большевистская, д. 101',
-                },
+                from: chosenCity.name,
                 root: 'cdek-map',
                 apiKey: 'bad51c9b-3d1c-4809-b170-8a9c35aef92a',
-                canChoose: true,
                 servicePath: 'https://www.ghost-php-server.ru',
-                hideFilters: {
-                    have_cashless: false,
-                    have_cash: false,
-                    is_dressing_room: false,
-                    type: false,
-                },
-                hideDeliveryOptions: {
-                    office: false,
-                    door: false,
-                },
-                debug: false,
-                goods: [
-                    {
-                        width: 10,
-                        height: 10,
-                        length: 10,
-                        weight: 10,
-                    },
-                ],
-                defaultLocation: [55.0415, 82.9346],
-                lang: 'rus',
-                currency: 'RUB',
-                tariffs: {
-                    office: [234, 136, 138],
-                    door: [233, 137, 139],
-                },
-                // onReady() {
-                //     alert('Виджет загружен');
-                // },
                 onCalculate() {
                     alert('Расчет стоимости доставки произведен');
                 },
                 onChoose() {
                     alert('Доставка выбрана');
                 },
-            });
+            })
+
+            // new window.CDEKWidget({
+            //     // from: {
+            //     //   country_code: 'RU',
+            //     //   city: 'Новосибирск',
+            //     //   postal_code: 630009,
+            //     //   code: 270,
+            //     //   address: 'ул. Большевистская, д. 101',
+            //     // },
+            //     from: {
+            //         country_code: 'RU',
+            //         city: chosenCity.name,
+            //         // postal_code: 630009,
+            //         code: chosenCity.code,
+            //         // address: 'ул. Большевистская, д. 101',
+            //     },
+            //     root: 'cdek-map',
+            //     apiKey: 'bad51c9b-3d1c-4809-b170-8a9c35aef92a',
+            //     canChoose: true,
+            //     servicePath: 'https://www.ghost-php-server.ru',
+            //     hideFilters: {
+            //         have_cashless: false,
+            //         have_cash: false,
+            //         is_dressing_room: false,
+            //         type: false,
+            //     },
+            //     hideDeliveryOptions: {
+            //         office: false,
+            //         door: false,
+            //     },
+            //     debug: false,
+            //     goods: [
+            //         {
+            //             width: 10,
+            //             height: 10,
+            //             length: 10,
+            //             weight: 10,
+            //         },
+            //     ],
+            //     defaultLocation: [55.0415, 82.9346],
+            //     lang: 'rus',
+            //     currency: 'RUB',
+            //     tariffs: {
+            //         office: [234, 136, 138],
+            //         door: [233, 137, 139],
+            //     },
+            //     // onReady() {
+            //     //     alert('Виджет загружен');
+            //     // },
+            //     onCalculate() {
+            //         alert('Расчет стоимости доставки произведен');
+            //     },
+            //     onChoose() {
+            //         alert('Доставка выбрана');
+            //     },
+            // });
         }
         setShowMap(true)
     }
