@@ -283,7 +283,7 @@ const Checkout: FC<ICheckout> = ({ }) => {
                                                                 [136, 482].includes(item.code) && deliveryOption == i ?
                                                                     <div className="mt-2">
                                                                         {
-                                                                            deliveryPoint ? <div className="mb-2">{deliveryPoint}</div> : ''
+                                                                            deliveryPoint ? <div className="mb-2">{deliveryPoint.split(':')[0]}</div> : ''
                                                                         }
                                                                         <button
                                                                             className={`w-full button-gradient py-2 rounded-2xl 
