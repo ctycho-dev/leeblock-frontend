@@ -282,6 +282,9 @@ const Checkout: FC<ICheckout> = ({ }) => {
                                                             {
                                                                 [136, 482].includes(item.code) && deliveryOption == i ?
                                                                     <div className="mt-2">
+                                                                        {
+                                                                            deliveryPoint ? <div className="mb-2">{deliveryPoint}</div> : ''
+                                                                        }
                                                                         <button
                                                                             className={`w-full button-gradient py-2 rounded-2xl 
                                                                             flex justify-center items-center gap-x-2
@@ -441,11 +444,8 @@ const Checkout: FC<ICheckout> = ({ }) => {
                     <div className="bg-white rounded-2xl p-4 mx-2">
                         <div className="flex justify-end" onClick={() => { setShowMap(false) }}><IoClose className="text-2xl" /></div>
                         <div id="cdek-map"
-                            // className="w-[800px] h-[600px]"
-                            style={{
-                                width: `800px`,
-                                height: `600px`
-                            }}></div>
+                            className="h-[600px] max-w-[800px] w-full mx-auto sm:mx-2"
+                        ></div>
                     </div>
                 </div>
             </main>
