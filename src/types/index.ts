@@ -28,3 +28,20 @@ export type City = {
     code: number
     name: string
 }
+
+type DeliveryDataType = {
+    calendar_max: number
+    calendar_min: number
+    currency: string
+    delivery_sum: number
+    period_max: number
+    period_min: number
+    total_sum: number
+    weight_calc: number
+}
+
+export type DelivetyType = {
+    name: string
+    code: number
+    data: DeliveryDataType
+}
