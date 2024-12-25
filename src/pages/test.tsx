@@ -444,7 +444,7 @@ const Checkout: FC<ICheckout> = ({ }) => {
                     <div className="bg-white rounded-2xl p-4 mx-2">
                         <div className="flex justify-end" onClick={() => { setShowMap(false) }}><IoClose className="text-2xl" /></div>
                         <div id="cdek-map"
-                            className="h-[600px] max-w-[800px] w-full mx-auto sm:mx-2"
+                            className="h-[600px] w-[90vw] ipad-air:w-[800px] mx-auto sm:mx-2"
                         ></div>
                     </div>
                 </div>
