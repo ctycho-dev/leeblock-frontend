@@ -9,7 +9,7 @@ import CheckoutItem from "../components/checkoutItem";
 import AddressDetails from "../components/addressDetails";
 
 import { MyBag, DelivetyType } from "../types";
-import { getTotalSum, isValidEmail } from "../utils";
+import { getTotalSum, isValidEmail, parseBagFromStorage } from "../utils";
 import { initPayment } from "../utils/tinkoff";
 import { Toaster, toast } from 'sonner'
 import ReactLoading from 'react-loading';
@@ -21,6 +21,8 @@ import cdek from '../assets/cdek-1.svg'
 
 import { City } from "../types";
 import { getTariffCalculations } from "../utils/cdek";
+
+import * as CryptoJS from "crypto-js";
 
 
 declare global {
@@ -46,8 +48,7 @@ const Checkout: FC<ICheckout> = ({ }) => {
     const [chosenEmail, setChosenEmail] = useState('')
     const [chosenTelegram, setChosenTelegram] = useState('')
 
-    // const [canCalculate, setCanCalculate] = useState(false)
-    // const [isCalculating, setIsCalculating] = useState(false)
+    const [isCalculating, setIsCalculating] = useState(false)
     const [deliveryCalculation, setDeliveryCalculation] = useState<[] | null>(null)
     const [deliveryOption, setDeliveryOption] = useState(0)
     const [deliveryPoint, setDeliveryPoint] = useState('')
@@ -59,12 +60,7 @@ const Checkout: FC<ICheckout> = ({ }) => {
         const body = document.querySelector('body')
         if (body) body.style.overflow = 'auto'
 
-        let temp = localStorage.getItem('onekey-shopping-bag')
-
-        if (temp) {
-            const items = JSON.parse(temp)
-            setMyBag(items)
-        }
+        setMyBag(parseBagFromStorage())
 
         setTimeout(() => {
             setIsRendered(true)
@@ -72,20 +68,10 @@ const Checkout: FC<ICheckout> = ({ }) => {
 
     }, [])
 
-
-    // useEffect(() => {
-    //     if (chosenCity && chosenAddress && chosenZip) {
-    //         setCanCalculate(true)
-    //     } else {
-    //         setCanCalculate(false)
-    //     }
-
-    // }, [chosenAddress, chosenCity, chosenZip])
-
     useEffect(() => {
+        setDeliveryPoint('')
         if (chosenCity) {
-            setDeliveryPoint('')
-            getCalculation()
+            setIsCalculating(true)
             if (window && window.CDEKWidget) {
                 new window.CDEKWidget({
                     from: {
@@ -104,6 +90,9 @@ const Checkout: FC<ICheckout> = ({ }) => {
                     },
                 })
             }
+            getCalculation()
+        } else {
+            setDeliveryCalculation(null)
         }
     }, [chosenCity])
 
@@ -129,15 +118,25 @@ const Checkout: FC<ICheckout> = ({ }) => {
             packages: packages
         }
 
-        let res = await getTariffCalculations(data)
-
-        if (res && res.data) {
-            setDeliveryCalculation(res.data)
-        }
+        getTariffCalculations(data)
+            .then((res) => {
+                if (res && res.data) {
+                    setDeliveryCalculation(res.data);
+                }
+                setIsCalculating(false)
+            })
+            .catch((error) => {
+                console.error("Error fetching tariff calculations:", error);
+                setIsCalculating(false)
+            });
     }
 
 
     const sumbitRequest = async () => {
+        if (deliveryCalculation && [136, 482].includes(deliveryCalculation[deliveryOption]['code']) && !deliveryPoint) {
+            toast.error('Выберите ПВЗ для доставки')
+            return
+        }
         if (!chosenCity) {
             toast.error('Поле "Город" обязателено к заполнению')
             return
@@ -251,7 +250,7 @@ const Checkout: FC<ICheckout> = ({ }) => {
                                         </div>
                                         <InputCustom type="text" name='email' label="Email" value={chosenEmail} placeholder="example@mail.ru" onChangeFunc={setChosenEmail} />
                                     </div>
-                                    <div className={`${isLoading ? 'bg-gray-100 opacity-50 pointer-events-none' : 'bg-white'} p-6 rounded-3xl checkout-block-shadow`}>
+                                    <div className={`${isCalculating ? 'bg-gray-100 opacity-50 pointer-events-none' : 'bg-white'} p-6 rounded-3xl checkout-block-shadow`}>
                                         <h2 className="text-xl font-bold text-h-checkout mb-4">Способ доставки</h2>
                                         <div className="grid gap-y-2">
                                             {
@@ -302,27 +301,6 @@ const Checkout: FC<ICheckout> = ({ }) => {
                                             deliveryCalculation ? '' :
                                                 'Введите свой адрес для просмотра параметров доставки.'
                                         }
-                                        {/* {
-                                            canCalculate ?
-                                                <div className="flex justify-end mt-2">
-                                                    <button
-                                                        className={`button-gradient py-2 px-6 rounded-2xl 
-                                                    flex justify-center items-center gap-x-2
-                                                    whitespace-nowrap font-bold
-                                                    disabled:pointer-events-none disabled:opacity-50`}
-                                                        onClick={getCalculation}
-                                                        disabled={isCalculating}>
-                                                        Расчитать стоимость
-                                                        {
-                                                            isCalculating ?
-                                                                <ReactLoading type='spinningBubbles' color='#000' height={'20px'} width={'20px'} />
-                                                                : ''
-                                                        }
-                                                    </button>
-                                                </div>
-                                                : deliveryCalculation ? '' :
-                                                    'Введите свой адрес для просмотра параметров доставки.'
-                                        } */}
                                     </div>
                                     <div className="grid gap-y-2">
                                         <div>

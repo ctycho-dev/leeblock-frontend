@@ -1,11 +1,13 @@
 import { MyBag } from "../types"
+import * as CryptoJS from "crypto-js";
 
 export function updateBagItems(setBucketCounter: any, setBagItems: any) {
     let temp = localStorage.getItem('onekey-shopping-bag')
 
     if (temp) {
+        let decrypted = decryptData(temp)
         try {
-            const items = JSON.parse(temp)
+            const items = JSON.parse(decrypted)
             if (validateBagItems(items)) {
                 setBucketCounter(countBagItems(items))
                 setBagItems(items)
@@ -27,8 +29,6 @@ function validateBagItems(list: any) {
                 'name' in x['sku'] &&
                 'color' in x['sku'] &&
                 'image' in x['sku'] &&
-                // 'catalog_img' in x['sku'] &&
-                // 'catalog_hover_img' in x['sku'] &&
                 'price' in x['sku'] &&
                 'supply' in x['sku'] &&
                 'waiting' in x['sku'] &&
@@ -61,8 +61,12 @@ export const parseBagFromStorage = () => {
     let temp = localStorage.getItem('onekey-shopping-bag')
     let cards: MyBag[] = []
 
-    if (temp) {
-        cards = JSON.parse(temp)
+    try {
+        if (temp) {
+            cards = JSON.parse(decryptData(temp))
+        }
+    } catch (e: any) {
+        console.log(e)
     }
 
     return cards
@@ -95,4 +99,19 @@ export function isValidPhoneNumber(phoneNumber: string) {
 
     // Test the phone number against the regex pattern
     return phonePattern.test(phoneNumber);
+}
+
+export function encryptData(data: any): string {
+    if (process.env.REACT_APP_SECRET_KEY) {
+        return CryptoJS.AES.encrypt(JSON.stringify(data), process.env.REACT_APP_SECRET_KEY).toString();
+    }
+    return ''
+}
+
+function decryptData(cipherText: string): any {
+    if (process.env.REACT_APP_SECRET_KEY) {
+        const bytes = CryptoJS.AES.decrypt(cipherText, process.env.REACT_APP_SECRET_KEY);
+        return JSON.parse(bytes.toString(CryptoJS.enc.Utf8));
+    }
+    return ''
 }

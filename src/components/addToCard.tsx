@@ -2,6 +2,7 @@ import { FC, useState } from "react";
 import ReactLoading from 'react-loading';
 import { Product, MyBag } from "../types";
 import { countBagItems, parseBagFromStorage } from "../utils";
+import { encryptData } from "../utils";
 
 interface IAddToCard {
     text: string
@@ -30,7 +31,7 @@ const AddToCard: FC<IAddToCard> = ({ text, arrow, product, setBucketCounter, set
                 card.quantity += 1
             }
 
-            localStorage.setItem('onekey-shopping-bag', JSON.stringify(cards))
+            localStorage.setItem('onekey-shopping-bag', encryptData(JSON.stringify(cards)))
             setBucketCounter(countBagItems(cards))
             setBagItems(cards)
         } catch (exc: any) {

@@ -8,7 +8,6 @@ export async function getTariffCalculations(data: any) {
             },
         });
 
-        console.log(res);
         return res;
     } catch (error) {
         console.error(error);
