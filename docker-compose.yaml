@@ -8,6 +8,7 @@ services:
     environment:
       NODE_ENV: production
       REACT_APP_BACKEND: ${REACT_APP_BACKEND}
+      REACT_APP_SECRET_KEY: ${REACT_APP_SECRET_KEY}
     restart: always
     # healthcheck:
     #   test: ["CMD", "curl", "-f", "http://localhost:5000"]
