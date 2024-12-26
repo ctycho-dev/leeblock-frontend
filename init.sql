@@ -75,3 +75,21 @@ CREATE TABLE IF NOT EXISTS payment_types (
     id SERIAL PRIMARY KEY,
     name VARCHAR(200) NOT NULL
 )
+
+-- Create user_role table
+CREATE TABLE user_role (
+    id SERIAL PRIMARY KEY,
+    name VARCHAR(50) NOT NULL UNIQUE,
+    created_at TIMESTAMP DEFAULT NOW ()
+);
+
+CREATE TABLE users (
+    id SERIAL PRIMARY KEY,
+    username VARCHAR(50) NOT NULL UNIQUE,
+    email VARCHAR(100) NOT NULL UNIQUE,
+    hashed_password VARCHAR(1000) NOT NULL,
+    admin INTEGER NOT NULL DEFAULT 0,
+    role_id INT NOT NULL,
+    FOREIGN KEY (role_id) REFERENCES user_role(id),
+    created_at TIMESTAMP DEFAULT NOW ()
+);

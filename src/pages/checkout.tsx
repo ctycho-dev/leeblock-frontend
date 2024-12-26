@@ -46,8 +46,8 @@ const Checkout: FC<ICheckout> = ({ }) => {
     const [chosenEmail, setChosenEmail] = useState('')
     const [chosenTelegram, setChosenTelegram] = useState('')
 
-    const [canCalculate, setCanCalculate] = useState(false)
-    const [isCalculating, setIsCalculating] = useState(false)
+    // const [canCalculate, setCanCalculate] = useState(false)
+    // const [isCalculating, setIsCalculating] = useState(false)
     const [deliveryCalculation, setDeliveryCalculation] = useState<[] | null>(null)
     const [deliveryOption, setDeliveryOption] = useState(0)
     const [deliveryPoint, setDeliveryPoint] = useState('')
@@ -73,19 +73,43 @@ const Checkout: FC<ICheckout> = ({ }) => {
     }, [])
 
 
-    useEffect(() => {
-        if (chosenCity && chosenAddress && chosenZip) {
-            setCanCalculate(true)
-        } else {
-            setCanCalculate(false)
-        }
+    // useEffect(() => {
+    //     if (chosenCity && chosenAddress && chosenZip) {
+    //         setCanCalculate(true)
+    //     } else {
+    //         setCanCalculate(false)
+    //     }
 
-    }, [chosenAddress, chosenCity, chosenZip])
+    // }, [chosenAddress, chosenCity, chosenZip])
+
+    useEffect(() => {
+        if (chosenCity) {
+            setDeliveryPoint('')
+            getCalculation()
+            if (window && window.CDEKWidget) {
+                new window.CDEKWidget({
+                    from: {
+                        country_code: 'RU',
+                        city: 'Санкт-Петербург',
+                        code: 137,
+                    },
+                    root: 'cdek-map',
+                    apiKey: 'bad51c9b-3d1c-4809-b170-8a9c35aef92a',
+                    servicePath: 'https://www.ghost-php-server.ru',
+                    defaultLocation: chosenCity ? chosenCity.name : 'Казань',
+                    onChoose(type: any, two: any, data: any) {
+                        if (data && data.address && data.name) {
+                            setDeliveryPoint(data.name + ' : ' + data.address)
+                        }
+                    },
+                })
+            }
+        }
+    }, [chosenCity])
 
     const getCalculation = async () => {
-        setIsCalculating(true)
-
         let packages = []
+
         for (const item of myBag) {
             for (let i = 0; i < item.quantity; i++) {
                 packages.push({
@@ -104,41 +128,14 @@ const Checkout: FC<ICheckout> = ({ }) => {
             city_zip: chosenZip,
             packages: packages
         }
-        console.log(data)
 
         let res = await getTariffCalculations(data)
 
-        console.log(res)
         if (res && res.data) {
             setDeliveryCalculation(res.data)
         }
-        setTimeout(() => {
-            setIsCalculating(false)
-        }, 1000)
     }
 
-    const chooseDeliveryPoint = () => {
-        setShowMap(true)
-
-        if (window && window.CDEKWidget) {
-            new window.CDEKWidget({
-                from: {
-                    country_code: 'RU',
-                    city: 'Санкт-Петербург',
-                    code: 137,
-                },
-                root: 'cdek-map',
-                apiKey: 'bad51c9b-3d1c-4809-b170-8a9c35aef92a',
-                servicePath: 'https://www.ghost-php-server.ru',
-                defaultLocation: chosenCity ? chosenCity.name : 'Казань',
-                onChoose(type: any, two: any, data: any) {
-                    if (data && data.address && data.name) {
-                        setDeliveryPoint(data.name + ' : ' + data.address)
-                    }
-                },
-            })
-        }
-    }
 
     const sumbitRequest = async () => {
         if (!chosenCity) {
@@ -290,7 +287,7 @@ const Checkout: FC<ICheckout> = ({ }) => {
                                                                             flex justify-center items-center gap-x-2
                                                                             whitespace-nowrap font-bold
                                                                             disabled:pointer-events-none disabled:opacity-50`}
-                                                                            onClick={chooseDeliveryPoint}>
+                                                                            onClick={() => { setShowMap(true) }}>
                                                                             Выбрать ПВЗ
                                                                         </button>
                                                                     </div>
@@ -302,6 +299,10 @@ const Checkout: FC<ICheckout> = ({ }) => {
                                             }
                                         </div>
                                         {
+                                            deliveryCalculation ? '' :
+                                                'Введите свой адрес для просмотра параметров доставки.'
+                                        }
+                                        {/* {
                                             canCalculate ?
                                                 <div className="flex justify-end mt-2">
                                                     <button
@@ -321,7 +322,7 @@ const Checkout: FC<ICheckout> = ({ }) => {
                                                 </div>
                                                 : deliveryCalculation ? '' :
                                                     'Введите свой адрес для просмотра параметров доставки.'
-                                        }
+                                        } */}
                                     </div>
                                     <div className="grid gap-y-2">
                                         <div>
