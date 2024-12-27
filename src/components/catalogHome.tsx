@@ -50,7 +50,6 @@ const CatalogHome: FC<ICatalogHome> = ({ bucketCounter, setBucketCounter, setBag
             {/* <div id='catalog' className="bg-checkout dark:bg-dark-primary dark:text-white rounded-t-[50px] -mt-20 py-20"> */}
                 <div className="max-w-7xl m-auto px-6 tablet:px-10">
                     <Link to='/catalog' className="text-2xl tablet:text-3xl mb-14 font-bold flex items-center gap-x-2">
-                        {/* <BubbleText text='Все товары' text_style='text-5xl tablet:text-3xl mb-14 font-thin text-black' /> */}
                         <span>Все товары</span>
                         <FiArrowRight />
                     </Link>

@@ -5,7 +5,6 @@ import InputCustom from "../components/inputCutom";
 import { sendEmailCallRequired } from "../utils/email";
 
 import { IoClose } from "react-icons/io5";
-import { InputMask } from "primereact/inputmask";
 import PhoneInput from 'react-phone-input-2'
 
 interface IPreorderForm {
