@@ -1,5 +1,5 @@
 import { FC, useState } from "react";
-import AddToCard from "./addToCard";
+import AddToCard from "./buttons/addToCard";
 
 import { Product } from "../types";
 

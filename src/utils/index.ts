@@ -5,8 +5,8 @@ export function updateBagItems(setBucketCounter: any, setBagItems: any) {
     let temp = localStorage.getItem('onekey-shopping-bag')
 
     if (temp) {
-        let decrypted = decryptData(temp)
         try {
+            let decrypted = decryptData(temp)
             const items = JSON.parse(decrypted)
             if (validateBagItems(items)) {
                 setBucketCounter(countBagItems(items))
@@ -67,6 +67,7 @@ export const parseBagFromStorage = () => {
         }
     } catch (e: any) {
         console.log(e)
+        localStorage.removeItem('onekey-shopping-bag')
     }
 
     return cards

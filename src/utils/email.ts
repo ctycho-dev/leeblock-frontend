@@ -1,6 +1,6 @@
 import axios from "axios"
 
-export async function sendEmailCallRequired(name: string, phone: string) {
+export async function sendEmailCallRequired(name: string, phone: string, subject: string, text: string = '') {
     const body = `
     <style>
         .btn-link {
@@ -14,12 +14,13 @@ export async function sendEmailCallRequired(name: string, phone: string) {
             margin-bottom: 3px;
         }
     </style>
-    <h3 class="title">Запрос на обратный звонок.</h3>
+    <h3 class="title">${subject}</h3>
     <div class="block">Имя: ${name}</div>
-    <div>Телефон: <a href="tel:${phone}">${phone}</a></div>`
+    <div>Телефон: <a href="tel:${phone}">${phone}</a></div>
+    <div>${text}</div>`
 
     const data = {
-        subject: "Обратный звонок",
+        subject: subject,
         body: body,
         msg_type: 'html'
     }
@@ -76,11 +77,3 @@ export async function sendEmailNeedHelp(name: string, email: string, msg: string
     }
     return null
 }
-
-
-// curl -X OPTIONS https://drive-t.ru/v1/send_email \
-//   -H "Origin: https://leeblock.ru" \
-//   -H "Access-Control-Request-Method: POST" \
-//   -H "Access-Control-Request-Headers: Content-Type, Authorization"
-
-

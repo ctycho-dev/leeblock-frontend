@@ -1,5 +1,7 @@
-import { FC } from "react";
-import AddToCard from "./addToCard";
+import { FC, useState } from "react";
+import AddToCard from "./buttons/addToCard";
+import PreorderForm from "./preorderForm";
+import PreorderButton from './buttons/preorderButton';
 import { Product } from "../types";
 
 interface IOneKeyItem {
@@ -10,6 +12,8 @@ interface IOneKeyItem {
 }
 
 const OneKeyItem: FC<IOneKeyItem> = ({ product, description, setBucketCounter, setBagItems }) => {
+
+    const [visiblePreorder, setVisiblePreorder] = useState(false);
 
     return (
         <>
@@ -33,9 +37,13 @@ const OneKeyItem: FC<IOneKeyItem> = ({ product, description, setBucketCounter, s
                                 </div>
                                 <AddToCard product={product} text="В корзину" setBucketCounter={setBucketCounter} setBagItems={setBagItems} />
                             </div>
-                            : ''
+                            :
+                            <div className='flex justify-end'>
+                                <PreorderButton setVisiblePreorder={setVisiblePreorder} />
+                            </div>
                     }
                 </div>
+                <PreorderForm visiblePreorder={visiblePreorder} setVisiblePreorder={setVisiblePreorder} productName={product.name +' '+ product.description} />
             </div>
         </>
     )

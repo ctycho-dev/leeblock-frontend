@@ -25,7 +25,7 @@ const FooterForm: FC<IFooterForm> = ({ }) => {
             toast.error('Поле "Телефон" обязателено к заполнению')
         }
         else {
-            const res = await sendEmailCallRequired(name, phone)
+            const res = await sendEmailCallRequired(name, phone, 'Обратный звонок')
 
             if (!res || res?.status !== 200) {
                 toast.error('Что то пошло не так. Попробуйте снова через несколько минут.')

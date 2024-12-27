@@ -1,8 +1,10 @@
 import { FC, useState } from "react";
 import ReactLoading from 'react-loading';
-import { Product, MyBag } from "../types";
-import { countBagItems, parseBagFromStorage } from "../utils";
-import { encryptData } from "../utils";
+import { Product, MyBag } from "../../types";
+import { countBagItems, parseBagFromStorage } from "../../utils";
+import { encryptData } from "../../utils";
+
+import { HiShoppingBag } from "react-icons/hi2";
 
 interface IAddToCard {
     text: string
@@ -47,12 +49,12 @@ const AddToCard: FC<IAddToCard> = ({ text, arrow, product, setBucketCounter, set
             <button className={`
                 button-gradient text-sm md:text-base py-2 px-4 
                 rounded-xl flex items-center gap-x-2
-                hover:-mt-[2px] hover:mb-[2px] 
+                shadow-custom3 hover:shadow-custom4
                 transition-all whitespace-nowrap
                 disabled:pointer-events-none disabled:opacity-50`}
                 onClick={addToBucket}
                 disabled={isDisabled}>
-                {text}
+                {text} <HiShoppingBag className="text-xl"/>
                 {arrow ? <span className="ml-2">&#8594;</span> : ''}
                 {
                     isDisabled ?

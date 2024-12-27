@@ -232,7 +232,7 @@ const Checkout: FC<ICheckout> = ({ }) => {
                                     />
                                     <div className={`${isLoading ? 'bg-gray-100 opacity-50 pointer-events-none' : 'bg-white'} p-6 rounded-3xl checkout-block-shadow`}>
                                         <h2 className="text-xl font-bold text-h-checkout mb-4">Ваши данные</h2>
-                                        <div className="grid sm-mobile:grid-cols-21 gap-x-2 gap-y-3 mb-3">
+                                        <div className="grid sm-mobile:grid-cols-2 gap-x-2 gap-y-3 mb-3">
                                             <InputCustom type="text" name='name' label="Имя" value={chosenName} placeholder="Иван" onChangeFunc={setChosenName} />
                                             <InputCustom type="text" name='lname' label="Фамилия" value={chosenSurname} placeholder="Иванов" onChangeFunc={setChosenSurname} />
                                         </div>
