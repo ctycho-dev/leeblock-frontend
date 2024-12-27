@@ -3,9 +3,7 @@ import axios from "axios"
 export async function getProducts() {
     
     try {
-        console.log(process.env.REACT_APP_BACKEND)
-        // const res = await axios.get(`${process.env.REACT_APP_BACKEND}/v1/get_products`, {
-        const res = await axios.get(`https://drive-t.ru/v1/get_products`, {
+        const res = await axios.get(`${process.env.REACT_APP_BACKEND}/v1/get_products`, {
             headers: {
                 "Content-Type": "application/json"
             }
@@ -21,7 +19,7 @@ export async function getProducts() {
 export async function getProductById(id: string) {
     
     try {
-        const res = await axios.get(`https://drive-t.ru/v1/get_products/${id}`, {
+        const res = await axios.get(`${process.env.REACT_APP_BACKEND}/v1/get_products/${id}`, {
             headers: {
                 "Content-Type": "application/json"
             }
@@ -38,7 +36,7 @@ export async function getProductById(id: string) {
 export async function getProductsToDisplay() {
     
     try {
-        const res = await axios.get(`https://drive-t.ru/v1/get_products_to_display`, {
+        const res = await axios.get(`${process.env.REACT_APP_BACKEND}/v1/get_products_to_display`, {
             headers: {
                 "Content-Type": "application/json"
             }
