@@ -9,5 +9,7 @@ docker build . -t leeblock_react
 docker-compose down
 docker-compose up -d
 
+docker image prune -f
+
 docker-compose ps
 
