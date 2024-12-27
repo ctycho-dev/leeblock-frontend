@@ -48,8 +48,8 @@ const PreorderForm: FC<IPreorderForm> = ({ visiblePreorder, setVisiblePreorder, 
                 fixed top-0 right-0 left-0 w-screen h-screen
                 overflow-hidden z-[999]
                 transition-all ${visiblePreorder ? '' : 'hidden'}`}></div>
-            <div className={`fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-[1000] ${visiblePreorder ? '' : 'hidden'}`}>
-                <div className="relative bg-white p-12 rounded-xl ">
+            <div className={`fixed w-screen top-0 left-0 h-screen z-[1000] ${visiblePreorder ? '' : 'hidden'} flex items-center justify-center`}>
+                <div className="relative bg-white p-6 md:p-12 rounded-xl mx-2 w-full sm-mobile:w-96">
                     <div className="absolute right-2 top-2"><span onClick={() => { setVisiblePreorder(false) }}><IoClose className="text-2xl" /></span></div>
                     <h1 className="text-center font-bold text-2xl mb-2">Оформить предзаказ</h1>
                     <h3 className="text-gray-500 mb-3">Оставьте свои данные и мы свяжемся с вами</h3>
