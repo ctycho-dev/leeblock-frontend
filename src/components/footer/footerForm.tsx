@@ -17,7 +17,6 @@ const FooterForm: FC<IFooterForm> = ({ }) => {
 
     const submitForm = async (event: any) => {
         setButtonDisabled(true)
-        console.log(name, phone)
         if (!name) {
             toast.error('Поле "Имя" обязателено к заполнению')
         }

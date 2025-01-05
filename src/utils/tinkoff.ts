@@ -3,8 +3,9 @@ import axios from "axios";
 
 export const initPayment = async (data: any) => {
 
+
     try {
-        const res = await axios.post(`${process.env.REACT_APP_BACKEND}/v1/init_payment`, data);
+        const res = await axios.post(`${process.env.REACT_APP_BACKEND}/payments/`, data);
 
         return res.data
     } catch (e) {

@@ -25,8 +25,8 @@ const CatalogHome: FC<ICatalogHome> = ({ bucketCounter, setBucketCounter, setBag
     useEffect(() => {
 
         const fetchAPI = async () => {
-            const fetchedBlack = await getProductById('onekey-pro-black')
-            const fetchedWhite = await getProductById('onekey-pro-white')
+            const fetchedBlack = await getProductById(1)
+            const fetchedWhite = await getProductById(2)
             const fetchedItemsToDisplay = await getProductsToDisplay()
 
             if (fetchedWhite && fetchedWhite.data) {

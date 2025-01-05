@@ -34,12 +34,16 @@ const Help: FC<IHelp> = ({ openHelp, setOpenHelp }) => {
 
     const handleOpenHelp = () => {
         setIsHelpNeeded(true)
-        setOpenHelp(true)
+        if (openHelp != undefined) {
+            setOpenHelp(true)
+        }
     }
 
     const handleCloseHelp = () => {
         setIsHelpNeeded(false)
-        setOpenHelp(false)
+        if (openHelp != undefined) {
+            setOpenHelp(false)
+        }
     }
 
     return (

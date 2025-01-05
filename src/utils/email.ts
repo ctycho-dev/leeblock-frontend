@@ -26,7 +26,7 @@ export async function sendEmailCallRequired(name: string, phone: string, subject
     }
 
     try {
-        const res = await axios.post(`${process.env.REACT_APP_BACKEND}/v1/send_email`, data, {
+        const res = await axios.post(`${process.env.REACT_APP_BACKEND}/email/`, data, {
             headers: {
                 "Content-Type": "application/json"
             }
@@ -65,7 +65,7 @@ export async function sendEmailNeedHelp(name: string, email: string, msg: string
     }
 
     try {
-        const res = await axios.post(`${process.env.REACT_APP_BACKEND}/v1/send_email`, data, {
+        const res = await axios.post(`${process.env.REACT_APP_BACKEND}/email/`, data, {
             headers: {
                 'Origin': 'https://www.leeblock.ru',  // Ensure the correct origin is set
                 'Content-Type': 'application/json',  // Specify JSON content type

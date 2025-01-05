@@ -133,10 +133,10 @@ const Checkout: FC<ICheckout> = ({ }) => {
 
 
     const sumbitRequest = async () => {
-        if (deliveryCalculation && [136, 482].includes(deliveryCalculation[deliveryOption]['code']) && !deliveryPoint) {
-            toast.error('Выберите ПВЗ для доставки')
-            return
-        }
+        // if (deliveryCalculation && [136, 482].includes(deliveryCalculation[deliveryOption]['code']) && !deliveryPoint) {
+        //     toast.error('Выберите ПВЗ для доставки')
+        //     return
+        // }
         if (!chosenCity) {
             toast.error('Поле "Город" обязателено к заполнению')
             return
@@ -205,7 +205,8 @@ const Checkout: FC<ICheckout> = ({ }) => {
         if (res && res.Success) {
             localStorage.setItem('PaymentId', res.PaymentId)
             localStorage.setItem('OrderId', res.OrderId)
-            window.open(res.PaymentURL)
+            // window.open(res.PaymentURL)
+            window.location.href = res.PaymentURL;
         } else {
             toast.error(res?.Details)
         }
