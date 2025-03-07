@@ -12,12 +12,9 @@ import { getProductById, getProductsToDisplay } from "../utils/products";
 import Skeleton from 'react-loading-skeleton'
 
 interface ICatalogHome {
-    bucketCounter: number
-    setBucketCounter: any
-    setBagItems: any
 }
 
-const CatalogHome: FC<ICatalogHome> = ({ bucketCounter, setBucketCounter, setBagItems }) => {
+const CatalogHome: FC<ICatalogHome> = ({ }) => {
     const [proWhite, setWhitePro] = useState<Product | null>(null)
     const [proBlack, setBlackPro] = useState<Product | null>(null)
     const [itemsToDisplay, setItemsToDisplay] = useState<Product[] | null>(null)
@@ -47,7 +44,6 @@ const CatalogHome: FC<ICatalogHome> = ({ bucketCounter, setBucketCounter, setBag
     return (
         <>
             <div id='catalog' className="bg-checkout dark:bg-dark-primary dark:text-white rounded-t-[50px] py-16">
-            {/* <div id='catalog' className="bg-checkout dark:bg-dark-primary dark:text-white rounded-t-[50px] -mt-20 py-20"> */}
                 <div className="max-w-7xl m-auto px-6 tablet:px-10">
                     <Link to='/catalog' className="text-2xl tablet:text-3xl mb-14 font-bold flex items-center gap-x-2">
                         <span>Все товары</span>
@@ -59,9 +55,6 @@ const CatalogHome: FC<ICatalogHome> = ({ bucketCounter, setBucketCounter, setBag
                                 <OneKeyPro
                                     proBlack={proBlack}
                                     proWhite={proWhite}
-                                    bucketCounter={bucketCounter}
-                                    setBucketCounter={setBucketCounter}
-                                    setBagItems={setBagItems}
                                 />
                                 :
                                 <Skeleton
@@ -83,8 +76,6 @@ const CatalogHome: FC<ICatalogHome> = ({ bucketCounter, setBucketCounter, setBag
                                                     key={i}
                                                     product={item}
                                                     description="Ультралёгкий кошелёк с чипом EAL6+"
-                                                    setBucketCounter={setBucketCounter}
-                                                    setBagItems={setBagItems}
                                                 />
                                             )
                                         })

@@ -1,48 +1,41 @@
 import { FC, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
-import bucket from '../../assets/bucket.svg'
-import bucketWhite from '../../assets/bucketWhite.svg'
 import search from '../../assets/search.svg'
 import logoShort from '../../assets/logoShort.svg'
 import logoShortWhite from '../../assets/logoShortWhite.svg'
 
 import { ShiftingDropDown } from "./shiftingDropDown";
+import ThemeCustom from "./theme";
 import MobileNav from "./mobileNav";
-// import ThemeCustom from "./theme";
+import BurgerMenu from "./burgerMenu";
+import { useAuth } from "../../authProvider";
+import Button from '@mui/material/Button';
+import { selectTotalQuantity } from "../../features/bugsSlice";
+import { useSelector } from 'react-redux';
+import BasketIcon from "./basketIcon";
+import Sidebar from "./sidebar"
+import { useDisclosure } from '@mantine/hooks';
 
 
-interface IHeader {
-    bucketCounter: number
-    setSidebarOpen: any
-}
+interface IHeader {}
 
-const Header: FC<IHeader> = ({ bucketCounter, setSidebarOpen }) => {
+
+const Header: FC<IHeader> = ({ }) => {
+    const { user, isAuthenticated, logout } = useAuth();
     const [backgroundOpacity, setBackgroundOpacity] = useState(0);
     const [isMobileMenuOpen, setMobileMenuOpen] = useState(false);
+    const [opened, { open, close }] = useDisclosure(false);
+
 
     useEffect(() => {
-        // const header = document.querySelector('#header')
 
         const handleHeaderOpacity = () => {
             const scrollTop = window.scrollY;
             const maxOpacity = 1;
             const newOpacity = Math.min(scrollTop / 200, maxOpacity);
             setBackgroundOpacity(newOpacity);
-            // if (header) {
-            //     if (scrollTop > 50 && scrollTop <= 450) {
-            //         header.classList.add("header-hidden");
-            //     }
-            //     else if (scrollTop > 450) {
-            //         // Show the header if scrolled past 350px
-            //         header.classList.remove("header-hidden");
-            //         header.classList.add("shadow-custom");
-            //     } else {
-            //         header.classList.remove("header-hidden");
-            //         header.classList.remove("shadow-custom");
-            //         // Hide the header when scrolling above 350px
-            //     }
-            // }
+
         };
 
         window.addEventListener("scroll", handleHeaderOpacity); // Add scroll event listener
@@ -52,31 +45,11 @@ const Header: FC<IHeader> = ({ bucketCounter, setSidebarOpen }) => {
         };
     }, []);
 
-    const openSideBar = () => {
-        const body = document.querySelector('body')
-        if (body) body.style.overflow = 'hidden'
-        setSidebarOpen(true)
-    }
-
-    const openNavBar = () => {
-
-        // if (isMobileMenuOpen) {
-        //     const body = document.querySelector('body')
-        //     if (body) body.style.overflow = 'auto'
-        // }
-        // else {
-        //     const body = document.querySelector('body')
-        //     if (body) body.style.overflow = 'hidden'
-        // }
-        setMobileMenuOpen(!isMobileMenuOpen)
-    }
-
     return (
         <>
             <div id="header" style={{
                 backgroundColor: `rgb(244, 245, 248, ${backgroundOpacity})`,
             }} className={`fixed left-0 right-0 top-0 z-50 `}>
-                {/* }} className={`fixed left-0 right-0 top-0 z-50 bg-gradient-to-t from-gray-400 to-slate-900`}> */}
                 <div className="max-w-7xl m-auto px-6 tablet:px-10 py-4 tablet:py-6">
                     <header className="flex justify-between items-center">
                         <div className="flex gap-x-10 items-center">
@@ -91,40 +64,31 @@ const Header: FC<IHeader> = ({ bucketCounter, setSidebarOpen }) => {
                             </div>
                         </div>
                         <div className="flex gap-x-6 items-center">
-                            {/* <div className="hidden md:block">
-                                <img src={search} alt='Search' className="h-[25px]" />
-                            </div> */}
                             {/* <ThemeCustom /> */}
-                            <div className="relative hover:cursor-pointer" onClick={openSideBar}>
-                                <img src={bucket} alt='Bucket' className="h-[25px] dark:hidden" />
-                                <img src={bucketWhite} alt='Bucket' className="h-[25px] hidden dark:block" />
-                                <div className="absolute -top-2 -right-2 w-[20px] h-[20px]">
-                                    {
-                                        bucketCounter > 0 ?
-                                            <span
-                                                className="bg-red-700 w-[23px] h-[23px] rounded-[50%] flex justify-center items-center text-xs text-white">
-                                                {bucketCounter}
-                                            </span>
-                                            : ''
-                                    }
-                                </div>
+                            {/* {
+                                isAuthenticated ?
+                                    <>
+                                    <Link to={`/profile`}>
+                                        <Button variant="contained" color="success">Profile</Button>
+                                    </Link>
+                                    <Button variant="contained" color="success" onClick={() => { logout() }}>Logout</Button>
+                                    </>
+                                    :
+                                    <Link to={'/login'}>
+                                        <Button variant="contained" color="success">Login</Button>
+                                    </Link>
+                            } */}
+                            <div className="relative hover:cursor-pointer" onClick={open}>
+                                <BasketIcon />
                             </div>
-                            <div
-                                id="burger-menu"
-                                className="flex md:hidden shadow-custom rounded-full justify-center items-center w-12 h-12 hover:cursor-pointer"
-                                onClick={openNavBar}>
-                                <div className="grid gap-y-1">
-                                    <div className="bg-black w-6 h-[3px] rounded-md"></div>
-                                    <div className="bg-black w-6 h-[3px] rounded-md"></div>
-                                    <div className="bg-black w-6 h-[3px] rounded-md"></div>
-                                </div>
-                            </div>
+                            <BurgerMenu handler={() => { setMobileMenuOpen(!isMobileMenuOpen) }} />
                         </div>
                     </header>
-                    <MobileNav isMobileMenuOpen={isMobileMenuOpen} openNavBar={openNavBar} />
+                    <MobileNav isMobileMenuOpen={isMobileMenuOpen} openNavBar={() => { setMobileMenuOpen(!isMobileMenuOpen) }} />
                 </div>
             </div>
             <div className="h-[90px]"></div>
+            <Sidebar open={opened} close={close} />
         </>
     )
 }

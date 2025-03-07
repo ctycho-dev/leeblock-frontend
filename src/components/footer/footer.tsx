@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import FooterForm from "./footerForm";
 
 import logoShort from '../../assets/logoShortWhite.svg'
-import IconsListWhite from "../iconsListWhite";
+import IconsList from "../iconsList";
 
 interface IFooter { }
 
@@ -59,7 +59,7 @@ const Footer: FC<IFooter> = ({ }) => {
                                         <li className="text-[#b3b3b3] mb-2 text-sm hover:text-[#45E555] transition-colors duration-100 hover:cursor-pointer"><a href="tel:+79956295889">+7(995) 629-58-89</a></li>
                                         <li className="text-[#b3b3b3] mb-2 text-sm hover:text-[#45E555] transition-colors duration-100 hover:cursor-pointer"><Link to={'mailto:info@leeblock.ru'}>info@leeblock.ru</Link></li>
                                     </ul>
-                                    <IconsListWhite />
+                                    <IconsList theme='white' />
                                 </div>
                             </div>
                             <FooterForm />

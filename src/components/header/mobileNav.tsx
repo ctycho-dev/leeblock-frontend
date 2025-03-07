@@ -65,59 +65,59 @@ const MobileNav: FC<IMobileNav> = ({ isMobileMenuOpen, openNavBar }) => {
                         <div className="mb-20">
                             <ul className="grid gap-y-5 font-semibold text-xl">
                                 <li >
-                                    <Link to={'/catalog'} className="hover:text-green-primary hover:cursor-pointer flex gap-x-2 items-center">
+                                    <Link to={'/catalog'} className="hover:text-green_primary hover:cursor-pointer flex gap-x-2 items-center">
                                         <img src={shoppingBud} alt="" className="text-xl text-black" />
                                         <span className="text-sm hover:button-gradient">Продукция</span>
                                     </Link>
                                 </li>
                                 <li >
-                                    <Link to={'/about'} className="hover:text-green-primary hover:cursor-pointer flex gap-x-2 items-center">
+                                    <Link to={'/about'} className="hover:text-green_primary hover:cursor-pointer flex gap-x-2 items-center">
                                         <FiHome className="text-2xl text-black" />
                                         <span className="text-sm">О компании</span>
                                     </Link>
                                 </li>
                                 <li >
-                                    <div onClick={scrollToFaq} className="hover:text-green-primary hover:cursor-pointer flex gap-x-2 items-center">
+                                    <div onClick={scrollToFaq} className="hover:text-green_primary hover:cursor-pointer flex gap-x-2 items-center">
                                         <FiHelpCircle className="text-2xl text-black" />
                                         <span className="text-sm">FAQ</span>
                                     </div>
                                 </li>
                                 <li >
-                                    <Link to={'/politika'} className="hover:text-green-primary hover:cursor-pointer flex gap-x-2 items-center">
+                                    <Link to={'/politika'} className="hover:text-green_primary hover:cursor-pointer flex gap-x-2 items-center">
                                         <FiFile className="text-2xl text-black" />
                                         <span className="text-sm">Политика</span>
                                     </Link>
                                 </li>
                                 <li>
-                                    <Link to={'/agreement'} className="hover:text-green-primary hover:cursor-pointer flex gap-x-2 items-center">
+                                    <Link to={'/agreement'} className="hover:text-green_primary hover:cursor-pointer flex gap-x-2 items-center">
                                         <FiFolder className="text-2xl text-black" />
                                         <span className="text-sm">Договор-офферта</span>
                                     </Link>
                                 </li>
                                 <li>
-                                    <Link to={'/payment_and_delivery'} className="hover:text-green-primary hover:cursor-pointer flex gap-x-2 items-center">
+                                    <Link to={'/payment_and_delivery'} className="hover:text-green_primary hover:cursor-pointer flex gap-x-2 items-center">
                                         <FiFile className="text-2xl text-black" />
                                         <span className="text-sm">Оплата и доставка</span>
                                     </Link>
                                 </li>
-                                <li className="hover:text-green-primary hover:cursor-pointer flex gap-x-2 items-center">
-                                    <Link to={'/support'} className="hover:text-green-primary hover:cursor-pointer flex gap-x-2 items-center">
+                                <li className="hover:text-green_primary hover:cursor-pointer flex gap-x-2 items-center">
+                                    <Link to={'/support'} className="hover:text-green_primary hover:cursor-pointer flex gap-x-2 items-center">
                                         <MdOutlineSupportAgent className="text-2xl text-black" />
                                         <span className="text-sm">Поддержка</span>
                                     </Link>
                                 </li>
-                                <li className="hover:text-green-primary hover:cursor-pointer flex gap-x-2 items-center">
+                                <li className="hover:text-green_primary hover:cursor-pointer flex gap-x-2 items-center">
                                     <img src={phone} alt="" className="text-xl text-black" />
                                     <a href="tel:+79956295889" className="text-sm">+7(995) 629-58-89</a>
                                 </li>
-                                <li className="hover:text-green-primary hover:cursor-pointer flex gap-x-2 items-center">
+                                <li className="hover:text-green_primary hover:cursor-pointer flex gap-x-2 items-center">
                                     <img src={email} alt="" className="text-xl text-black" />
                                     <a href="mailto:info@leeblock.ru" className="text-sm">info@leeblock.ru</a>
                                 </li>
                             </ul>
                         </div>
                     </div>
-                    <IconsList />
+                    <IconsList theme="dark" />
                 </div>
             </div>
         </>

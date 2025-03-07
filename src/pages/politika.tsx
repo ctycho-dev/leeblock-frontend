@@ -1,7 +1,7 @@
 import { FC, useEffect } from "react";
 import Footer from "../components/footer/footer";
 import Help from "../components/help";
-import HeaderSecond from "../components/header/headerSecond";
+import Header from "../components/header/header";
 
 
 interface IPolitika { }
@@ -16,7 +16,7 @@ const Politika: FC<IPolitika> = ({ }) => {
 
     return (
         <>
-            <HeaderSecond />
+            <Header />
             <main className="py-6">
                 <div className="max-w-4xl m-auto px-6 py-4">
                     <h1 className="text-2xl tablet:text-4xl font-bold mb-10">Политика обработки персональных данных</h1>

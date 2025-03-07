@@ -1,9 +1,7 @@
 import { FC, useEffect } from "react";
-import { Link } from "react-router-dom";
 import Footer from "../components/footer/footer";
-import logo from '../assets/logoShort.svg'
 import Help from "../components/help";
-import HeaderSecond from "../components/header/headerSecond";
+import Header from "../components/header/header";
 
 interface IAgreement { }
 
@@ -15,7 +13,7 @@ const Agreement: FC<IAgreement> = ({ }) => {
 
     return (
         <>
-            <HeaderSecond />
+            <Header />
             <main className=" py-6">
                 <div className="max-w-4xl m-auto px-6 py-4">
                     <h1 className="text-2xl tablet:text-4xl font-bold mb-10">ПУБЛИЧНЫЙ ДОГОВОР – ОФЕРТА О ПРОДАЖЕ ТОВАРОВ</h1>

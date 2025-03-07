@@ -1,19 +1,20 @@
 import { FC, useState } from "react";
 import AddToCard from "./buttons/addToCard";
-import PreorderForm from "./preorderForm";
-import PreorderButton from './buttons/preorderButton';
+import PreorderForm from "./catalog/preorderForm";
+import { Button } from '@mantine/core';
+import { TbTruckDelivery } from "react-icons/tb";
+import { useDisclosure } from '@mantine/hooks';
 import { Product } from "../types";
 
 interface IOneKeyItem {
     product: Product
     description: string
-    setBucketCounter: any
-    setBagItems: any
 }
 
-const OneKeyItem: FC<IOneKeyItem> = ({ product, description, setBucketCounter, setBagItems }) => {
+const OneKeyItem: FC<IOneKeyItem> = ({ product, description }) => {
 
-    const [visiblePreorder, setVisiblePreorder] = useState(false);
+    const [opened, { open, close }] = useDisclosure(false);
+
 
     return (
         <>
@@ -35,15 +36,22 @@ const OneKeyItem: FC<IOneKeyItem> = ({ product, description, setBucketCounter, s
                                 <div className="text-3xl md:text-4xl">
                                     {product.price}&#x20bd;
                                 </div>
-                                <AddToCard product={product} text="В корзину" setBucketCounter={setBucketCounter} setBagItems={setBagItems} />
+                                <AddToCard product={product} text="В корзину" />
                             </div>
                             :
                             <div className='flex justify-end'>
-                                <PreorderButton setVisiblePreorder={setVisiblePreorder} />
+                               <Button
+                                    onClick={open}
+                                    radius="md"
+                                    loaderProps={{ type: 'dots' }}
+                                    className='flex items-center gap-x-2 text-black'
+                                >
+                                    Предзаказ <TbTruckDelivery className='ml-2 text-2xl' />
+                                </Button>
                             </div>
                     }
                 </div>
-                <PreorderForm visiblePreorder={visiblePreorder} setVisiblePreorder={setVisiblePreorder} productName={product.name +' '+ product.description} />
+                <PreorderForm opened={opened} close={close} productName={product.name +' '+ product.description} />
             </div>
         </>
     )

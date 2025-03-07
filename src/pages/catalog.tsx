@@ -2,14 +2,12 @@ import { FC, useState, useEffect } from "react";
 import Skeleton from 'react-loading-skeleton'
 
 import Header from "../components/header/header";
-import Sidebar from "../components/header/sidebar";
-import ProductViews from "../components/productViews";
+import CatalogItem from "../components/catalog/CatalogItem";
+import PreorderForm from '../components/catalog/preorderForm';
 import Footer from "../components/footer/footer";
 import Help from "../components/help";
-
-import { MyBag } from "../types";
+import { useDisclosure } from '@mantine/hooks';
 import { Product } from "../types";
-import { updateBagItems } from "../utils";
 import { getProducts } from "../utils/products";
 
 
@@ -17,18 +15,16 @@ interface ICatalog { }
 
 const Catalog: FC<ICatalog> = ({ }) => {
     const [isLoading, setIsLoading] = useState(true);
-    const [bucketCounter, setBucketCounter] = useState(0)
-    const [isSidebarOpen, setSidebarOpen] = useState(false)
-    const [bagItems, setBagItems] = useState<MyBag[] | []>([])
-    const [quantityUpdated, setQuantityUpdated] = useState(false)
+    const [preoprder, setPreorder] = useState('')
     const [allProducts, setAllProducts] = useState<Product[] | null>(null)
+    const [opened, { open, close }] = useDisclosure(false);
+
+
 
     useEffect(() => {
         window.scrollTo(0, 0)
         const body = document.querySelector('body')
         if (body) body.style.overflow = 'auto'
-
-        updateBagItems(setBucketCounter, setBagItems)
 
         const fetchAPI = async () => {
             const fetchedProducts = await getProducts()
@@ -42,18 +38,11 @@ const Catalog: FC<ICatalog> = ({ }) => {
 
     }, [])
 
-    useEffect(() => {
-        if (quantityUpdated) {
-            updateBagItems(setBucketCounter, setBagItems)
-            setQuantityUpdated(false)
-        }
-    }, [quantityUpdated])
-
 
     return (
         <>
             <div className="bg-checkout dark:bg-dark-primary">
-                <Header bucketCounter={bucketCounter} setSidebarOpen={setSidebarOpen} />
+                <Header />
                 <div className="max-w-7xl m-auto px-6 tablet:px-10">
                     <main className="pb-14 py-10">
                         <aside>
@@ -64,7 +53,12 @@ const Catalog: FC<ICatalog> = ({ }) => {
                                     allProducts ?
                                         allProducts.map((product: Product, i) => {
                                             return (
-                                                <ProductViews key={product.product_id} item={product} setBucketCounter={setBucketCounter} setBagItems={setBagItems} />
+                                                <CatalogItem
+                                                    key={product.product_id}
+                                                    open={open}
+                                                    item={product}
+                                                    setPreorder={setPreorder}
+                                                />
                                             )
                                         })
                                         :
@@ -101,12 +95,7 @@ const Catalog: FC<ICatalog> = ({ }) => {
                 </div>
             </div>
             <Footer />
-            <Sidebar
-                isSidebarOpen={isSidebarOpen}
-                setSidebarOpen={setSidebarOpen}
-                bagItems={bagItems}
-                setQuantityUpdated={setQuantityUpdated}
-            />
+            <PreorderForm opened={opened} close={close} productName={preoprder} />
             <Help />
         </>
     )

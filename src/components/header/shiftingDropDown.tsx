@@ -204,7 +204,7 @@ const Products: React.FC = () => {
         </Link>
       </div>
       <div className="flex justify-end">
-        <Link to={'/catalog'} className="ml-auto mt-4 flex items-center gap-1 text-sm text-green-primary">
+        <Link to={'/catalog'} className="ml-auto mt-4 flex items-center gap-1 text-sm text-green_primary">
           <span>Показать все</span>
           <FiArrowRight />
         </Link>
@@ -246,16 +246,16 @@ const Customers: React.FC = () => {
   const scrollToFaq = () => {
     const faqSection = document.getElementById('faq-section');
     if (faqSection) {
-        const offset = 80; // Offset in pixels
-        const elementPosition = faqSection.getBoundingClientRect().top + window.pageYOffset;
-        const offsetPosition = elementPosition - offset;
+      const offset = 80; // Offset in pixels
+      const elementPosition = faqSection.getBoundingClientRect().top + window.pageYOffset;
+      const offsetPosition = elementPosition - offset;
 
-        window.scrollTo({
-            top: offsetPosition,
-            behavior: 'smooth'
-        });
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: 'smooth'
+      });
     }
-};
+  };
 
   return (
     <div className="grid grid-cols-3 gap-4 divide-x divide-neutral-700">

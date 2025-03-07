@@ -85,11 +85,40 @@ CREATE TABLE user_role (
 
 CREATE TABLE users (
     id SERIAL PRIMARY KEY,
-    username VARCHAR(50) NOT NULL UNIQUE,
     email VARCHAR(100) NOT NULL UNIQUE,
-    hashed_password VARCHAR(1000) NOT NULL,
+    password VARCHAR(500) NOT NULL,
+    first_name VARCHAR(255),
+    last_name VARCHAR(255),
+    phone VARCHAR(255),
     admin INTEGER NOT NULL DEFAULT 0,
-    role_id INT NOT NULL,
-    FOREIGN KEY (role_id) REFERENCES user_role(id),
-    created_at TIMESTAMP DEFAULT NOW ()
+    -- role_id INT NOT NULL,
+    -- FOREIGN KEY (role_id) REFERENCES user_role(id),
+    is_verified BOOLEAN DEFAULT FALSE,
+    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
+
+
+-- Create promo_codes table
+CREATE TABLE promo_codes (
+    id SERIAL PRIMARY KEY,
+    code VARCHAR(50) UNIQUE NOT NULL,
+    user_id INTEGER REFERENCES users(id) ON DELETE CASCADE,
+    discount_type VARCHAR(20) NOT NULL CHECK (discount_type IN ('percentage', 'fixed_amount')),
+    discount_value INTEGER NOT NULL,
+    used_count INTEGER DEFAULT 0,
+    valid_until TIMESTAMP NOT NULL,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+
+-- Optional: Create promo_code_usage table to track promo code usage
+CREATE TABLE promo_code_usage (
+    id SERIAL PRIMARY KEY,
+    promo_code_id INTEGER REFERENCES promo_codes(id) ON DELETE CASCADE,
+    request_id INTEGER REFERENCES requests(id) ON DELETE CASCADE,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+-- Add promo_code_id column to orders table (if orders table already exists)
+ALTER TABLE requests ADD COLUMN promo_code_id INTEGER REFERENCES promo_codes(id) ON DELETE SET NULL;

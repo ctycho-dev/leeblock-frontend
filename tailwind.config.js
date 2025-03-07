@@ -8,7 +8,6 @@ module.exports = {
     extend: {
       backgroundImage: {
         'main-texture': "url('/src/assets/main-texture.png')",
-        // 'main-texture': "url('/src/assets/product_photos/OneKey Pro - Showcase - On a still life table.png')",
       },
       backgroundColor: {
         'sidebar': "rgba(0, 0, 0, 0.25)",
@@ -17,7 +16,8 @@ module.exports = {
         'primary': 'rgb(240, 240, 240)',
         'dark-primary': '#13171D',
         'card-primary': '#F9FAFC',
-        'card-dark': '#36383DBF'
+        'card-dark': '#36383DBF',
+        gray_primary: '#212327',
       },
       boxShadow: {
         custom: '1px 1px 16px 0px rgba(0, 0, 0, 0.1)', // Tailwind uses rgba for transparency
@@ -38,7 +38,8 @@ module.exports = {
       colors: {
         'h-checkout': '#838383',
         'gray-primary': '#6E6E6E',
-        'green-primary': '#45E555'
+        green_primary: '#45E555',
+        green_secondary: '#89EDC9'
       }
     },
     screens: {

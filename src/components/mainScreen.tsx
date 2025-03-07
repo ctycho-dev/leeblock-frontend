@@ -63,7 +63,7 @@ const MainScreen: FC<IMainScreen> = ({ }) => {
                         <div className="flex h-full gap-x-10 justify-between tablet:justify-normal">
                             <div className="">
                                 <div className="font-bold sm-mobile:text-lg mb-2">Мы официальные<br />реселлеры</div>
-                                <div onClick={() => setIsOpen(true)} className="underline text-gray-primary text-sm sm-mobile:text-base hover:text-green-primary hover:cursor-pointer">Как проверить?</div>
+                                <div onClick={() => setIsOpen(true)} className="underline text-gray-primary text-sm sm-mobile:text-base hover:text-green_primary hover:cursor-pointer">Как проверить?</div>
                             </div>
                             <div className="w-max">
                                 <Link to={'https://help.onekey.so/hc/en-us/articles/5967821214223-OneKey-Reseller-Network#h_01H98J3VYZJF5128YMYN2MCC6J'} target="_blank"

@@ -10,12 +10,9 @@ import proWhiteMobile from '../assets/products/proHover-9d1e6bda818595ff17e9e485
 interface IOneKeyPro {
     proBlack: Product
     proWhite: Product
-    bucketCounter: number
-    setBucketCounter: any
-    setBagItems: any
 }
 
-const OneKeyPro: FC<IOneKeyPro> = ({ proBlack, proWhite, bucketCounter, setBucketCounter, setBagItems }) => {
+const OneKeyPro: FC<IOneKeyPro> = ({ proBlack, proWhite }) => {
 
     const [colorWhite, setColorWhite] = useState(false)
     const [currentProduct, setCurrentProduct] = useState<Product>(proBlack)
@@ -69,9 +66,7 @@ const OneKeyPro: FC<IOneKeyPro> = ({ proBlack, proWhite, bucketCounter, setBucke
                                 <div className="flex justify-end tablet:justify-normal">
                                     <AddToCard
                                         text="В корзину"
-                                        product={currentProduct}
-                                        setBucketCounter={setBucketCounter}
-                                        setBagItems={setBagItems} />
+                                        product={currentProduct} />
                                 </div>
                             </div>
                         </div>
