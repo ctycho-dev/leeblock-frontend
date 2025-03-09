@@ -23,7 +23,8 @@ const Footer: FC<IFooter> = ({ }) => {
                             </div>
                             <div>
                                 <div className="grid grid-cols-1 gap-y-1 text-xs lg:text-sm">
-                                    <div>ИП Аблизина В.В.</div>
+                                    {/* <div>ИП</div> */}
+                                    {/* <div>ИП Аблизина В.В.</div> */}
                                     {/* https://www.rusprofile.ru/ip/324169000163572 */}
                                     <div>ИНН 165034838418</div>
                                     <div>ОГРН 324169000163572</div>
