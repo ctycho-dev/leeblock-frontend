@@ -9,7 +9,7 @@ import CustomerDetails from "../components/checkout/customerDetails";
 import PromoCodeSection from "../components/checkout/PromoCodeSection";
 import TotalSection from "../components/checkout/TotalSection";
 import { Button } from "@mantine/core";
-import { useForm, isEmail, isNotEmpty } from '@mantine/form';
+import { useForm } from '@mantine/form';
 import { MyBag, DataType } from "../types";
 import { isValidEmail } from "../utils";
 import { initPayment } from "../utils/tinkoff";
@@ -38,7 +38,6 @@ const Checkout: FC<ICheckout> = ({ }) => {
     const [deliveryPrice, setDeliveryPrice] = useState(0);
     const [deliveryPoint, setDeliveryPoint] = useState('');
     const [showMap, setShowMap] = useState(false);
-    const [finalPrice, setFinal] = useState(0);
     const basket = useSelector(getBasket);
     const discount = useSelector(getDiscount);
     const sumAfterDiscount = useSelector(selectTotalSumAfterDiscount);
@@ -82,7 +81,10 @@ const Checkout: FC<ICheckout> = ({ }) => {
         }
         setButtonDisabled(true);
 
-        const discountFactor = 1 - discount.discount_value / 100
+        const discountFactor = 1 - (discount.discount_value ? discount.discount_value : 0) / 100
+        console.log(discount.discount_value)
+        console.log(discountFactor)
+
         const items = basket.map((x: MyBag) => {
             let price = x.sku.price * discountFactor * 100;
             return {
@@ -106,7 +108,7 @@ const Checkout: FC<ICheckout> = ({ }) => {
                 "Taxation": "osn",
                 "Items": items
             },
-            'city': form.values.city?.value,
+            'city': form.values.city?.label,
             'zip': form.values.zip,
             'address': deliveryPoint || form.values.address,
             'first_name': form.values.name,
@@ -164,7 +166,6 @@ const Checkout: FC<ICheckout> = ({ }) => {
                                 </div>
                             </aside>
                             <aside>
-                                {/* <div className={`${isLoading ? 'bg-gray-100 opacity-50 pointer-events-none' : ''} p-6 rounded-3xl checkout-block-shadow`}> */}
                                 <div className={`${isLoading ? 'bg-gray-100 opacity-50 pointer-events-none' : ''} p-6 rounded-3xl bg-white shadow-md`}>
                                     <h2 className="text-xl font-bold mb-4">Корзина</h2>
                                     <div className="mb-6">

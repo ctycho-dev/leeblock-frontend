@@ -8,8 +8,6 @@ import { MyBag, DelivetyType, City, CityForm } from "../../types";
 import { IoMdCloudDone } from "react-icons/io";
 import cdek from '../../assets/cdek-1.svg'
 
-
-
 interface DeliveryProps {
     form: UseFormReturnType<{
         city: CityForm | null;
@@ -28,7 +26,6 @@ interface DeliveryProps {
     setDeliveryPrice: Dispatch<SetStateAction<number>>
 }
 
-
 export const Delivery: React.FC<DeliveryProps> = ({ form, myBag, setShowMap, deliveryPoint, setDeliveryPoint, setDeliveryPrice }) => {
     const [isCalculating, setIsCalculating] = useState(false)
     const [deliveryCalculation, setDeliveryCalculation] = useState<[] | null>(null)
@@ -36,12 +33,16 @@ export const Delivery: React.FC<DeliveryProps> = ({ form, myBag, setShowMap, del
     const [initialCity, setInitialCity] = useState<CityForm | null>(null)
 
     useEffect(() => {
-        setDeliveryPoint('')
-        if (!initialCity || JSON.stringify(form.values.city) !== JSON.stringify(initialCity)) {
-            setInitialCity(form.values.city)
-        }
-        if (JSON.stringify(form.values.city) !== JSON.stringify(initialCity)) {
-            setIsCalculating(true)
+        const currentCity = form.values.city;
+        if (!currentCity) return;
+
+        // Check if the city has changed
+        if (!initialCity || JSON.stringify(currentCity) !== JSON.stringify(initialCity)) {
+            setInitialCity(currentCity);
+            setIsCalculating(true);
+            setDeliveryPoint('');
+            console.log(currentCity)
+
             if (window && window.CDEKWidget) {
                 new window.CDEKWidget({
                     from: {
@@ -52,20 +53,18 @@ export const Delivery: React.FC<DeliveryProps> = ({ form, myBag, setShowMap, del
                     root: 'cdek-map',
                     apiKey: 'bad51c9b-3d1c-4809-b170-8a9c35aef92a',
                     servicePath: 'https://www.ghost-php-server.ru',
-                    defaultLocation: form.values.city ? form.values.city.label : 'Казань',
+                    defaultLocation: currentCity ? currentCity.label : 'Казань',
                     onChoose(type: any, two: any, data: any) {
                         if (data && data.address && data.name) {
                             setDeliveryPoint(data.name + ' : ' + data.address)
                         }
                     },
-                })
+                });
             }
-            getCalculation()
+
+            getCalculation();
         }
-        // else {
-        //     setDeliveryCalculation(null)
-        // }
-    }, [form.values.city])
+    }, [form.values.city]);
 
     const getCalculation = async () => {
         let packages = []
@@ -103,7 +102,6 @@ export const Delivery: React.FC<DeliveryProps> = ({ form, myBag, setShowMap, del
     }
 
     const handleDeliveryOption = (option: number) => {
-
         if (!deliveryCalculation) {
             return
         }

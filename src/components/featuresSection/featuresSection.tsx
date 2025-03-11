@@ -1,81 +1,87 @@
-import { FC, useState, useRef, useEffect } from 'react';
-import { featuresData } from '../../store/featuresData';
-
+import { type FC, useState, useRef, useEffect } from "react"
+import { useMediaQuery, useTheme } from "@mui/material"
+import { featuresData } from "../../store/featuresData"
 
 const FeaturesSection: FC = () => {
-
     const [translateX, setTranslateX] = useState(0)
     const [maxTranslateX, setMaxTranslateX] = useState(0)
-    const gridRef = useRef<HTMLDivElement>(null); // Ref for the grid container
+    const gridRef = useRef<HTMLDivElement>(null)
+    const theme = useTheme()
+    const isMobile = useMediaQuery(theme.breakpoints.down("md"))
 
     useEffect(() => {
-        if (!gridRef.current) return;
+        if (!gridRef.current) return
 
-        const gridWidth = gridRef.current.scrollWidth; // Total scrollable width
-        const containerWidth = gridRef.current.offsetWidth; // Visible container width
-        const maxTranslateX = gridWidth - containerWidth; // Maximum negative translateX
-        setMaxTranslateX(maxTranslateX)
+        const calculateMaxTranslate = () => {
+            const gridWidth = gridRef.current?.scrollWidth || 0
+            const containerWidth = gridRef.current?.offsetWidth || 0
+            const newMaxTranslateX = Math.max(0, gridWidth - containerWidth)
+            setMaxTranslateX(newMaxTranslateX)
+        }
 
+        calculateMaxTranslate()
 
+        // Recalculate on window resize
+        const handleResize = () => calculateMaxTranslate()
+        window.addEventListener("resize", handleResize)
+
+        return () => window.removeEventListener("resize", handleResize)
     }, [])
 
     const handleNext = () => {
-        setTranslateX((prev) => (Math.abs(prev) < maxTranslateX ? prev - 370 : prev));
-    };
+        setTranslateX((prev) => Math.min(prev + 370, maxTranslateX))
+    }
 
     const handlePrevious = () => {
-        setTranslateX((prev) => (prev < 0 ? prev + 370 : prev));
-    };
-
-    const NextButtons: FC = () => {
-
-        return (
-            <>
-                <button
-                    className={`rounded-lg border-[1px] border-zinc-700 bg-zinc-900 p-1.5 text-2xl transition-opacity disabled:opacity-30`}
-                    disabled={translateX == 0}
-                    aria-label="Previous"
-                    onClick={handlePrevious}
-                >
-                    <svg
-                        stroke="currentColor"
-                        fill="none"
-                        strokeWidth="2"
-                        viewBox="0 0 24 24"
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        height="1em"
-                        width="1em"
-                        xmlns="http://www.w3.org/2000/svg"
-                    >
-                        <line x1="19" y1="12" x2="5" y2="12" />
-                        <polyline points="12 19 5 12 12 5" />
-                    </svg>
-                </button>
-                <button
-                    className="rounded-lg border-[1px] border-zinc-700 bg-zinc-900 p-1.5 text-2xl transition-opacity disabled:opacity-30"
-                    disabled={translateX * -1 >= maxTranslateX}
-                    aria-label="Next"
-                    onClick={handleNext}
-                >
-                    <svg
-                        stroke="currentColor"
-                        fill="none"
-                        strokeWidth="2"
-                        viewBox="0 0 24 24"
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        height="1em"
-                        width="1em"
-                        xmlns="http://www.w3.org/2000/svg"
-                    >
-                        <line x1="5" y1="12" x2="19" y2="12" />
-                        <polyline points="12 5 19 12 12 19" />
-                    </svg>
-                </button>
-            </>
-        )
+        setTranslateX((prev) => Math.max(prev - 370, 0))
     }
+
+    const NavigationButtons: FC = () => (
+        <div className="flex gap-x-2">
+            <button
+                className={`rounded-lg border-[1px] border-zinc-700 bg-zinc-900 p-1.5 text-2xl transition-opacity disabled:opacity-30`}
+                aria-label="Previous"
+                disabled={translateX === 0}
+                onClick={handlePrevious}
+            >
+                <svg
+                    stroke="currentColor"
+                    fill="none"
+                    strokeWidth="2"
+                    viewBox="0 0 24 24"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    height="1em"
+                    width="1em"
+                    xmlns="http://www.w3.org/2000/svg"
+                >
+                    <line x1="19" y1="12" x2="5" y2="12" />
+                    <polyline points="12 19 5 12 12 5" />
+                </svg>
+            </button>
+            <button
+                className="rounded-lg border-[1px] border-zinc-700 bg-zinc-900 p-1.5 text-2xl transition-opacity disabled:opacity-30"
+                aria-label="Next"
+                disabled={translateX >= maxTranslateX}
+                onClick={handleNext}
+            >
+                <svg
+                    stroke="currentColor"
+                    fill="none"
+                    strokeWidth="2"
+                    viewBox="0 0 24 24"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    height="1em"
+                    width="1em"
+                    xmlns="http://www.w3.org/2000/svg"
+                >
+                    <line x1="5" y1="12" x2="19" y2="12" />
+                    <polyline points="12 5 19 12 12 19" />
+                </svg>
+            </button>
+        </div>
+    )
 
     return (
         <section className="relative overflow-hidden text-white border-b border-zinc-700 bg-zinc-900/30 py-16">
@@ -90,57 +96,61 @@ const FeaturesSection: FC = () => {
                                 Ваш надежный партнер для безопасного, надежного и удобного управления криптовалютой
                             </p>
                         </div>
-                        <div className="hidden md:flex items-center gap-2">
-                            <NextButtons />
+                        <div className="hidden md:flex">
+                            <NavigationButtons />
                         </div>
                     </div>
-                    <div
-                        ref={gridRef}
-                        className="hidden md:grid"
-                        style={{
-                            gridTemplateColumns: 'repeat(5, 1fr)',
-                            transform: `translateX(${translateX}px)`,
-                            transition: 'transform 0.3s ease-in-out',
-                        }}
-                    >
-                        <FeatureBlock />
+
+                    {/* Desktop Carousel */}
+                    <div ref={gridRef} className="hidden md:block overflow-hidden">
+                        <div
+                            className="flex transition-transform duration-300 ease-in-out space-x-4"
+                            style={{ transform: `translateX(-${translateX}px)` }}
+                        >
+                            {featuresData.map((item, index) => (
+                                <FeatureCard key={index} item={item} />
+                            ))}
+                        </div>
                     </div>
-                    <div id="scroll-section" className="md:hidden scroll-area -me-6 tablet:-me-10 lg:me-0 mb-10">
-                        <div className="grid" style={{
-                            gridTemplateColumns: 'repeat(5, 1fr)',
-                        }}>
-                            <FeatureBlock />
+
+                    {/* Mobile Scrollable Area */}
+                    <div
+                        className="md:hidden overflow-x-auto scrollbar-hide pb-4"
+                        style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}
+                        role="region"
+                        aria-label="Features carousel"
+                    >
+                        <div className="flex space-x-5">
+                            {featuresData.map((item, index) => (
+                                <FeatureCard key={index} item={item} />
+                            ))}
                         </div>
                     </div>
                 </div>
             </div>
+
+            {/* Background gradient effect */}
             <div className="absolute bottom-0 left-0 z-0 size-72 -translate-x-1/2 translate-y-1/2 rounded-full bg-zinc-900 blur-2xl"></div>
         </section>
-    );
-
-};
-
-export default FeaturesSection;
-
-
-const FeatureBlock: FC = () => {
-
-    return (
-        <>
-            {featuresData.map((item, index) => (
-                <div
-                    key={index}
-                    className="relative h-full w-full overflow-hidden rounded-2xl border border-zinc-700 bg-gradient-to-br from-zinc-950/50 to-zinc-900/80 p-6 shrink-0"
-                    style={{
-                        width: '350px',
-                        marginRight: '20px',
-                    }}
-                >
-                    <div dangerouslySetInnerHTML={{ __html: item.icon }}></div>
-                    <p className="mb-1.5 mt-3 text-lg font-medium">{item.title}</p>
-                    <p className="text-sm text-zinc-400">{item.description}</p>
-                </div>
-            ))}
-        </>
     )
 }
+
+interface FeatureCardProps {
+    item: {
+        icon: string
+        title: string
+        description: string
+    }
+}
+
+const FeatureCard: FC<FeatureCardProps> = ({ item }) => {
+    return (
+        <div className="flex-shrink-0 w-[350px] overflow-hidden rounded-2xl border border-zinc-700 bg-gradient-to-br from-zinc-950/50 to-zinc-900/80 p-6">
+            <div className="w-12 h-12 mb-4" dangerouslySetInnerHTML={{ __html: item.icon }} />
+            <h3 className="mb-2 text-lg font-medium">{item.title}</h3>
+            <p className="text-sm text-zinc-400">{item.description}</p>
+        </div>
+    )
+}
+
+export default FeaturesSection

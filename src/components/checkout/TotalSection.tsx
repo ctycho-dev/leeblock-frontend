@@ -45,7 +45,7 @@ const TotalSection: FC<TotalSectionProps> = ({ isRendered, discount, deliveryPri
                     )}
                     {discount.discount_value > 0 && (
                         <Text className="text-sm text-gray-600 mb-2">
-                            Скидка: {discount.discount_value}
+                            Скидка: {discount.discount_value}%
                         </Text>
                     )}
                     {/* {deliveryPrice > 0 && (

@@ -22,7 +22,7 @@ const Home: FC<IHome> = ({ }) => {
         if (orderId) {
             toast.success(`Заказ #${orderId} сформирован`)
             localStorage.removeItem('OrderId')
-            localStorage.removeItem('onekey-shopping-bag')
+            localStorage.removeItem('customer-basket')
         }
     }, [])
 
