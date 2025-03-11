@@ -41,7 +41,6 @@ export const Delivery: React.FC<DeliveryProps> = ({ form, myBag, setShowMap, del
             setInitialCity(currentCity);
             setIsCalculating(true);
             setDeliveryPoint('');
-            console.log(currentCity)
 
             if (window && window.CDEKWidget) {
                 new window.CDEKWidget({

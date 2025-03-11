@@ -17,6 +17,7 @@ import { useForm, isEmail, isNotEmpty } from '@mantine/form';
 import { postSignup } from "../../utils/users"
 import axios from "axios";
 import { IUser } from "../../types";
+import { getUsers } from "../../utils/users";
 
 interface BloggersProps {
 }
@@ -29,13 +30,15 @@ const Bloggers: FC<BloggersProps> = ({ }) => {
     const [users, setUsers] = useState<IUser[] | []>([]);
 
     useEffect(() => {
-        axios.get(`${process.env.REACT_APP_BACKEND}/users`)
-            .then(res => {
+        const fetchApi = async () => {
+            const res = await getUsers();
+            console.log(res)
+            if (res && 'data' in res) {
                 setUsers(res.data)
-            })
-            .catch(e => {
-                console.log(e)
-            })
+            }
+        };
+
+        fetchApi();
     }, [])
 
     const form = useForm({

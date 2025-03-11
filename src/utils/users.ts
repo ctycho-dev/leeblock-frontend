@@ -106,6 +106,28 @@ export async function sendVerification() {
 }
 
 
+export async function getUsers() {
+    let res = null
+
+    try {
+        res = await axios.get(`${process.env.REACT_APP_BACKEND}/users`, {
+            headers: {
+                Authorization: `Bearer ${localStorage.getItem('access_token') || ''}`,
+            }
+        })
+    } catch (error) {
+        if (axios.isAxiosError(error)) {
+            if (error.response) {
+                console.error("Error status:", error.response.status);
+                console.error("Error data:", error.response.data);
+                return error.response;
+            }
+        }
+    }
+    return res;
+}
+
+
 export async function getPromocodes() {
     let res = null
 

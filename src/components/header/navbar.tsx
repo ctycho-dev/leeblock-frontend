@@ -35,7 +35,8 @@ interface NavLink {
 const navLinks: NavLink[] = [
   { path: "/", label: "Home", icon: FaHome },
   { path: "/dashboard", label: "Dashboard", icon: MdDashboard },
-  { path: "/products", label: "Products", icon: RiShoppingBag4Fill },
+  { path: "/catalog", label: "Products", icon: RiShoppingBag4Fill },
+  { path: "/orders", label: "Orders", icon: RiShoppingBag4Fill },
 ]
 
 export function Navbar(): JSX.Element {

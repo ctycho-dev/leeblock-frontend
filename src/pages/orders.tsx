@@ -3,7 +3,7 @@ import axios from "axios";
 import { OrdersList } from "../components/orders/ordersList";
 import { IOrder } from "../types";
 import { Navbar } from "../components/header/navbar";
-
+import { getOrders } from "../utils/orders";
 
 interface IOrders { }
 
@@ -11,22 +11,14 @@ const Orders: FC<IOrders> = ({ }) => {
     const [orders, setOrders] = useState<IOrder[] | null>(null)
 
     useEffect(() => {
-        const fetchAPI = () => {
-            axios.get(`${process.env.REACT_APP_BACKEND}/requests`, {
-                headers: {
-                    "Content-Type": "application/json",
-                    Authorization: `Bearer ${localStorage.getItem('access_token') || ''}`,
-                }
-            })
-                .then(res => {
-                    setOrders(res.data)
-                })
-                .catch(e => {
-                    console.log(e)
-                })
-        }
+        const fetchApi = async () => {
+            const res = await getOrders();
+            if (res && 'data' in res) {
+                setOrders(res.data)
+            }
+        };
 
-        fetchAPI()
+        fetchApi();
     }, [])
 
     return (
